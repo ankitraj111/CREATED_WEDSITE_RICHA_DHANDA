@@ -106,7 +106,7 @@ export default function EnhancedFAQ() {
 
         {/* FAQ Accordion */}
         <div className="animate-slide-up">
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion className="space-y-4">
             {filteredFaqs.map((faq, index) => (
               <AccordionItem
                 key={index}
