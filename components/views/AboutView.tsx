@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 
@@ -7,14 +7,14 @@ export default function AboutView() {
     {
       year: "2022",
       title: "LL.M (Master of Laws)",
-      institution: "Kurukshetra University — First Division",
-      icon: "🎓",
+      institution: "Kurukshetra University â€” First Division",
+      icon: "ðŸŽ“",
     },
     {
       year: "2025",
       title: "Bar Council Enrollment",
-      institution: "Bar Council of Punjab & Haryana — Reg. PH/1260/2025",
-      icon: "⚖️",
+      institution: "Bar Council of Punjab & Haryana â€” Reg. PH/1260/2025",
+      icon: "âš–ï¸",
     },
   ];
 
@@ -22,53 +22,53 @@ export default function AboutView() {
     {
       title: "Work Visas",
       desc: "Skilled worker visas, employer sponsorships, work permits, and labour market impact assessments.",
-      icon: "💼",
+      icon: "ðŸ’¼",
     },
     {
       title: "Student Visas",
       desc: "Study permits, university admissions guidance, post-graduation work permits, and pathway planning.",
-      icon: "🎓",
+      icon: "ðŸŽ“",
     },
     {
       title: "Permanent Residency",
       desc: "PR applications, Express Entry profiles, provincial nominee programs, and points optimization.",
-      icon: "🏠",
+      icon: "ðŸ ",
     },
     {
       title: "Family Immigration",
       desc: "Spouse sponsorship, parent and grandparent sponsorship, dependent visas, and family reunification.",
-      icon: "👨‍👩‍👧",
+      icon: "ðŸ‘¨â€ðŸ‘©â€ðŸ‘§",
     },
     {
       title: "Business & Investor Visas",
       desc: "Entrepreneur visas, startup visa programs, investor immigration, and business expansion permits.",
-      icon: "📈",
+      icon: "ðŸ“ˆ",
     },
     {
       title: "Appeals & Refusals",
       desc: "Visa refusal appeals, deportation defense, administrative reviews, and judicial review applications.",
-      icon: "🛡️",
+      icon: "ðŸ›¡ï¸",
     },
   ];
 
   const philosophyPoints = [
     {
-      icon: "👤",
+      icon: "ðŸ‘¤",
       title: "Personal Attention",
-      desc: "Direct, personal attention to every visa case — no delegation to juniors.",
+      desc: "Direct, personal attention to every visa case â€” no delegation to juniors.",
     },
     {
-      icon: "💰",
+      icon: "ðŸ’°",
       title: "Transparent Fees",
       desc: "Clear, transparent fee structures for all immigration services discussed upfront.",
     },
     {
-      icon: "🗣️",
+      icon: "ðŸ—£ï¸",
       title: "Multilingual Communication",
       desc: "Plain-language explanations of complex immigration matters in Hindi, Punjabi, or English.",
     },
     {
-      icon: "📜",
+      icon: "ðŸ“œ",
       title: "Ethical Practice",
       desc: "Grounded in Bar Council guidelines and the highest professional standards.",
     },
@@ -83,7 +83,7 @@ export default function AboutView() {
 
   return (
     <>
-      {/* Hero Banner — Light */}
+      {/* Hero Banner â€” Light */}
       <section className="relative bg-white overflow-hidden border-b border-[#e8e0cc]">
         {/* Background subtle accent */}
         <div className="absolute inset-0 pointer-events-none">
@@ -110,7 +110,7 @@ export default function AboutView() {
         </div>
       </section>
 
-      {/* Main About Content — White Background */}
+      {/* Main About Content â€” White Background */}
       <section className="bg-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-5 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
@@ -125,7 +125,7 @@ export default function AboutView() {
                   <div className="relative rounded-3xl overflow-hidden border border-[#e8e0cc] shadow-[0_8px_40px_rgba(0,0,0,0.08)] group-hover:shadow-[0_12px_50px_rgba(212,175,55,0.15)] transition-all duration-500">
                     <Image
                       src="/advocate-richa-photo.jpg"
-                      alt="Advocate Richa Dhandha — Expert Immigration Lawyer"
+                      alt="Advocate Richa Dhandha â€” Expert Immigration Lawyer"
                       width={800}
                       height={520}
                       className="w-full h-[480px] object-cover group-hover:scale-[1.02] transition-transform duration-700"
@@ -188,7 +188,7 @@ export default function AboutView() {
                 processes and achieve their goals of living, working, and studying abroad.
               </p>
               <p className="text-[#6B7280] mt-5 leading-relaxed">
-                My practice covers the full spectrum of immigration law — from work visas and
+                My practice covers the full spectrum of immigration law â€” from work visas and
                 student visas to permanent residency applications, citizenship pathways, family
                 immigration sponsorships, and visa refusal appeals. I guide clients through
                 immigration systems of countries including Canada, Australia, the United Kingdom,
@@ -199,7 +199,7 @@ export default function AboutView() {
               {/* Education Timeline */}
               <div className="mt-12">
                 <h3 className="font-serif text-2xl text-[#0B1426] font-semibold flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-lg bg-[#d4af37]/10 flex items-center justify-center text-sm">🎓</span>
+                  <span className="w-8 h-8 rounded-lg bg-[#d4af37]/10 flex items-center justify-center text-sm">ðŸŽ“</span>
                   Education & Qualifications
                 </h3>
                 <div className="h-[2px] w-16 bg-gradient-to-r from-[#d4af37] to-transparent mt-4" />
@@ -267,7 +267,7 @@ export default function AboutView() {
         </div>
       </section>
 
-      {/* Stats Bar — Light */}
+      {/* Stats Bar â€” Light */}
       <section className="bg-[#FEFCF3] border-y border-[#e8e0cc]">
         <div className="max-w-7xl mx-auto px-5 lg:px-8 py-14">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -285,12 +285,12 @@ export default function AboutView() {
         </div>
       </section>
 
-      {/* Areas of Expertise — Light cream background */}
+      {/* Areas of Expertise â€” Light cream background */}
       <section className="bg-[#F8F6ED] py-16 lg:py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 lg:px-8 relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#0B1426]/5 border border-[#0B1426]/10 text-[#0B1426] text-sm font-bold tracking-widest uppercase mb-6">
-              ✈️ Areas of Expertise
+              âœˆï¸ Areas of Expertise
             </div>
             <h2 className="font-serif text-3xl lg:text-5xl font-bold text-[#0B1426]">
               Immigration Practice{" "}
@@ -324,7 +324,7 @@ export default function AboutView() {
         </div>
       </section>
 
-      {/* CTA Section — Light */}
+      {/* CTA Section â€” Light */}
       <section className="bg-white py-16 lg:py-20 border-t border-[#e8e0cc]">
         <div className="max-w-4xl mx-auto px-5 lg:px-8 text-center">
           <h2 className="font-serif text-3xl lg:text-4xl font-bold text-[#0B1426] mb-5">
@@ -336,7 +336,7 @@ export default function AboutView() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href={`https://wa.me/918800329904?text=${encodeURIComponent("Hi, I want to book a free consultation regarding my immigration matter.")}`}
+              href={`https://wa.me/919254067300?text=${encodeURIComponent("Hi, I want to book a free consultation regarding my immigration matter.")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-base font-semibold bg-gradient-to-r from-[#d4af37] to-[#c9a030] text-[#0B1426] hover:from-[#e0bc45] hover:to-[#d4af37] hover:shadow-[0_8px_30px_rgba(212,175,55,0.25)] hover:-translate-y-[1px] transition-all duration-300"
@@ -348,7 +348,7 @@ export default function AboutView() {
               Book Free Consultation
             </a>
             <a
-              href="tel:+918800329904"
+              href="tel:+919254067300"
               className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-base font-semibold bg-[#0B1426] border border-[#0B1426] text-white hover:bg-[#122040] hover:shadow-[0_8px_30px_rgba(11,20,38,0.2)] transition-all duration-300"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

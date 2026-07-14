@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
@@ -48,7 +48,7 @@ export default function EnhancedContactForm() {
     // 3. Always Redirect to WhatsApp
     try {
       const whatsappText = 'Hi, I need assistance. My name is ' + formState.name + '. ' + (formState.service ? 'Service: ' + formState.service : '');
-      window.open('https://wa.me/918800329904?text=' + encodeURIComponent(whatsappText), '_blank');
+      window.open('https://wa.me/919254067300?text=' + encodeURIComponent(whatsappText), '_blank');
       
       setFormState({
         name: "",
@@ -109,7 +109,7 @@ export default function EnhancedContactForm() {
                 <div>
                   <div className="font-semibold text-navy">Phone</div>
                   <a
-                    href="tel:+918800329904"
+                    href="tel:+919254067300"
                     className="text-muted hover:text-gold transition-colors duration-250 focus:outline-none focus:underline"
                   >
                     +91 88003 29904

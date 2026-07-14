@@ -1,36 +1,36 @@
-"use client";
+﻿"use client";
 
 export default function WhyChoose() {
   const features = [
     {
-      icon: "✈️",
+      icon: "âœˆï¸",
       title: "Expert Immigration Representation",
       description: "Specialized expertise in work visas, PR applications, and citizenship cases with a proven track record of approvals.",
     },
     {
-      icon: "💬",
+      icon: "ðŸ’¬",
       title: "Personalized Case Strategy",
-      description: "Every immigration case receives a customized strategy with direct consultation — no delegation to junior staff.",
+      description: "Every immigration case receives a customized strategy with direct consultation â€” no delegation to junior staff.",
     },
     {
-      icon: "💰",
+      icon: "ðŸ’°",
       title: "Transparent Pricing",
       description: "Clear, upfront fees for all visa services with no hidden costs. You always know exactly what you are paying for.",
     },
     {
-      icon: "🌐",
+      icon: "ðŸŒ",
       title: "Global Coverage",
       description: "Immigration solutions for Canada, Australia, UK, USA, New Zealand, Germany, and 10+ other countries.",
     },
     {
-      icon: "📞",
+      icon: "ðŸ“ž",
       title: "24/7 Availability",
-      description: "Always accessible for urgent visa matters — last-minute document requests, interview prep, and emergency consultations.",
+      description: "Always accessible for urgent visa matters â€” last-minute document requests, interview prep, and emergency consultations.",
     },
     {
-      icon: "📋",
+      icon: "ðŸ“‹",
       title: "End-to-End Support",
-      description: "From initial eligibility assessment to visa stamping and landing — we handle every step of your immigration journey.",
+      description: "From initial eligibility assessment to visa stamping and landing â€” we handle every step of your immigration journey.",
     },
   ];
 
@@ -70,7 +70,7 @@ export default function WhyChoose() {
         {/* CTA */}
         <div className="text-center mt-12">
           <button 
-            onClick={() => window.open(`https://wa.me/918800329904?text=${encodeURIComponent("Hi, I want to schedule a consultation.")}`, "_blank")}
+            onClick={() => window.open(`https://wa.me/919254067300?text=${encodeURIComponent("Hi, I want to schedule a consultation.")}`, "_blank")}
             className="bg-[#d4af37] text-black px-8 py-4 rounded-lg font-semibold hover:bg-[#c9a030] transition-colors duration-300 cursor-pointer"
           >
             Schedule a Consultation

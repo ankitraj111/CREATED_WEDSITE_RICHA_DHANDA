@@ -1,6 +1,6 @@
-"use client";
+﻿"use client";
 
-const WHATSAPP_NUMBER = "918800329904";
+const WHATSAPP_NUMBER = "919254067300";
 
 export default function FloatingWhatsApp() {
   const waMsg = encodeURIComponent(

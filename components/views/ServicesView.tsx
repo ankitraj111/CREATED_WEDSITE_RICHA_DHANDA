@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -116,7 +116,7 @@ export default function ServicesView() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-soft to-platinum">Immigration Solutions</span>
           </h1>
           <p className="text-white/80 text-xl max-w-2xl mx-auto leading-relaxed font-light">
-            From initial consultation to final visa approval — we provide expert immigration representation with a personal touch that prioritizes your global mobility goals.
+            From initial consultation to final visa approval â€” we provide expert immigration representation with a personal touch that prioritizes your global mobility goals.
           </p>
         </div>
         
@@ -219,7 +219,7 @@ export default function ServicesView() {
                   Take the first step towards your global mobility goals. Schedule a consultation with our immigration experts today.
                 </p>
                 <button 
-                  onClick={() => window.open(`https://wa.me/918800329904?text=${encodeURIComponent("Hi, I want to book a free consultation regarding my immigration matter.")}`)}
+                  onClick={() => window.open(`https://wa.me/919254067300?text=${encodeURIComponent("Hi, I want to book a free consultation regarding my immigration matter.")}`)}
                   className="bg-gradient-to-r from-gold to-gold-soft text-navy px-10 py-4 rounded-full font-bold text-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-105 inline-flex items-center gap-3">
                   Schedule Your Consultation
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

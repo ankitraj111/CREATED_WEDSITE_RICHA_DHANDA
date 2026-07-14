@@ -1,6 +1,6 @@
-"use client";
+﻿"use client";
 
-const WHATSAPP_NUMBER = "918800329904";
+const WHATSAPP_NUMBER = "919254067300";
 
 export default function CTABanner() {
   const waMsg = encodeURIComponent(
@@ -27,8 +27,8 @@ export default function CTABanner() {
             <span className="text-gold-soft">Let&apos;s talk it through.</span>
           </h3>
           <p className="text-white/80 text-lg max-w-2xl mx-auto leading-relaxed">
-            Share your situation briefly and I&apos;ll provide an honest assessment of whether — 
-            and how — I can help you achieve the best possible outcome.
+            Share your situation briefly and I&apos;ll provide an honest assessment of whether â€” 
+            and how â€” I can help you achieve the best possible outcome.
           </p>
         </div>
 

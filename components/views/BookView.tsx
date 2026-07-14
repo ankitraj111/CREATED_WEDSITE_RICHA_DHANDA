@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, FormEvent } from "react";
 import { db } from "@/lib/firebase";
@@ -21,7 +21,7 @@ export default function BookView() {
   const [success, setSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const WHATSAPP_NUMBER = "918800329904";
+  const WHATSAPP_NUMBER = "919254067300";
 
   const validateField = (id: string, value: string): boolean => {
     if (id === "email") {
@@ -81,7 +81,7 @@ export default function BookView() {
     }
     
     try {
-      window.open('https://wa.me/918800329904?text=' + encodeURIComponent('Hi, I want to book a consultation. Details: Name: ' + formData.name + ', Service: ' + formData.service), '_blank');
+      window.open('https://wa.me/919254067300?text=' + encodeURIComponent('Hi, I want to book a consultation. Details: Name: ' + formData.name + ', Service: ' + formData.service), '_blank');
 
       setFormData({
         name: "",
@@ -237,7 +237,7 @@ export default function BookView() {
                     value={formData.type}
                     onChange={handleChange}
                   >
-                    <option value="">Select…</option>
+                    <option value="">Selectâ€¦</option>
                     <option>Initial assessment (30 min)</option>
                     <option>Detailed consultation (60 min)</option>
                     <option>Case review with documents</option>
@@ -286,7 +286,7 @@ export default function BookView() {
                     value={formData.time}
                     onChange={handleChange}
                   >
-                    <option value="">Select…</option>
+                    <option value="">Selectâ€¦</option>
                     <option>10:00 AM</option>
                     <option>11:30 AM</option>
                     <option>2:00 PM</option>
@@ -314,7 +314,7 @@ export default function BookView() {
                     value={formData.service}
                     onChange={handleChange}
                   >
-                    <option value="">Select…</option>
+                    <option value="">Selectâ€¦</option>
                     <option>Legal Consultation</option>
                     <option>Civil Law</option>
                     <option>Criminal Law</option>
@@ -343,7 +343,7 @@ export default function BookView() {
                     rows={3}
                     value={formData.notes}
                     onChange={handleChange}
-                    placeholder="A few sentences are enough…"
+                    placeholder="A few sentences are enoughâ€¦"
                   />
                 </div>
               </div>
@@ -406,7 +406,7 @@ export default function BookView() {
 
               {success && (
                 <div className="mt-4 p-4 rounded-lg bg-cream-2 border border-gold/40 text-navy text-sm">
-                  ✓ Appointment request received. I&apos;ll confirm your slot by phone
+                  âœ“ Appointment request received. I&apos;ll confirm your slot by phone
                   or email within one business day.
                 </div>
               )}
@@ -420,19 +420,19 @@ export default function BookView() {
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-[#3a4252]">
                 <li className="flex gap-3">
-                  <span className="text-gold">◆</span> A personal review of your
-                  situation — no juniors, no scripts.
+                  <span className="text-gold">â—†</span> A personal review of your
+                  situation â€” no juniors, no scripts.
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-gold">◆</span> An honest assessment of your
+                  <span className="text-gold">â—†</span> An honest assessment of your
                   options, costs & timelines.
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-gold">◆</span> A clear next-step plan in
+                  <span className="text-gold">â—†</span> A clear next-step plan in
                   writing, if you&apos;d like to proceed.
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-gold">◆</span> Zero pressure — the decision
+                  <span className="text-gold">â—†</span> Zero pressure â€” the decision
                   to engage is always yours.
                 </li>
               </ul>
@@ -461,12 +461,12 @@ export default function BookView() {
               <h3 className="font-semibold text-navy mb-3">Office hours</h3>
               <div className="text-sm space-y-2 text-[#3a4252]">
                 <div className="flex justify-between">
-                  <span>Mon – Fri</span>
-                  <span className="font-medium">10:00 AM – 6:00 PM</span>
+                  <span>Mon â€“ Fri</span>
+                  <span className="font-medium">10:00 AM â€“ 6:00 PM</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Saturday</span>
-                  <span className="font-medium">10:00 AM – 2:00 PM</span>
+                  <span className="font-medium">10:00 AM â€“ 2:00 PM</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Sunday</span>

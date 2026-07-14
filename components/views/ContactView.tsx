@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, FormEvent } from "react";
 import { db } from "@/lib/firebase";
@@ -79,7 +79,7 @@ export default function ContactView() {
       setSuccess(true);
       
       const whatsappText = 'Hi, I have an inquiry. ' + (formData.service ? 'Service: ' + formData.service : '');
-      window.open('https://wa.me/918800329904?text=' + encodeURIComponent(whatsappText), '_blank');
+      window.open('https://wa.me/919254067300?text=' + encodeURIComponent(whatsappText), '_blank');
 
       setFormData({
         name: "",
@@ -139,7 +139,7 @@ export default function ContactView() {
                 </div>
                 <div>
                   <div className="text-sm font-semibold tracking-wider text-[#9ca3af] uppercase mb-1">Direct Line</div>
-                  <a href="tel:+918800329904" className="font-serif text-xl text-[#111827] hover:text-[#a67c00] transition-colors">
+                  <a href="tel:+919254067300" className="font-serif text-xl text-[#111827] hover:text-[#a67c00] transition-colors">
                     +91 88003 29904
                   </a>
                 </div>
@@ -184,12 +184,12 @@ export default function ContactView() {
               <table className="w-full text-sm">
                 <tbody className="divide-y divide-[#e5e7eb]">
                   <tr>
-                    <td className="py-3 text-[#4b5563]">Mon – Fri</td>
-                    <td className="py-3 text-right font-medium text-[#111827]">9:00 AM – 6:00 PM</td>
+                    <td className="py-3 text-[#4b5563]">Mon â€“ Fri</td>
+                    <td className="py-3 text-right font-medium text-[#111827]">9:00 AM â€“ 6:00 PM</td>
                   </tr>
                   <tr>
                     <td className="py-3 text-[#4b5563]">Saturday</td>
-                    <td className="py-3 text-right font-medium text-[#111827]">10:00 AM – 2:00 PM</td>
+                    <td className="py-3 text-right font-medium text-[#111827]">10:00 AM â€“ 2:00 PM</td>
                   </tr>
                   <tr>
                     <td className="py-3 text-[#4b5563]">Sunday</td>

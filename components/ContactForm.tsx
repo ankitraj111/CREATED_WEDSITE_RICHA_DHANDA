@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, FormEvent } from "react";
 
@@ -97,7 +97,7 @@ export default function ContactForm() {
                 Call
               </div>
               <a
-                href="tel:+918800329904"
+                href="tel:+919254067300"
                 className="font-semibold text-navy hover:text-maroon"
               >
                 +91 88003 29904
@@ -233,7 +233,7 @@ export default function ContactForm() {
               value={formData.visa}
               onChange={handleChange}
             >
-              <option value="">Select…</option>
+              <option value="">Selectâ€¦</option>
               <option>Legal Consultation</option>
               <option>Civil Law</option>
               <option>Criminal Law</option>
@@ -264,7 +264,7 @@ export default function ContactForm() {
               rows={4}
               value={formData.message}
               onChange={handleChange}
-              placeholder="Briefly describe your situation…"
+              placeholder="Briefly describe your situationâ€¦"
             />
             {errors.message && (
               <div className="text-maroon text-xs mt-1">
@@ -288,7 +288,7 @@ export default function ContactForm() {
 
         {success && (
           <div className="mt-4 p-4 rounded-lg bg-cream-2 border border-gold/40 text-navy text-sm">
-            ✓ Thank you. Your message has been received — I&apos;ll respond within
+            âœ“ Thank you. Your message has been received â€” I&apos;ll respond within
             one business day.
           </div>
         )}
