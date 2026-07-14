@@ -22,21 +22,21 @@ import BookView from "@/components/views/BookView";
 function ServicesPreview({ setActiveView }: { setActiveView: (v: string) => void }) {
   const services = [
     {
-      icon: "✈️",
+      icon: "https://images.unsplash.com/photo-1436491865332-7a61f1f4d2e0?auto=format&fit=crop&q=80&w=200",
       title: "Work & Business Visas",
       description: "Strategic guidance for professionals, entrepreneurs, and investors seeking international work and business opportunities.",
       features: ["Skilled Worker Visas", "Investor Programs", "Corporate Immigration"],
       gradient: "from-gold/90 via-gold-soft/90 to-platinum/90",
     },
     {
-      icon: "🎓",
+      icon: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=200",
       title: "Student Visas",
       description: "Expert assistance for students aiming to study abroad, ensuring smooth processing of study permits and admissions.",
       features: ["Study Permits", "Post-Graduation Work", "Dependant Visas"],
       gradient: "from-maroon/90 via-gold/80 to-gold-soft/90",
     },
     {
-      icon: "🛂",
+      icon: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=200",
       title: "PR & Citizenship",
       description: "Comprehensive support for Permanent Residency applications, family sponsorship, and citizenship pathways.",
       features: ["Permanent Residency", "Family Sponsorship", "Citizenship Applications"],
@@ -68,8 +68,9 @@ function ServicesPreview({ setActiveView }: { setActiveView: (v: string) => void
               key={index}
               className="bg-white rounded-2xl p-8 border border-cream-2 hover:border-gold transition-all duration-300 group shadow-sm hover:shadow-md"
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-gold to-gold-dark rounded-xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                {service.icon}
+              <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 overflow-hidden shadow-sm group-hover:scale-110 transition-transform duration-300 bg-cream-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={service.icon} alt={service.title} className="w-full h-full object-cover" />
               </div>
               
               <h3 className="font-serif text-xl font-bold text-navy mb-3 group-hover:text-gold transition-colors duration-300">

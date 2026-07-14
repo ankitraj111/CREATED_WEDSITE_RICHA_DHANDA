@@ -11,67 +11,67 @@ export default function ServicesView() {
 
   const services = [
     {
-      icon: "🎯",
+      icon: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=200",
       title: "Immigration Consultation",
       desc: "Initial assessment of your profile to determine the best immigration pathway or visa strategy for your goals.",
       tag: "Initial Assessment",
       gradient: "from-gold/90 via-gold-soft/90 to-platinum/90",
     },
     {
-      icon: "✈️",
+      icon: "https://images.unsplash.com/photo-1436491865332-7a61f1f4d2e0?auto=format&fit=crop&q=80&w=200",
       title: "Work Visas",
       desc: "Expert guidance on skilled worker visas, employer sponsorships, and temporary work permits across major destinations.",
       tag: "Popular",
       gradient: "from-navy/90 via-gold/80 to-platinum/90",
     },
     {
-      icon: "🎓",
+      icon: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=200",
       title: "Student Visas",
       desc: "End-to-end assistance for study permits, university admissions alignment, and post-graduation work pathways.",
       tag: "",
       gradient: "from-maroon/90 via-gold/80 to-gold-soft/90",
     },
     {
-      icon: "🛂",
+      icon: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=200",
       title: "Permanent Residency",
       desc: "Comprehensive support for PR applications, points-based systems, and provincial/state nomination programs.",
       tag: "",
       gradient: "from-gold/90 via-platinum/90 to-gold-soft/90",
     },
     {
-      icon: "👨‍👩‍👧‍👦",
+      icon: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=200",
       title: "Family Sponsorship",
       desc: "Reunite with your loved ones through spouse, parent, and dependent child sponsorship programs.",
       tag: "",
       gradient: "from-navy/90 via-gold/80 to-gold-soft/90",
     },
     {
-      icon: "💼",
+      icon: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=200",
       title: "Business & Investor Visas",
       desc: "Strategic pathways for entrepreneurs, startup founders, and high-net-worth investors seeking global mobility.",
       tag: "",
       gradient: "from-maroon/90 via-gold-soft/90 to-platinum/90",
     },
     {
-      icon: "🏛️",
+      icon: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=200",
       title: "Citizenship Applications",
       desc: "Guidance on naturalization processes, dual citizenship laws, and passport applications.",
       tag: "",
       gradient: "from-gold/90 via-gold-soft/90 to-platinum/90",
     },
     {
-      icon: "🌍",
+      icon: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=200",
       title: "Tourist & Visitor Visas",
       desc: "Hassle-free processing for short-term visitor visas, tourist applications, and business visitor documentation.",
       tag: "",
-      gradient: "from-navy/90 via-platinum/90 to-gold/90",
+      gradient: "from-navy/90 via-gold/80 to-platinum/90",
     },
     {
-      icon: "⚖️",
+      icon: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=200",
       title: "Appeals & Refusals",
       desc: "Strong legal representation for visa refusals, deportation defense, and immigration appeals tribunals.",
       tag: "",
-      gradient: "from-maroon/90 via-gold/80 to-platinum/90",
+      gradient: "from-maroon/90 via-gold-soft/90 to-platinum/90",
     },
   ];
 
@@ -149,8 +149,9 @@ export default function ServicesView() {
                 
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-6">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-2xl flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500`}>
-                      {service.icon}
+                    <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 overflow-hidden shadow-sm group-hover:scale-110 transition-transform duration-300 bg-cream-2">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={service.icon} alt={service.title} className="w-full h-full object-cover" />
                     </div>
                     {service.tag && (
                       <span className="px-4 py-1 text-xs font-bold text-maroon bg-maroon/10 rounded-full uppercase tracking-wider">
