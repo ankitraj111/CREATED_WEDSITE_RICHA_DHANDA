@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 const WHATSAPP_NUMBER = "918800329904";
 
-export default function Hero() {
+export default function Hero({ setActiveView }: { setActiveView?: (view: string) => void }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -101,7 +101,10 @@ export default function Hero() {
                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse absolute top-2 right-2" />
               </a>
 
-              <button className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-white border border-white/20 backdrop-blur-md hover:bg-white/10 hover:border-[#d4af37]/40 transition-all duration-300 hover:scale-105">
+              <button 
+                onClick={() => setActiveView && setActiveView("services")}
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-white border border-white/20 backdrop-blur-md hover:bg-white/10 hover:border-[#d4af37]/40 transition-all duration-300 hover:scale-105"
+              >
                 <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <polygon points="5 3 19 12 5 21 5 3" />
                 </svg>

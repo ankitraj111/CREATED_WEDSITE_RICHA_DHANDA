@@ -120,7 +120,7 @@ export default function Home() {
       <main>
         {activeView === "home" && (
           <>
-            <Hero />
+            <Hero setActiveView={setActiveView} />
 
             <WhyChoose />
             <ServicesPreview setActiveView={setActiveView} />
