@@ -33,6 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script src="https://checkout.razorpay.com/v1/checkout.js" async></script>
+      </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-cream text-charcoal`}>
         {children}
       </body>
