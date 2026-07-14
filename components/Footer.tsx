@@ -21,7 +21,7 @@ export default function Footer({ setActiveView }: FooterProps) {
               </div>
               <div>
                 <div className="font-serif text-white text-lg">
-                  Advocate Richa
+                  Advocate Richa Dhanda
                 </div>
                 <div className="text-[10px] tracking-[0.22em] uppercase text-gold">
                   Immigration Law
@@ -196,7 +196,7 @@ export default function Footer({ setActiveView }: FooterProps) {
 
         <div className="border-t border-white/10 mt-12 pt-6 flex flex-col md:flex-row justify-between gap-4 text-xs">
           <div>
-            © 2025 Advocate Richa. All rights reserved.{" "}
+            © 2025 Advocate Richa Dhanda. All rights reserved.{" "}
             <span className="text-white/40">Bar Council Reg. PH/1260/2025</span>
           </div>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
