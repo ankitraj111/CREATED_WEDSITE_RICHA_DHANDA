@@ -171,7 +171,6 @@ export default function EnhancedContactForm() {
                 <div>
                   <div className="font-semibold text-navy">Office</div>
                   <p className="text-muted">
-                    H No 1057, Sector 4<br />
                     (Kurukshetra, Haryana)
                   </p>
                 </div>

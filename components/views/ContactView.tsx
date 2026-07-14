@@ -171,7 +171,6 @@ export default function ContactView() {
                 <div>
                   <div className="text-sm font-semibold tracking-wider text-[#9ca3af] uppercase mb-1">Main Office</div>
                   <address className="font-serif text-[#111827] not-italic leading-relaxed">
-                    H No 1057, Sector 4<br />
                     (Kurukshetra, Haryana)
                   </address>
                 </div>

@@ -152,7 +152,7 @@ export default function Footer({ setActiveView }: FooterProps) {
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                H No 1057, Sector 4 (Kurukshetra, Haryana)
+                (Kurukshetra, Haryana)
               </li>
               <li className="flex gap-3">
                 <svg

@@ -390,7 +390,7 @@ export default function BookView() {
                     Office visit details
                   </div>
                   <p className="text-xs text-muted mt-2">
-                    H No 1057, Sector 4 (Kurukshetra, Haryana). Please bring original
+                    (Kurukshetra, Haryana). Please bring original
                     documents & one photocopy set. Valid photo ID required.
                   </p>
                 </div>
