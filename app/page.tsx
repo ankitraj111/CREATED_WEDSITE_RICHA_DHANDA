@@ -23,21 +23,21 @@ import BookView from "@/components/views/BookView";
 function ServicesPreview({ setActiveView }: { setActiveView: (v: string) => void }) {
   const services = [
     {
-      icon: "https://images.unsplash.com/photo-1436491865332-7a61f1f4d2e0?auto=format&fit=crop&q=80&w=200",
+      icon: "https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=200",
       title: "Work & Business Visas",
       description: "Strategic guidance for professionals, entrepreneurs, and investors seeking international work and business opportunities.",
       features: ["Skilled Worker Visas", "Investor Programs", "Corporate Immigration"],
       gradient: "from-gold/90 via-gold-soft/90 to-platinum/90",
     },
     {
-      icon: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=200",
+      icon: "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=200",
       title: "Student Visas",
       description: "Expert assistance for students aiming to study abroad, ensuring smooth processing of study permits and admissions.",
       features: ["Study Permits", "Post-Graduation Work", "Dependant Visas"],
       gradient: "from-maroon/90 via-gold/80 to-gold-soft/90",
     },
     {
-      icon: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=200",
+      icon: "https://images.pexels.com/photos/7292911/pexels-photo-7292911.jpeg?auto=compress&cs=tinysrgb&w=200",
       title: "PR & Citizenship",
       description: "Comprehensive support for Permanent Residency applications, family sponsorship, and citizenship pathways.",
       features: ["Permanent Residency", "Family Sponsorship", "Citizenship Applications"],
