@@ -45,18 +45,18 @@ function ServicesPreview({ setActiveView }: { setActiveView: (v: string) => void
   ];
 
   return (
-    <section className="py-20 bg-[#0a0a0a]">
+    <section className="py-20 bg-cream">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/30 text-[#d4af37] text-sm font-bold tracking-wider uppercase mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gold/10 border border-gold/20 text-gold-dark text-sm font-bold tracking-wider uppercase mb-6">
+            <span className="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
             🌍 Global Immigration Solutions
           </div>
-          <h2 className="font-serif text-4xl lg:text-5xl font-bold text-white mb-6">
-            Your Global Journey <span className="text-[#d4af37]">Starts Here</span>
+          <h2 className="font-serif text-4xl lg:text-5xl font-bold text-navy mb-6">
+            Your Global Journey <span className="text-gold">Starts Here</span>
           </h2>
-          <p className="text-white/70 max-w-3xl mx-auto text-lg leading-relaxed">
+          <p className="text-navy-light max-w-3xl mx-auto text-lg leading-relaxed">
             From securing work permits to achieving permanent residency, we provide expert immigration representation with a personal touch that prioritizes your international goals.
           </p>
         </div>
@@ -66,24 +66,24 @@ function ServicesPreview({ setActiveView }: { setActiveView: (v: string) => void
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-[#1a1a1a] rounded-2xl p-8 border border-[#333] hover:border-[#d4af37] transition-all duration-300 group"
+              className="bg-white rounded-2xl p-8 border border-cream-2 hover:border-gold transition-all duration-300 group shadow-sm hover:shadow-md"
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-[#d4af37] to-[#c9a030] rounded-xl flex items-center justify-center text-3xl mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-gold to-gold-dark rounded-xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
                 {service.icon}
               </div>
               
-              <h3 className="font-serif text-xl font-bold text-white mb-3 group-hover:text-[#d4af37] transition-colors duration-300">
+              <h3 className="font-serif text-xl font-bold text-navy mb-3 group-hover:text-gold transition-colors duration-300">
                 {service.title}
               </h3>
               
-              <p className="text-white/60 text-sm leading-relaxed mb-6">
+              <p className="text-navy-light text-sm leading-relaxed mb-6">
                 {service.description}
               </p>
               
               <div className="space-y-3">
                 {service.features.map((feature, i) => (
-                  <div key={i} className="flex items-center gap-3 text-white/70 text-sm">
-                    <svg className="w-4 h-4 text-[#d4af37] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <div key={i} className="flex items-center gap-3 text-navy/80 text-sm">
+                    <svg className="w-4 h-4 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <span>{feature}</span>
