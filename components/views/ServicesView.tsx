@@ -151,7 +151,7 @@ export default function ServicesView() {
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-6">
                     <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 overflow-hidden shadow-sm group-hover:scale-110 transition-transform duration-300 bg-cream-2 relative">
-                      <Image src={service.icon} alt={service.title} fill className="object-cover" sizes="64px" />
+                      <Image src={service.icon} alt={service.title} fill className="object-cover" sizes="64px" unoptimized />
                     </div>
                     {service.tag && (
                       <span className="px-4 py-1 text-xs font-bold text-maroon bg-maroon/10 rounded-full uppercase tracking-wider">

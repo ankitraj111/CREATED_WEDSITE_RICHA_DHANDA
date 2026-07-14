@@ -70,7 +70,7 @@ function ServicesPreview({ setActiveView }: { setActiveView: (v: string) => void
               className="bg-white rounded-2xl p-8 border border-cream-2 hover:border-gold transition-all duration-300 group shadow-sm hover:shadow-md"
             >
               <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 overflow-hidden shadow-sm group-hover:scale-110 transition-transform duration-300 bg-cream-2 relative">
-                <Image src={service.icon} alt={service.title} fill className="object-cover" sizes="64px" />
+                <Image src={service.icon} alt={service.title} fill className="object-cover" sizes="64px" unoptimized />
               </div>
               
               <h3 className="font-serif text-xl font-bold text-navy mb-3 group-hover:text-gold transition-colors duration-300">
