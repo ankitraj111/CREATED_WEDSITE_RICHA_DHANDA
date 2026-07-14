@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -24,19 +24,19 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
 
   const services = [
     "Work Visas",
-    "âœˆï¸",
+    "✈️",
     "Student Visas",
-    "ðŸŽ“",
+    "🎓",
     "Permanent Residency",
-    "ðŸ›‚",
+    "🛂",
     "Immigration Appeals",
-    "âš–ï¸",
+    "⚖️",
     "Business Visas",
-    "ðŸ’¼",
+    "💼",
     "Citizenship",
-    "ðŸ›ï¸",
+    "🏛️",
     "Tourist Visas",
-    "ðŸŒ",
+    "🌍",
   ];
 
   return (
@@ -80,7 +80,7 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
             </h1>
 
             <p className="text-lg lg:text-xl text-white/60 max-w-lg leading-relaxed mb-10 font-light">
-              Advocate Richa Dhanda â€” Expert Immigration Lawyer. 
+              Advocate Richa Dhanda — Expert Immigration Lawyer. 
               Navigating complex visa laws, securing your future abroad, 
               and delivering successful immigration outcomes with a client-first approach.
             </p>
@@ -143,7 +143,7 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
             <div className="relative rounded-3xl overflow-hidden border border-[#d4af37]/20 shadow-[0_0_60px_rgba(212,175,55,0.15)]">
               <Image
                 src="/advocate-richa-photo.jpg"
-                alt="Advocate Richa Dhanda â€“ Professional Legal Services"
+                alt="Advocate Richa Dhanda – Professional Legal Services"
                 width={600}
                 height={620}
                 className="w-full h-[500px] lg:h-[620px] object-cover object-top"

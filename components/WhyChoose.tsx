@@ -1,36 +1,36 @@
-﻿"use client";
+"use client";
 
 export default function WhyChoose() {
   const features = [
     {
-      icon: "âœˆï¸",
+      icon: "✈️",
       title: "Expert Immigration Representation",
       description: "Specialized expertise in work visas, PR applications, and citizenship cases with a proven track record of approvals.",
     },
     {
-      icon: "ðŸ’¬",
+      icon: "💬",
       title: "Personalized Case Strategy",
-      description: "Every immigration case receives a customized strategy with direct consultation â€” no delegation to junior staff.",
+      description: "Every immigration case receives a customized strategy with direct consultation — no delegation to junior staff.",
     },
     {
-      icon: "ðŸ’°",
+      icon: "💰",
       title: "Transparent Pricing",
       description: "Clear, upfront fees for all visa services with no hidden costs. You always know exactly what you are paying for.",
     },
     {
-      icon: "ðŸŒ",
+      icon: "🌐",
       title: "Global Coverage",
       description: "Immigration solutions for Canada, Australia, UK, USA, New Zealand, Germany, and 10+ other countries.",
     },
     {
-      icon: "ðŸ“ž",
+      icon: "📞",
       title: "24/7 Availability",
-      description: "Always accessible for urgent visa matters â€” last-minute document requests, interview prep, and emergency consultations.",
+      description: "Always accessible for urgent visa matters — last-minute document requests, interview prep, and emergency consultations.",
     },
     {
-      icon: "ðŸ“‹",
+      icon: "📋",
       title: "End-to-End Support",
-      description: "From initial eligibility assessment to visa stamping and landing â€” we handle every step of your immigration journey.",
+      description: "From initial eligibility assessment to visa stamping and landing — we handle every step of your immigration journey.",
     },
   ];
 

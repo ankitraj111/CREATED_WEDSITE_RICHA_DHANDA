@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, FormEvent } from "react";
 import { db } from "@/lib/firebase";
@@ -184,12 +184,12 @@ export default function ContactView() {
               <table className="w-full text-sm">
                 <tbody className="divide-y divide-[#e5e7eb]">
                   <tr>
-                    <td className="py-3 text-[#4b5563]">Mon â€“ Fri</td>
-                    <td className="py-3 text-right font-medium text-[#111827]">9:00 AM â€“ 6:00 PM</td>
+                    <td className="py-3 text-[#4b5563]">Mon – Fri</td>
+                    <td className="py-3 text-right font-medium text-[#111827]">9:00 AM – 6:00 PM</td>
                   </tr>
                   <tr>
                     <td className="py-3 text-[#4b5563]">Saturday</td>
-                    <td className="py-3 text-right font-medium text-[#111827]">10:00 AM â€“ 2:00 PM</td>
+                    <td className="py-3 text-right font-medium text-[#111827]">10:00 AM – 2:00 PM</td>
                   </tr>
                   <tr>
                     <td className="py-3 text-[#4b5563]">Sunday</td>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, FormEvent } from "react";
 import { db } from "@/lib/firebase";
@@ -237,7 +237,7 @@ export default function BookView() {
                     value={formData.type}
                     onChange={handleChange}
                   >
-                    <option value="">Selectâ€¦</option>
+                    <option value="">Select…</option>
                     <option>Initial assessment (30 min)</option>
                     <option>Detailed consultation (60 min)</option>
                     <option>Case review with documents</option>
@@ -286,7 +286,7 @@ export default function BookView() {
                     value={formData.time}
                     onChange={handleChange}
                   >
-                    <option value="">Selectâ€¦</option>
+                    <option value="">Select…</option>
                     <option>10:00 AM</option>
                     <option>11:30 AM</option>
                     <option>2:00 PM</option>
@@ -314,7 +314,7 @@ export default function BookView() {
                     value={formData.service}
                     onChange={handleChange}
                   >
-                    <option value="">Selectâ€¦</option>
+                    <option value="">Select…</option>
                     <option>Legal Consultation</option>
                     <option>Civil Law</option>
                     <option>Criminal Law</option>
@@ -343,7 +343,7 @@ export default function BookView() {
                     rows={3}
                     value={formData.notes}
                     onChange={handleChange}
-                    placeholder="A few sentences are enoughâ€¦"
+                    placeholder="A few sentences are enough…"
                   />
                 </div>
               </div>
@@ -406,7 +406,7 @@ export default function BookView() {
 
               {success && (
                 <div className="mt-4 p-4 rounded-lg bg-cream-2 border border-gold/40 text-navy text-sm">
-                  âœ“ Appointment request received. I&apos;ll confirm your slot by phone
+                  ✓ Appointment request received. I&apos;ll confirm your slot by phone
                   or email within one business day.
                 </div>
               )}
@@ -420,19 +420,19 @@ export default function BookView() {
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-[#3a4252]">
                 <li className="flex gap-3">
-                  <span className="text-gold">â—†</span> A personal review of your
-                  situation â€” no juniors, no scripts.
+                  <span className="text-gold">◆</span> A personal review of your
+                  situation — no juniors, no scripts.
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-gold">â—†</span> An honest assessment of your
+                  <span className="text-gold">◆</span> An honest assessment of your
                   options, costs & timelines.
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-gold">â—†</span> A clear next-step plan in
+                  <span className="text-gold">◆</span> A clear next-step plan in
                   writing, if you&apos;d like to proceed.
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-gold">â—†</span> Zero pressure â€” the decision
+                  <span className="text-gold">◆</span> Zero pressure — the decision
                   to engage is always yours.
                 </li>
               </ul>
@@ -461,12 +461,12 @@ export default function BookView() {
               <h3 className="font-semibold text-navy mb-3">Office hours</h3>
               <div className="text-sm space-y-2 text-[#3a4252]">
                 <div className="flex justify-between">
-                  <span>Mon â€“ Fri</span>
-                  <span className="font-medium">10:00 AM â€“ 6:00 PM</span>
+                  <span>Mon – Fri</span>
+                  <span className="font-medium">10:00 AM – 6:00 PM</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Saturday</span>
-                  <span className="font-medium">10:00 AM â€“ 2:00 PM</span>
+                  <span className="font-medium">10:00 AM – 2:00 PM</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Sunday</span>

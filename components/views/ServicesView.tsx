@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -116,7 +116,7 @@ export default function ServicesView() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-soft to-platinum">Immigration Solutions</span>
           </h1>
           <p className="text-white/80 text-xl max-w-2xl mx-auto leading-relaxed font-light">
-            From initial consultation to final visa approval â€” we provide expert immigration representation with a personal touch that prioritizes your global mobility goals.
+            From initial consultation to final visa approval — we provide expert immigration representation with a personal touch that prioritizes your global mobility goals.
           </p>
         </div>
         
