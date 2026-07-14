@@ -19,7 +19,7 @@ import ContactView from "@/components/views/ContactView";
 import BookView from "@/components/views/BookView";
 
 // Enhanced Services Preview Component with Ultra Premium Design
-function ServicesPreview() {
+function ServicesPreview({ setActiveView }: { setActiveView: (v: string) => void }) {
   const services = [
     {
       icon: "✈️",
@@ -96,7 +96,10 @@ function ServicesPreview() {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <button className="bg-gradient-to-r from-[#d4af37] to-[#c9a030] text-black px-10 py-4 rounded-lg font-semibold hover:from-[#c9a030] hover:to-[#d4af37] transition-all duration-300 shadow-lg">
+          <button 
+            onClick={() => setActiveView("services")}
+            className="bg-gradient-to-r from-[#d4af37] to-[#c9a030] text-black px-10 py-4 rounded-lg font-semibold hover:from-[#c9a030] hover:to-[#d4af37] transition-all duration-300 shadow-lg cursor-pointer"
+          >
             View All Services
           </button>
         </div>
@@ -119,7 +122,7 @@ export default function Home() {
             <Hero />
 
             <WhyChoose />
-            <ServicesPreview />
+            <ServicesPreview setActiveView={setActiveView} />
             <CTABanner />
             <Testimonials />
             <EnhancedFAQ />
