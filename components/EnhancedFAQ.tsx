@@ -131,7 +131,10 @@ export default function EnhancedFAQ() {
           <p className="text-navy font-medium mb-4">
             Still have questions?
           </p>
-          <button className="bg-gold hover:bg-gold/90 text-white px-8 py-3 rounded-full font-semibold transition-all duration-250 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 cursor-pointer shadow-md">
+          <button 
+            onClick={() => window.open(`https://wa.me/918800329904?text=${encodeURIComponent("Hi, I have some questions and want to schedule a consultation.")}`, "_blank")}
+            className="bg-gold hover:bg-gold/90 text-white px-8 py-3 rounded-full font-semibold transition-all duration-250 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 cursor-pointer shadow-md"
+          >
             Schedule a Consultation
           </button>
         </div>

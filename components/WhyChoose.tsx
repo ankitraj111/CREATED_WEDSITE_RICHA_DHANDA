@@ -69,7 +69,10 @@ export default function WhyChoose() {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <button className="bg-[#d4af37] text-black px-8 py-4 rounded-lg font-semibold hover:bg-[#c9a030] transition-colors duration-300">
+          <button 
+            onClick={() => window.open(`https://wa.me/918800329904?text=${encodeURIComponent("Hi, I want to schedule a consultation.")}`, "_blank")}
+            className="bg-[#d4af37] text-black px-8 py-4 rounded-lg font-semibold hover:bg-[#c9a030] transition-colors duration-300 cursor-pointer"
+          >
             Schedule a Consultation
           </button>
         </div>
