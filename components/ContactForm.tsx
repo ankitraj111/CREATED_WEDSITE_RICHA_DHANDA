@@ -100,7 +100,7 @@ export default function ContactForm() {
                 href="tel:+919254067300"
                 className="font-semibold text-navy hover:text-maroon"
               >
-                +91 88003 29904
+                +91 92540 67300
               </a>
             </div>
           </div>

@@ -140,7 +140,7 @@ export default function ContactView() {
                 <div>
                   <div className="text-sm font-semibold tracking-wider text-[#9ca3af] uppercase mb-1">Direct Line</div>
                   <a href="tel:+919254067300" className="font-serif text-xl text-[#111827] hover:text-[#a67c00] transition-colors">
-                    +91 88003 29904
+                    +91 92540 67300
                   </a>
                 </div>
               </div>

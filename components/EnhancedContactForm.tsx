@@ -112,7 +112,7 @@ export default function EnhancedContactForm() {
                     href="tel:+919254067300"
                     className="text-muted hover:text-gold transition-colors duration-250 focus:outline-none focus:underline"
                   >
-                    +91 88003 29904
+                    +91 92540 67300
                   </a>
                 </div>
               </div>
