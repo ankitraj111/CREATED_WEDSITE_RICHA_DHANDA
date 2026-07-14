@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import WhyChoose from "@/components/WhyChoose";
@@ -68,9 +69,8 @@ function ServicesPreview({ setActiveView }: { setActiveView: (v: string) => void
               key={index}
               className="bg-white rounded-2xl p-8 border border-cream-2 hover:border-gold transition-all duration-300 group shadow-sm hover:shadow-md"
             >
-              <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 overflow-hidden shadow-sm group-hover:scale-110 transition-transform duration-300 bg-cream-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={service.icon} alt={service.title} className="w-full h-full object-cover" />
+              <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 overflow-hidden shadow-sm group-hover:scale-110 transition-transform duration-300 bg-cream-2 relative">
+                <Image src={service.icon} alt={service.title} fill className="object-cover" sizes="64px" />
               </div>
               
               <h3 className="font-serif text-xl font-bold text-navy mb-3 group-hover:text-gold transition-colors duration-300">
