@@ -24,7 +24,7 @@ export default function Footer({ setActiveView }: FooterProps) {
                   Advocate Richa Dhanda
                 </div>
                 <div className="text-[10px] tracking-[0.22em] uppercase text-gold">
-                  Immigration Law
+                  Expert Immigration Lawyer
                 </div>
               </div>
             </div>

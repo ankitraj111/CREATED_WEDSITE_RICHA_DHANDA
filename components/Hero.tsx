@@ -63,7 +63,7 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
             {/* Badge */}
             <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/5 border border-[#d4af37]/30 backdrop-blur-md mb-8">
               <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" />
-              <span className="text-[#d4af37] text-xs font-bold tracking-[0.2em] uppercase">Professional Legal Services</span>
+              <span className="text-[#d4af37] text-xs font-bold tracking-[0.2em] uppercase">Expert Immigration Lawyer</span>
               <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" />
             </div>
 
