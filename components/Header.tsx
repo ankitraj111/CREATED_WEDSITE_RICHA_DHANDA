@@ -42,7 +42,7 @@ export default function Header({ activeView, setActiveView }: HeaderProps) {
                 Advocate Richa Dhandha
               </div>
               <div className="text-[10px] tracking-[0.2em] uppercase text-[#d4af37]/70 font-medium">
-                Expert Immigration Law
+                Expert Immigration Lawyer
               </div>
             </div>
           </button>
