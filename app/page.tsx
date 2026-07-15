@@ -124,7 +124,7 @@ export default function Home() {
 
             <WhyChoose />
             <ServicesPreview setActiveView={setActiveView} />
-            <CTABanner />
+            <CTABanner setActiveView={setActiveView} />
             <Testimonials />
             <EnhancedFAQ />
             <EnhancedContactForm />

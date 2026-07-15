@@ -2,7 +2,11 @@
 
 const WHATSAPP_NUMBER = "919254067300";
 
-export default function CTABanner() {
+interface CTABannerProps {
+  setActiveView?: (view: string) => void;
+}
+
+export default function CTABanner({ setActiveView }: CTABannerProps = {}) {
   const waMsg = encodeURIComponent(
     "Hi, I want to book a consultation regarding my legal matter."
   );
@@ -34,7 +38,14 @@ export default function CTABanner() {
 
         <div className="flex flex-col lg:flex-row items-center justify-center gap-6">
           <button 
-            onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${waMsg}`, "_blank")}
+            onClick={() => {
+              if (setActiveView) {
+                setActiveView('book');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${waMsg}`, "_blank");
+              }
+            }}
             className="group btn-gold inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-navy shadow-xl hover:shadow-2xl hover:shadow-gold/25 transition-all duration-300 hover:scale-105 cursor-pointer text-center relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-gold via-gold-soft to-gold animate-pulse opacity-20"></div>
