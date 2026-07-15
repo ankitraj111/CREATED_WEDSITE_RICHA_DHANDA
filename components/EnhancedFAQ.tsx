@@ -60,7 +60,11 @@ const faqs = [
   }
 ];
 
-export default function EnhancedFAQ() {
+interface EnhancedFAQProps {
+  setActiveView?: (view: string) => void;
+}
+
+export default function EnhancedFAQ({ setActiveView }: EnhancedFAQProps = {}) {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const filteredFaqs =
@@ -132,7 +136,14 @@ export default function EnhancedFAQ() {
             Still have questions?
           </p>
           <button 
-            onClick={() => window.open(`https://wa.me/919254067300?text=${encodeURIComponent("Hi, I have some questions and want to schedule a consultation.")}`, "_blank")}
+            onClick={() => {
+              if (setActiveView) {
+                setActiveView('book');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                window.open(`https://wa.me/919254067300?text=${encodeURIComponent("Hi, I have some questions and want to schedule a consultation.")}`, "_blank");
+              }
+            }}
             className="bg-gold hover:bg-gold/90 text-white px-8 py-3 rounded-full font-semibold transition-all duration-250 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 cursor-pointer shadow-md"
           >
             Schedule a Consultation

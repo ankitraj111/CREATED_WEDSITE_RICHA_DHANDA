@@ -122,11 +122,11 @@ export default function Home() {
           <>
             <Hero setActiveView={setActiveView} />
 
-            <WhyChoose />
+            <WhyChoose setActiveView={setActiveView} />
             <ServicesPreview setActiveView={setActiveView} />
             <CTABanner setActiveView={setActiveView} />
             <Testimonials />
-            <EnhancedFAQ />
+            <EnhancedFAQ setActiveView={setActiveView} />
             <EnhancedContactForm />
           </>
         )}
