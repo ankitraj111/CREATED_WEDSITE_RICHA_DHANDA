@@ -55,7 +55,7 @@ function ServicesPreview({ setActiveView }: { setActiveView: (v: string) => void
             Global Immigration Solutions
           </div>
           <h2 className="font-serif text-4xl lg:text-5xl font-bold text-navy mb-6">
-            Expert Immigration Law <span className="text-gold">Solutions</span>
+            Expert Immigration <span className="text-gold">Lawyer</span>
           </h2>
           <p className="text-navy-light max-w-3xl mx-auto text-lg leading-relaxed">
             From securing work permits to achieving permanent residency, Advocate Richa Dhanda provides expert immigration legal representation with a personal touch that prioritizes your international goals.
