@@ -169,9 +169,41 @@ export default function EnhancedContactForm() {
                   </svg>
                 </div>
                 <div>
-                  <div className="font-semibold text-navy">Office</div>
+                  <div className="font-semibold text-navy">India Office</div>
                   <p className="text-muted">
                     (Kurukshetra, Haryana)
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#d4af37]/20 to-[#d4af37]/10 flex items-center justify-center flex-shrink-0 border border-[#d4af37]/20">
+                  <svg
+                    className="text-[#d4af37]"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div className="font-semibold text-navy">UAE Office</div>
+                  <p className="text-muted">
+                    VUNE2732, Compass Building,<br />AL Hutaita Industrial Zone-FZ,<br />Ras Al Khaimah, UAE
                   </p>
                 </div>
               </div>
