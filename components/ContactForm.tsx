@@ -151,7 +151,7 @@ export default function ContactForm() {
                 Office
               </div>
               <div className="font-semibold text-navy">
-                (Kurukshetra, Haryana)
+                VUNE2732, Compass Building,<br />Ras Al Khaimah, UAE
               </div>
             </div>
           </div>
