@@ -142,7 +142,7 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
                 alt="Advocate Richa Dhanda – Expert Immigration Lawyer"
                 width={800}
                 height={1000}
-                className="w-full h-[500px] lg:h-[640px] object-cover object-[center_top]"
+                className="w-full h-[500px] lg:h-[660px] object-cover object-[center_top] scale-[1.15]"
                 priority
               />
 
