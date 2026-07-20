@@ -142,12 +142,12 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
                 alt="Advocate Richa Dhanda – Expert Immigration Lawyer"
                 width={800}
                 height={1000}
-                className="w-full h-auto object-contain"
+                className="w-full h-[500px] lg:h-[640px] object-cover object-[center_top]"
                 priority
               />
 
               {/* Bottom gradient */}
-              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#06090f] via-[#06090f]/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#06090f] via-[#06090f]/40 to-transparent" />
 
               {/* Floating name card */}
               <div className="absolute bottom-6 left-6 right-6 flex gap-4">
