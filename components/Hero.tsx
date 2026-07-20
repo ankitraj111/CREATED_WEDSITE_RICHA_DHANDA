@@ -193,7 +193,7 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
                 className="w-full h-[500px] lg:h-[620px] object-cover object-top"
                 priority
               />
-              {/* Bottom gradient */}
+              {/* Bottom gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#06090f] via-[#06090f]/20 to-transparent" />
 
               {/* Floating info card */}
@@ -243,12 +243,16 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
 
       <style jsx>{`
         @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes floatUp {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        @keyframes spin {
+          from { transform: translate(-50%, -50%) rotate(0deg); }
+          to { transform: translate(-50%, -50%) rotate(360deg); }
         }
       `}</style>
     </div>
