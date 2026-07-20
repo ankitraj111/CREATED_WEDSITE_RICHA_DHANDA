@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/firebase";
 import { collection, addDoc } from "firebase/firestore";
-import { addEventToCalendar } from "@/lib/google-calendar";
+import { createCalendarEvent } from "@/lib/google-calendar";
 import { rateLimit } from "@/lib/rate-limit";
 import { sanitizeBookingData, validateBookingData } from "@/lib/sanitize";
 
@@ -52,7 +52,7 @@ export async function POST(req: Request) {
     // Add to Google Calendar
     let calendarEventId = null;
     try {
-      calendarEventId = await addEventToCalendar({
+      calendarEventId = await createCalendarEvent({
         date: bookingDetails.date,
         time: bookingDetails.time,
         name: bookingDetails.name,

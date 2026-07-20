@@ -181,7 +181,7 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes marqueeScroll {
           0%   { transform: translateX(0); }
           100% { transform: translateX(-50%); }
