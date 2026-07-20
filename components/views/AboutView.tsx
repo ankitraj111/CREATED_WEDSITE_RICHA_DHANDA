@@ -128,7 +128,7 @@ export default function AboutView({ setActiveView }: AboutViewProps = {}) {
 
                   <div className="relative rounded-3xl overflow-hidden border border-[#e8e0cc] shadow-[0_8px_40px_rgba(0,0,0,0.08)] group-hover:shadow-[0_12px_50px_rgba(212,175,55,0.15)] transition-all duration-500">
                     <Image
-                      src="/advocate-richa-photo.jpg"
+                      src="/advocate-richa-new.jpg"
                       alt="Advocate Richa Dhandha — Expert Immigration Lawyer"
                       width={800}
                       height={520}

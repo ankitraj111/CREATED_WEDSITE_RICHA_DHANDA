@@ -142,6 +142,42 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
 
             <div className="relative rounded-3xl overflow-hidden border border-[#d4af37]/20 shadow-[0_0_60px_rgba(212,175,55,0.15)]">
               <Image
+                src="/advocate-richa-new.jpg"
+                alt="Advocate Richa Dhanda – Expert Immigration Lawyer"
+                width={600}
+                height={620}
+                className="w-full h-[500px] lg:h-[620px] object-cover object-top"
+                priority
+              />
+              {/* Bottom gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#06090f] via-[#06090f]/20 to-transparent" />
+
+              {/* Floating info cards */}
+              <div className="absolute bottom-6 left-6 right-6 flex gap-4">
+                <div className="flex-1 bg-black/60 backdrop-blur-xl rounded-2xl p-4 border border-[#d4af37]/20">
+                  <div className="text-[#d4af37] font-bold text-xl font-serif">Advocate Richa Dhanda</div>
+                  <div className="text-white/60 text-xs tracking-wider mt-0.5">Expert Immigration Lawyer</div>
+                </div>
+                <div className="bg-[#d4af37] rounded-2xl p-4 flex flex-col items-center justify-center min-w-[80px]">
+                  <div className="font-serif font-bold text-2xl text-[#06090f]">5+</div>
+                  <div className="text-[#06090f]/70 text-[10px] font-bold tracking-wider text-center">YRS EXP</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Decorative corner ornaments */}
+            <div className="absolute -top-4 -right-4 w-20 h-20 border-t-2 border-r-2 border-[#d4af37]/30 rounded-tr-3xl" />
+            <div className="absolute -bottom-4 -left-4 w-20 h-20 border-b-2 border-l-2 border-[#d4af37]/30 rounded-bl-3xl" />
+          </div>
+          </div>
+
+          {/* Right Column - Image */}
+          <div className={`relative transition-opacity duration-1000 delay-300 ${mounted ? "opacity-100" : "opacity-0"}`}>
+            {/* Glow ring */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#d4af37]/20 via-transparent to-[#8B1538]/20 blur-xl scale-105" />
+
+            <div className="relative rounded-3xl overflow-hidden border border-[#d4af37]/20 shadow-[0_0_60px_rgba(212,175,55,0.15)]">
+              <Image
                 src="/advocate-richa-photo.jpg"
                 alt="Advocate Richa Dhanda – Professional Legal Services"
                 width={600}
