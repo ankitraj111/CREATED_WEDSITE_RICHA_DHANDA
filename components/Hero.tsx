@@ -171,10 +171,10 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
       </div>
 
       {/* Scrolling Marquee */}
-      <div className="relative z-10 border-t border-b border-[#d4af37]/10 bg-white/[0.02] backdrop-blur-sm py-4 overflow-hidden">
+      <div className="relative z-10 border-t border-b border-[#d4af37]/20 bg-white/[0.08] backdrop-blur-md py-4 overflow-hidden">
         <div className="flex gap-8 whitespace-nowrap" style={{ animation: "marqueeScroll 30s linear infinite" }}>
           {[...services, ...services].map((item, i) => (
-            <span key={i} className="text-white/40 text-sm font-medium tracking-widest uppercase flex-shrink-0">
+            <span key={i} className="text-white/70 text-sm font-medium tracking-widest uppercase flex-shrink-0">
               {item}
             </span>
           ))}
