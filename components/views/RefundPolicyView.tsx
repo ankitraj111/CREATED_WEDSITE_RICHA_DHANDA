@@ -88,7 +88,7 @@ export default function RefundPolicyView({ setActiveView }: RefundPolicyViewProp
               <h2 className="font-serif text-xl font-bold text-navy mb-3">5. How to Request a Refund</h2>
               <p>To request a refund, please follow these steps:</p>
               <ol className="list-decimal pl-5 space-y-2 mt-3">
-                <li>Email us at <a href="mailto:Advocaterichadhanda@gmail.com" className="text-gold hover:text-gold-dark">Advocaterichadhanda@gmail.com</a> with the subject line: <strong>"Refund Request – [Your Name] – [Booking Date]"</strong></li>
+                <li>Email us at <a href="mailto:Advocaterichadhanda@gmail.com" className="text-gold hover:text-gold-dark">Advocaterichadhanda@gmail.com</a> with the subject line: <strong>&quot;Refund Request &ndash; [Your Name] &ndash; [Booking Date]&quot;</strong></li>
                 <li>Include your booking ID / payment reference number.</li>
                 <li>State the reason for your refund request.</li>
               </ol>

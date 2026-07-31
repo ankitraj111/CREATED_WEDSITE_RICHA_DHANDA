@@ -34,7 +34,7 @@ export default function PrivacyPolicyView({ setActiveView }: PrivacyPolicyViewPr
             <section>
               <h2 className="font-serif text-xl font-bold text-navy mb-3">1. Introduction</h2>
               <p>
-                Advocate Richa Dhanda ("we", "our", "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website or use our legal services.
+                Advocate Richa Dhanda (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website or use our legal services.
               </p>
             </section>
 
