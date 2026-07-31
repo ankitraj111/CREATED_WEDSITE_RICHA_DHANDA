@@ -311,18 +311,6 @@ export default function ContactView() {
             </form>
           </div>
         </div>
-
-        {/* Maps section */}
-        <div className="mt-12 border border-[#e5e7eb] bg-white p-2 shadow-sm mb-12">
-          <iframe
-            title="Office location"
-            src="https://www.google.com/maps?q=Sector+4+Kurukshetra&output=embed"
-            width="100%"
-            height="400"
-            loading="lazy"
-            style={{ border: 0 }}
-          ></iframe>
-        </div>
       </div>
     </div>
   );
