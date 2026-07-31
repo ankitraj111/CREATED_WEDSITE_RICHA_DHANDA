@@ -28,7 +28,7 @@ const sections = [
             ["Case-Related Information", "Immigration history, passport details, visa application information, and other documents shared for legal consultations."],
             ["Payment Information", "Transaction details processed through our secure payment gateway (Razorpay). We do not store card details on our servers."],
             ["Usage Data", "Browser type, IP address, pages visited, and time spent on our website for analytics purposes."],
-            ["Communication Records", "Emails, WhatsApp messages, and other communications with our office."],
+            ["Communication Records", "Emails, phone calls, and other communications with our office."],
           ].map(([title, desc]) => (
             <li key={title} className="flex gap-3 items-start">
               <span className="w-1.5 h-1.5 rounded-full bg-gold mt-2 shrink-0" />

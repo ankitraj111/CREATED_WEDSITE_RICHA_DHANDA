@@ -74,12 +74,9 @@ export default function ContactView() {
       console.warn("Email send failed:", emailError);
     }
 
-    // 3. Success state and WhatsApp redirect
+    // 3. Success state
     try {
       setSuccess(true);
-      
-      const whatsappText = 'Hi, I have an inquiry. ' + (formData.service ? 'Service: ' + formData.service : '');
-      window.open('https://wa.me/919254067300?text=' + encodeURIComponent(whatsappText), '_blank');
 
       setFormData({
         name: "",

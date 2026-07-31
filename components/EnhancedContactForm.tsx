@@ -45,11 +45,8 @@ export default function EnhancedContactForm() {
       console.warn("Email send failed:", emailError);
     }
 
-    // 3. Always Redirect to WhatsApp
+    // 3. Show success state
     try {
-      const whatsappText = 'Hi, I need assistance. My name is ' + formState.name + '. ' + (formState.service ? 'Service: ' + formState.service : '');
-      window.open('https://wa.me/919254067300?text=' + encodeURIComponent(whatsappText), '_blank');
-      
       setFormState({
         name: "",
         email: "",

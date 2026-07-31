@@ -10,7 +10,6 @@ import Testimonials from "@/components/Testimonials";
 import EnhancedFAQ from "@/components/EnhancedFAQ";
 import EnhancedContactForm from "@/components/EnhancedContactForm";
 import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import CookieBanner from "@/components/CookieBanner";
 import AboutView from "@/components/views/AboutView";
 import ServicesView from "@/components/views/ServicesView";
@@ -144,7 +143,6 @@ export default function Home() {
         {activeView === "refund" && <RefundPolicyView setActiveView={setActiveView} />}
       </main>
       <Footer setActiveView={setActiveView} />
-      <FloatingWhatsApp />
       <CookieBanner />
     </>
   );
