@@ -18,6 +18,9 @@ import BlogView from "@/components/views/BlogView";
 import FAQView from "@/components/views/FAQView";
 import ContactView from "@/components/views/ContactView";
 import BookView from "@/components/views/BookView";
+import PrivacyPolicyView from "@/components/views/PrivacyPolicyView";
+import TermsView from "@/components/views/TermsView";
+import RefundPolicyView from "@/components/views/RefundPolicyView";
 
 // Enhanced Services Preview Component with Ultra Premium Design
 function ServicesPreview({ setActiveView }: { setActiveView: (v: string) => void }) {
@@ -136,6 +139,9 @@ export default function Home() {
         {activeView === "faq" && <FAQView />}
         {activeView === "contact" && <ContactView />}
         {activeView === "book" && <BookView />}
+        {activeView === "privacy" && <PrivacyPolicyView setActiveView={setActiveView} />}
+        {activeView === "terms" && <TermsView setActiveView={setActiveView} />}
+        {activeView === "refund" && <RefundPolicyView setActiveView={setActiveView} />}
       </main>
       <Footer setActiveView={setActiveView} />
       <FloatingWhatsApp />

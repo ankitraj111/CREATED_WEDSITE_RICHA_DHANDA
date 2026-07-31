@@ -185,12 +185,10 @@ export default function Footer({ setActiveView }: FooterProps) {
             <span className="text-white/40">Bar Council Reg. PH/1260/2025</span>
           </div>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
-            <button className="hover:text-gold-soft">Privacy Policy</button>
-            <button className="hover:text-gold-soft">
-              Terms & Conditions
-            </button>
+            <button onClick={() => handleNavClick("privacy")} className="hover:text-gold-soft">Privacy Policy</button>
+            <button onClick={() => handleNavClick("terms")} className="hover:text-gold-soft">Terms &amp; Conditions</button>
+            <button onClick={() => handleNavClick("refund")} className="hover:text-gold-soft">Refund Policy</button>
             <button className="hover:text-gold-soft">Disclaimer</button>
-            <button className="hover:text-gold-soft">Cookie Policy</button>
           </div>
         </div>
 
