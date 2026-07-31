@@ -6,7 +6,6 @@ interface FooterProps {
 
 export default function Footer({ setActiveView }: FooterProps) {
   const handleNavClick = (view: string) => {
-    console.log("Footer clicked:", view);
     setActiveView(view);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };

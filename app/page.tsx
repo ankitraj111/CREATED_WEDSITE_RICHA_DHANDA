@@ -117,8 +117,6 @@ function ServicesPreview({ setActiveView }: { setActiveView: (v: string) => void
 export default function Home() {
   const [activeView, setActiveView] = useState("home");
 
-  console.log("Current activeView:", activeView);
-
   return (
     <>
       <Header activeView={activeView} setActiveView={setActiveView} />
