@@ -151,8 +151,8 @@ export default function Footer({ setActiveView }: FooterProps) {
                 >
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
-                <a href="tel:+919254067300" className="hover:text-gold-soft">
-                  +91 92540 67300
+                <a href="tel:+919306792300" className="hover:text-gold-soft">
+                  +91 93067 92300
                 </a>
               </li>
               <li className="flex gap-3">
@@ -169,10 +169,10 @@ export default function Footer({ setActiveView }: FooterProps) {
                   <path d="m22 7-10 5L2 7" />
                 </svg>
                 <a
-                  href="mailto:Advocaterichadhanda@gmail.com"
+                  href="mailto:Advocatericha29@gmail.com"
                   className="hover:text-gold-soft break-all"
                 >
-                  Advocaterichadhanda@gmail.com
+                  Advocatericha29@gmail.com
                 </a>
               </li>
               <li className="flex gap-3">

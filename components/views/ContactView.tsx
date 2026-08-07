@@ -136,8 +136,8 @@ export default function ContactView() {
                 </div>
                 <div>
                   <div className="text-sm font-semibold tracking-wider text-[#9ca3af] uppercase mb-1">Direct Line</div>
-                  <a href="tel:+919254067300" className="font-serif text-xl text-[#111827] hover:text-[#a67c00] transition-colors">
-                    +91 92540 67300
+                  <a href="tel:+919306792300" className="font-serif text-xl text-[#111827] hover:text-[#a67c00] transition-colors">
+                    +91 93067 92300
                   </a>
                 </div>
               </div>
@@ -151,8 +151,8 @@ export default function ContactView() {
                 </div>
                 <div>
                   <div className="text-sm font-semibold tracking-wider text-[#9ca3af] uppercase mb-1">Email Inquiry</div>
-                  <a href="mailto:Advocaterichadhanda@gmail.com" className="font-serif text-lg text-[#111827] hover:text-[#a67c00] transition-colors break-all">
-                    Advocaterichadhanda@gmail.com
+                  <a href="mailto:Advocatericha29@gmail.com" className="font-serif text-lg text-[#111827] hover:text-[#a67c00] transition-colors break-all">
+                    Advocatericha29@gmail.com
                   </a>
                 </div>
               </div>

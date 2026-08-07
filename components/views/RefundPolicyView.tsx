@@ -187,7 +187,7 @@ export default function RefundPolicyView({ setActiveView }: RefundPolicyViewProp
               <p className="mb-4">To request a refund, please follow these steps:</p>
               <div className="space-y-3">
                 {[
-                  [`Email us at Advocaterichadhanda@gmail.com with subject: "Refund Request – [Your Name] – [Booking Date]"`, "1"],
+                  [`Email us at Advocatericha29@gmail.com with subject: "Refund Request – [Your Name] – [Booking Date]"`, "1"],
                   ["Include your booking ID / payment reference number.", "2"],
                   ["State the reason for your refund request.", "3"],
                 ].map(([text, num]) => (
@@ -219,22 +219,22 @@ export default function RefundPolicyView({ setActiveView }: RefundPolicyViewProp
           <h3 className="font-serif text-2xl font-bold mb-2">Contact Us</h3>
           <p className="text-white/50 text-sm mb-6">Need to request a refund or have questions?</p>
           <div className="grid md:grid-cols-2 gap-4">
-            <a href="mailto:Advocaterichadhanda@gmail.com" className="flex items-center gap-3 bg-white/5 hover:bg-white/10 transition rounded-xl p-4">
+            <a href="mailto:Advocatericha29@gmail.com" className="flex items-center gap-3 bg-white/5 hover:bg-white/10 transition rounded-xl p-4">
               <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
               </div>
               <div>
                 <div className="text-xs text-white/40 mb-0.5">Email</div>
-                <div className="text-sm font-medium">Advocaterichadhanda@gmail.com</div>
+                <div className="text-sm font-medium">Advocatericha29@gmail.com</div>
               </div>
             </a>
-            <a href="tel:+919254067300" className="flex items-center gap-3 bg-white/5 hover:bg-white/10 transition rounded-xl p-4">
+            <a href="tel:+919306792300" className="flex items-center gap-3 bg-white/5 hover:bg-white/10 transition rounded-xl p-4">
               <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </div>
               <div>
                 <div className="text-xs text-white/40 mb-0.5">Phone</div>
-                <div className="text-sm font-medium">+91 92540 67300</div>
+                <div className="text-sm font-medium">+91 93067 92300</div>
               </div>
             </a>
           </div>

@@ -25,7 +25,7 @@
 
 ### Contact Information:
 - **Phone:** +91 88003 29904
-- **Email:** Advocaterichadhanda@gmail.com
+- **Email:** Advocatericha29@gmail.com
 - **Office Address:** H No 1057, Sector 4, Kurukshetra, Haryana
 - **LinkedIn:** https://www.linkedin.com/in/dr-richa-dhanda-61a63994
 - **Instagram:** https://www.instagram.com/txinctic
@@ -471,7 +471,7 @@ website/
 
 ### Contact Methods Available:
 1. **Primary Phone:** +91 88003 29904 (Click-to-call)
-2. **Email:** Advocaterichadhanda@gmail.com (Contact forms)
+2. **Email:** Advocatericha29@gmail.com (Contact forms)
 3. **WhatsApp:** Floating button with pre-filled message
 4. **Office Address:** H No 1057, Sector 4, Kurukshetra
 5. **Consultation Booking:** Multiple booking CTAs

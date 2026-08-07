@@ -79,7 +79,7 @@ export default function WhyChoose({ setActiveView }: WhyChooseProps = {}) {
                 setActiveView('book');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               } else {
-                window.open(`https://wa.me/919254067300?text=${encodeURIComponent("Hi, I want to schedule a consultation.")}`, "_blank");
+                window.open(`https://wa.me/919306792300?text=${encodeURIComponent("Hi, I want to schedule a consultation.")}`, "_blank");
               }
             }}
             className="bg-[#d4af37] text-black px-8 py-4 rounded-lg font-semibold hover:bg-[#c9a030] transition-colors duration-300 cursor-pointer"

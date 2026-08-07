@@ -106,10 +106,10 @@ export default function EnhancedContactForm() {
                 <div>
                   <div className="font-semibold text-navy">Phone</div>
                   <a
-                    href="tel:+919254067300"
+                    href="tel:+919306792300"
                     className="text-muted hover:text-gold transition-colors duration-250 focus:outline-none focus:underline"
                   >
-                    +91 92540 67300
+                    +91 93067 92300
                   </a>
                 </div>
               </div>
@@ -134,10 +134,10 @@ export default function EnhancedContactForm() {
                 <div>
                   <div className="font-semibold text-navy">Email</div>
                   <a
-                    href="mailto:Advocaterichadhanda@gmail.com"
+                    href="mailto:Advocatericha29@gmail.com"
                     className="text-muted hover:text-gold transition-colors duration-250 focus:outline-none focus:underline break-all"
                   >
-                    Advocaterichadhanda@gmail.com
+                    Advocatericha29@gmail.com
                   </a>
                 </div>
               </div>

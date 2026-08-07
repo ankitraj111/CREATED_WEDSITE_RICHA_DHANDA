@@ -97,10 +97,10 @@ export default function ContactForm() {
                 Call
               </div>
               <a
-                href="tel:+919254067300"
+                href="tel:+919306792300"
                 className="font-semibold text-navy hover:text-maroon"
               >
-                +91 92540 67300
+                +91 93067 92300
               </a>
             </div>
           </div>
@@ -124,10 +124,10 @@ export default function ContactForm() {
                 Email
               </div>
               <a
-                href="mailto:Advocaterichadhanda@gmail.com"
+                href="mailto:Advocatericha29@gmail.com"
                 className="font-semibold text-navy hover:text-maroon"
               >
-                Advocaterichadhanda@gmail.com
+                Advocatericha29@gmail.com
               </a>
             </div>
           </div>

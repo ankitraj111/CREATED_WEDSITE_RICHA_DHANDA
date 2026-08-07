@@ -228,7 +228,7 @@ export default function ServicesView({ setActiveView }: ServicesViewProps = {}) 
                       setActiveView('book');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     } else {
-                      window.open(`https://wa.me/919254067300?text=${encodeURIComponent("Hi, I want to book a free consultation regarding my immigration matter.")}`);
+                      window.open(`https://wa.me/919306792300?text=${encodeURIComponent("Hi, I want to book a free consultation regarding my immigration matter.")}`);
                     }
                   }}
                   className="bg-gradient-to-r from-gold to-gold-soft text-navy px-10 py-4 rounded-full font-bold text-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-105 inline-flex items-center gap-3">
