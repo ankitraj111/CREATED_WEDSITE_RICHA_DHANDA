@@ -22,15 +22,15 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
   ];
 
   return (
-    <section className="bg-[#0B1426] py-10 border-y border-gold/20 overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-5 lg:px-8 mb-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+    <section className="bg-[#0B1426] py-8 border-y border-gold/20 overflow-hidden relative">
+      <div className="max-w-7xl mx-auto px-5 lg:px-8 mb-5 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/15 text-gold text-xs font-bold uppercase tracking-widest mb-1">
             <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
             Media &amp; Press Recognition
           </div>
           <h2 className="font-serif text-2xl lg:text-3xl font-bold text-white">
-            As Featured In <span className="text-gold">Leading National Media</span>
+            As Featured In <span className="text-gold">Leading National Outlets</span>
           </h2>
         </div>
 
@@ -56,8 +56,8 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
         </div>
       </div>
 
-      {/* Marquee Ticker */}
-      <div className="relative w-full marquee-container py-4 bg-white/[0.02]">
+      {/* Marquee Ticker with Authentic Brand Logos */}
+      <div className="relative w-full marquee-container py-3 bg-white/[0.02]">
         <div className="marquee-track flex gap-6 items-center">
           {[...logos, ...logos, ...logos].map((logo, idx) => (
             <div
@@ -77,13 +77,13 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
       </div>
 
       {/* Featured Headline Ticker Strip */}
-      <div className="max-w-7xl mx-auto px-5 lg:px-8 mt-6">
+      <div className="max-w-7xl mx-auto px-5 lg:px-8 mt-5">
         <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-left">
-            <span className="px-3 py-1 rounded bg-red-600/80 text-white text-[11px] font-bold uppercase tracking-wider shrink-0">
+            <span className="px-3 py-1 rounded bg-[#C8102E] text-white text-[11px] font-bold uppercase tracking-wider shrink-0">
               Breaking News
             </span>
-            <p className="text-white/80 text-xs sm:text-sm font-medium line-clamp-1">
+            <p className="text-white/90 text-xs sm:text-sm font-medium line-clamp-1">
               <strong>The Tribune &amp; Ahmedabad Mirror:</strong> Advocates Warn Small-Town Youth Against Fake Work Permit Scams.
             </p>
           </div>
@@ -93,7 +93,7 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
                 setActiveView("media");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="text-gold hover:text-white text-xs font-semibold underline underline-offset-4 shrink-0 cursor-pointer"
+              className="text-gold hover:text-white text-xs font-bold underline underline-offset-4 shrink-0 cursor-pointer"
             >
               Read Coverage →
             </button>
