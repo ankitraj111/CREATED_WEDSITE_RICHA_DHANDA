@@ -1,6 +1,6 @@
 "use client";
 
-import { FEATURED_ARTICLES } from "@/lib/mediaData";
+import BrandLogo from "@/components/BrandLogos";
 
 interface MediaTickerProps {
   setActiveView?: (view: string) => void;
@@ -8,10 +8,10 @@ interface MediaTickerProps {
 
 export default function MediaTicker({ setActiveView }: MediaTickerProps) {
   const logos = [
-    "The Tribune",
-    "Ahmedabad Mirror",
     "Google News",
     "Yahoo! News",
+    "The Tribune",
+    "Ahmedabad Mirror",
     "India Today Times",
     "Times of India Daily",
     "India Global Live",
@@ -27,7 +27,7 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/15 text-gold text-xs font-bold uppercase tracking-widest mb-1">
             <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
-            Media & Press Recognition
+            Media &amp; Press Recognition
           </div>
           <h2 className="font-serif text-2xl lg:text-3xl font-bold text-white">
             As Featured In <span className="text-gold">Leading National Media</span>
@@ -62,7 +62,7 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
           {[...logos, ...logos, ...logos].map((logo, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-3 rounded-xl hover:border-gold/50 transition cursor-pointer shrink-0"
+              className="hover:scale-105 transition cursor-pointer shrink-0"
               onClick={() => {
                 if (setActiveView) {
                   setActiveView("media");
@@ -70,10 +70,7 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
                 }
               }}
             >
-              <div className="w-2 h-2 rounded-full bg-gold/70" />
-              <span className="font-serif font-bold text-white/90 text-sm tracking-wide">
-                {logo}
-              </span>
+              <BrandLogo name={logo} />
             </div>
           ))}
         </div>
@@ -87,7 +84,7 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
               Breaking News
             </span>
             <p className="text-white/80 text-xs sm:text-sm font-medium line-clamp-1">
-              <strong>The Tribune & Ahmedabad Mirror:</strong> Advocates Warn Small-Town Youth Against Fake Work Permit Scams.
+              <strong>The Tribune &amp; Ahmedabad Mirror:</strong> Advocates Warn Small-Town Youth Against Fake Work Permit Scams.
             </p>
           </div>
           {setActiveView && (

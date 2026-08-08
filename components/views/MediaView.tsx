@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import BrandLogo from "@/components/BrandLogos";
 import { ALL_MEDIA_PUBLICATIONS, FEATURED_ARTICLES } from "@/lib/mediaData";
 
 interface MediaViewProps {
@@ -29,58 +30,6 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
       activeCategory === "All" || item.category === activeCategory;
     return matchesSearch && matchesCategory;
   });
-
-  // Authentic Brand Colors for News Outlets
-  const renderBrandTitle = (name: string) => {
-    const lower = name.toLowerCase();
-    if (lower.includes("google")) {
-      return (
-        <span className="font-sans text-xl font-bold tracking-tight">
-          <span className="text-[#4285F4]">G</span>
-          <span className="text-[#EA4335]">o</span>
-          <span className="text-[#FBBC05]">o</span>
-          <span className="text-[#4285F4]">g</span>
-          <span className="text-[#34A853]">l</span>
-          <span className="text-[#EA4335]">e</span>{" "}
-          <span className="text-[#5F6368] font-normal">News</span>
-        </span>
-      );
-    }
-    if (lower.includes("yahoo")) {
-      return (
-        <span className="font-sans text-xl font-black tracking-tight text-[#6001D2]">
-          Yahoo!<span className="text-[#222] font-semibold text-base ml-1">News</span>
-        </span>
-      );
-    }
-    if (lower.includes("tribune")) {
-      return <span className="font-serif text-xl font-bold text-[#C8102E]">The Tribune</span>;
-    }
-    if (lower.includes("ahmedabad mirror")) {
-      return <span className="font-serif text-xl font-extrabold text-[#E65100]">Ahmedabad Mirror</span>;
-    }
-    if (lower.includes("india today")) {
-      return (
-        <span className="font-sans text-lg font-black text-[#E50914] tracking-tighter">
-          INDIA TODAY <span className="text-[#333] font-serif capitalize font-normal text-base">Times</span>
-        </span>
-      );
-    }
-    if (lower.includes("times of india")) {
-      return (
-        <span className="font-serif text-lg font-black text-[#990000]">
-          Times of India <span className="text-[#333] font-sans font-normal text-sm">Daily</span>
-        </span>
-      );
-    }
-    if (lower.includes("business") || lower.includes("corporate")) {
-      return <span className="font-sans font-bold text-[#0D47A1]">{name}</span>;
-    }
-    if (lower.includes("karnataka") || lower.includes("punjab") || lower.includes("delhi")) {
-      return <span className="font-serif font-bold text-[#D97706]">{name}</span>;
-    }
-    return <span className="font-serif font-bold text-navy">{name}</span>;
-  };
 
   const getCategoryBadge = (cat: string) => {
     switch (cat) {
@@ -168,18 +117,12 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                 </span>
               </h1>
 
-              <p className="text-white/80 text-base lg:text-lg max-w-2xl font-light leading-relaxed mb-8">
-                Legal commentary, fraud awareness advisories, and work permit insights published in{" "}
-                <span className="font-sans font-bold text-white">
-                  <span className="text-[#4285F4]">G</span>
-                  <span className="text-[#EA4335]">o</span>
-                  <span className="text-[#FBBC05]">o</span>
-                  <span className="text-[#4285F4]">g</span>
-                  <span className="text-[#34A853]">l</span>
-                  <span className="text-[#EA4335]">e</span> News
-                </span>,{" "}
-                <span className="font-sans font-black text-[#a755f7]">Yahoo! News</span>,{" "}
-                <strong className="text-[#ff4d6d]">The Tribune</strong>, and over 200+ news portals across India.
+              <p className="text-white/80 text-base lg:text-lg max-w-2xl font-light leading-relaxed mb-8 flex flex-wrap items-center gap-2">
+                Legal commentary &amp; work permit scam advisories published in:
+                <BrandLogo name="Google News" />
+                <BrandLogo name="Yahoo! News" />
+                <BrandLogo name="The Tribune" />
+                and over 200+ news portals across India.
               </p>
 
               <div className="flex flex-wrap gap-4 items-center">
@@ -221,36 +164,19 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
         </div>
       </div>
 
-      {/* TOP PUBLICATIONS AUTHENTIC BRAND COLOR STRIP */}
+      {/* TOP PUBLICATIONS AUTHENTIC SVG BRAND LOGO STRIP */}
       <div className="bg-navy border-y border-gold/20 py-4 overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 lg:px-8 flex flex-wrap items-center justify-between gap-4">
           <span className="text-amber-400 text-xs font-bold uppercase tracking-widest shrink-0">
             Featured Outlets:
           </span>
-          <div className="flex flex-wrap gap-4 items-center">
-            <span className="px-4 py-1.5 rounded-full bg-white text-navy text-xs font-bold shadow-md border border-gray-200">
-              <span className="text-[#4285F4]">G</span>
-              <span className="text-[#EA4335]">o</span>
-              <span className="text-[#FBBC05]">o</span>
-              <span className="text-[#4285F4]">g</span>
-              <span className="text-[#34A853]">l</span>
-              <span className="text-[#EA4335]">e</span> <span className="text-[#5F6368]">News</span>
-            </span>
-            <span className="px-4 py-1.5 rounded-full bg-[#6001D2] text-white text-xs font-black shadow-md">
-              Yahoo! News
-            </span>
-            <span className="px-4 py-1.5 rounded-full bg-[#C8102E] text-white text-xs font-bold shadow-md">
-              The Tribune
-            </span>
-            <span className="px-4 py-1.5 rounded-full bg-[#E65100] text-white text-xs font-extrabold shadow-md">
-              Ahmedabad Mirror
-            </span>
-            <span className="px-4 py-1.5 rounded-full bg-[#E50914] text-white text-xs font-black shadow-md uppercase">
-              India Today
-            </span>
-            <span className="px-4 py-1.5 rounded-full bg-[#990000] text-white text-xs font-bold shadow-md">
-              Times of India
-            </span>
+          <div className="flex flex-wrap gap-4 items-center overflow-x-auto py-1">
+            <BrandLogo name="Google News" />
+            <BrandLogo name="Yahoo! News" />
+            <BrandLogo name="The Tribune" />
+            <BrandLogo name="Ahmedabad Mirror" />
+            <BrandLogo name="India Today" />
+            <BrandLogo name="Times of India" />
           </div>
         </div>
       </div>
@@ -291,10 +217,8 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                   <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/30 to-transparent" />
 
                   <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
-                    <span className="bg-[#C8102E] text-white px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider shadow-lg">
-                      The Tribune
-                    </span>
-                    <span className="bg-black/70 backdrop-blur-md text-amber-300 px-3.5 py-1.5 rounded-full text-xs font-semibold border border-amber-300/30">
+                    <BrandLogo name="The Tribune" />
+                    <span className="bg-black/70 backdrop-blur-md text-amber-300 px-3.5 py-1.5 rounded-xl text-xs font-semibold border border-amber-300/30">
                       Partner Exclusive
                     </span>
                   </div>
@@ -354,10 +278,8 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                   <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/30 to-transparent" />
 
                   <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
-                    <span className="bg-[#E65100] text-white px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider shadow-lg">
-                      Ahmedabad Mirror
-                    </span>
-                    <span className="bg-black/70 backdrop-blur-md text-amber-300 px-3.5 py-1.5 rounded-full text-xs font-semibold border border-amber-300/30">
+                    <BrandLogo name="Ahmedabad Mirror" />
+                    <span className="bg-black/70 backdrop-blur-md text-amber-300 px-3.5 py-1.5 rounded-xl text-xs font-semibold border border-amber-300/30">
                       National Feature
                     </span>
                   </div>
@@ -405,7 +327,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
 
           </div>
 
-          {/* MAJOR MEDIA CARDS WITH ORIGINAL BRAND LOGOS & COLORS (MATCHING USER SCREENSHOT) */}
+          {/* MAJOR MEDIA CARDS WITH OFFICIAL SVG BRAND LOGOS & COLORS */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {FEATURED_ARTICLES.slice(2).map((item) => (
               <div
@@ -427,8 +349,8 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                   </div>
 
                   <div className="p-6">
-                    <div className="mb-3">
-                      {renderBrandTitle(item.name)}
+                    <div className="mb-4 flex items-center">
+                      <BrandLogo name={item.name} />
                     </div>
                     <p className="text-navy/70 text-xs leading-relaxed line-clamp-3 mb-4">
                       {item.summary || item.title}
@@ -536,10 +458,8 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                   )} p-6 hover:shadow-xl hover:border-gold/60 transition-all duration-300 flex flex-col justify-between`}
                 >
                   <div>
-                    <div className="flex items-center justify-between gap-3 mb-3">
-                      <div>
-                        {renderBrandTitle(item.name)}
-                      </div>
+                    <div className="flex items-center justify-between gap-3 mb-4">
+                      <BrandLogo name={item.name} />
                       <span className={`px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider ${getCategoryBadge(item.category)}`}>
                         {item.category}
                       </span>
