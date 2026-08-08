@@ -26,7 +26,6 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
             
             {/* Top Verified Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/90 border border-amber-300 text-amber-900 mb-6 shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-amber-600 animate-ping" />
               <span className="text-xs font-extrabold uppercase tracking-wider">
                 Bar Council Registered Advocate &amp; Legal Specialist
               </span>

@@ -182,7 +182,6 @@ export default function PrivacyPolicyView({ setActiveView }: PrivacyPolicyViewPr
             Back to Home
           </button>
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/20 border border-gold/30 text-gold text-xs font-bold tracking-widest uppercase mb-4 w-fit">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold" />
             Legal Document
           </span>
           <h1 className="font-serif text-4xl lg:text-5xl font-bold text-white mb-2">Privacy Policy</h1>

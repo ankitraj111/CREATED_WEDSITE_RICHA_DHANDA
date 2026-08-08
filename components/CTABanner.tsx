@@ -10,7 +10,6 @@ export default function CTABanner({ setActiveView }: CTABannerProps = {}) {
       <div className="w-full px-5 lg:px-8 py-16 lg:py-20 relative">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-gold-soft text-sm font-semibold mb-4">
-            <span className="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
             Free 15-minute assessment
           </div>
           <h3 className="font-serif text-3xl lg:text-4xl font-semibold text-white mb-6 max-w-4xl mx-auto leading-tight">
