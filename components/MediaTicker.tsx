@@ -22,21 +22,27 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
   ];
 
   return (
-    <section className="bg-[#0B1426] py-8 border-y border-gold/20 overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-5 lg:px-8 mb-5 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+    <section className="bg-gradient-to-b from-[#F8F9FA] via-[#FFFFFF] to-[#F1F3F5] py-10 border-y border-gray-200 overflow-hidden relative shadow-sm">
+      {/* Background Soft Subtlety */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative z-10 w-full px-5 lg:px-8 mb-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/15 text-gold text-xs font-bold uppercase tracking-widest mb-1">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100/80 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-widest mb-2 shadow-xs">
             Media &amp; Press Recognition
           </div>
-          <h2 className="font-serif text-2xl lg:text-3xl font-bold text-white">
-            As Featured In <span className="text-gold">Leading National Outlets</span>
+          <h2 className="font-serif text-2xl lg:text-3xl font-bold text-slate-900">
+            As Featured In <span className="text-[#8B1538]">Leading National Outlets</span>
           </h2>
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-left hidden sm:block">
-            <div className="text-gold font-bold text-lg font-serif">200+</div>
-            <div className="text-white/60 text-xs">Media Outlets Covered</div>
+          <div className="bg-white border border-gray-200 px-4 py-2 rounded-xl text-left hidden sm:block shadow-sm">
+            <div className="text-[#8B1538] font-bold text-lg font-serif">200+</div>
+            <div className="text-slate-600 text-xs font-medium">Media Outlets Covered</div>
           </div>
           {setActiveView && (
             <button
@@ -44,10 +50,10 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
                 setActiveView("media");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="bg-gold hover:bg-gold-soft text-navy px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition duration-300 hover:scale-105 cursor-pointer flex items-center gap-2 shadow-lg"
+              className="bg-[#06090F] hover:bg-slate-800 text-white px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition duration-300 hover:scale-105 cursor-pointer flex items-center gap-2 shadow-md"
             >
               View All Media Coverage
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </button>
@@ -55,13 +61,13 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
         </div>
       </div>
 
-      {/* Pure Text Marquee Ticker (No Dots, No Background Boxes, No Borders) */}
-      <div className="relative w-full marquee-container py-2">
-        <div className="marquee-track flex gap-8 items-center">
+      {/* Pure Text Marquee Ticker (Light Theme Brand Logos) */}
+      <div className="relative w-full marquee-container py-3 z-10 border-y border-gray-100 bg-white/60 backdrop-blur-xs">
+        <div className="marquee-track flex gap-10 items-center">
           {[...logos, ...logos, ...logos].map((logo, idx) => (
             <div
               key={idx}
-              className="hover:opacity-80 transition cursor-pointer shrink-0"
+              className="hover:opacity-75 transition cursor-pointer shrink-0"
               onClick={() => {
                 if (setActiveView) {
                   setActiveView("media");
@@ -69,20 +75,20 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
                 }
               }}
             >
-              <BrandLogo name={logo} isDarkTheme={true} />
+              <BrandLogo name={logo} isDarkTheme={false} />
             </div>
           ))}
         </div>
       </div>
 
       {/* Featured Headline Ticker Strip */}
-      <div className="max-w-7xl mx-auto px-5 lg:px-8 mt-5">
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="relative z-10 w-full px-5 lg:px-8 mt-6">
+        <div className="bg-white border border-gray-200 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
           <div className="flex items-center gap-3 text-left">
-            <span className="px-3 py-1 rounded bg-[#ef4444] text-white text-[11px] font-bold uppercase tracking-wider shrink-0">
+            <span className="px-3 py-1 rounded bg-[#ef4444] text-white text-[11px] font-bold uppercase tracking-wider shrink-0 shadow-xs">
               Breaking News
             </span>
-            <p className="text-white/90 text-xs sm:text-sm font-medium line-clamp-1">
+            <p className="text-slate-800 text-xs sm:text-sm font-medium line-clamp-1">
               <strong>The Tribune &amp; Ahmedabad Mirror:</strong> Advocates Warn Small-Town Youth Against Fake Work Permit Scams.
             </p>
           </div>
@@ -92,7 +98,7 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
                 setActiveView("media");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="text-gold hover:text-white text-xs font-bold underline underline-offset-4 shrink-0 cursor-pointer"
+              className="text-[#8B1538] hover:text-slate-900 text-xs font-bold underline underline-offset-4 shrink-0 cursor-pointer transition"
             >
               Read Coverage →
             </button>
