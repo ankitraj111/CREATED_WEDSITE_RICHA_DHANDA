@@ -39,51 +39,63 @@ export default function WhyChoose({ setActiveView }: WhyChooseProps = {}) {
   ];
 
   return (
-    <section className="py-16 bg-[#0a0a0a]">
-      <div className="max-w-7xl mx-auto px-5 lg:px-8">
+    <section className="py-20 bg-gradient-to-b from-[#FFFFFF] via-[#F8F9FA] to-[#F1F3F5] relative overflow-hidden border-b border-gray-200">
+      {/* Background Soft Glow Accents */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/3 right-10 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative z-10 w-full px-5 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="font-serif text-4xl lg:text-5xl font-bold text-white mb-4">
-            Why Choose <span className="text-[#d4af37]">Advocate Richa Dhandha</span>
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100/80 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-widest mb-3 shadow-xs">
+            Why Work With Us
+          </div>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4">
+            Why Choose <span className="text-[#8B1538]">Advocate Richa Dhanda</span>
           </h2>
-          <p className="text-white/70 max-w-2xl mx-auto text-lg">
-            Trusted immigration expertise with a commitment to achieving the best outcomes for every visa applicant
+          <p className="text-slate-600 max-w-2xl mx-auto text-base sm:text-lg font-normal leading-relaxed">
+            Trusted immigration expertise with a commitment to achieving the best outcomes for every visa applicant.
           </p>
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-[#1a1a1a] rounded-2xl p-6 border border-[#333] hover:border-[#d4af37]/50 transition-all duration-300 group"
+              className="bg-white rounded-2xl p-7 border border-gray-200/80 shadow-sm hover:shadow-xl hover:border-amber-400/60 transition-all duration-300 group flex flex-col justify-between"
             >
-              <div className="w-14 h-14 bg-[#d4af37]/10 rounded-xl flex items-center justify-center text-3xl mb-4 group-hover:bg-[#d4af37]/20 transition-colors duration-300">
-                {feature.icon}
+              <div>
+                <div className="w-14 h-14 bg-amber-50 border border-amber-200 rounded-2xl flex items-center justify-center text-3xl mb-5 group-hover:bg-amber-100 group-hover:scale-105 transition-all duration-300 shadow-xs">
+                  {feature.icon}
+                </div>
+                <h3 className="text-slate-900 font-bold text-xl mb-3 group-hover:text-[#8B1538] transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="text-white font-semibold text-lg mb-2 group-hover:text-[#d4af37] transition-colors duration-300">
-                {feature.title}
-              </h3>
-              <p className="text-white/60 text-sm leading-relaxed">
-                {feature.description}
-              </p>
             </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-14">
           <button 
             onClick={() => {
               if (setActiveView) {
                 setActiveView('book');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-              } else {
-                window.open(`https://wa.me/919306792300?text=${encodeURIComponent("Hi, I want to schedule a consultation.")}`, "_blank");
               }
             }}
-            className="bg-[#d4af37] text-black px-8 py-4 rounded-lg font-semibold hover:bg-[#c9a030] transition-colors duration-300 cursor-pointer"
+            className="bg-[#06090F] hover:bg-slate-800 text-white px-9 py-4 rounded-xl font-bold text-sm transition-all duration-300 shadow-lg hover:scale-105 cursor-pointer inline-flex items-center gap-2"
           >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" />
+            </svg>
             Schedule a Consultation
           </button>
         </div>
