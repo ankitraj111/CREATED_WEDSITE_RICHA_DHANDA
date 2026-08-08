@@ -16,19 +16,8 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
     { number: "15+", label: "Top Countries" },
   ];
 
-  const services = [
-    "Work Visas", "✈️",
-    "Student Visas", "🎓",
-    "Permanent Residency", "🛂",
-    "Immigration Appeals", "⚖️",
-    "Business Visas", "💼",
-    "Citizenship Pathways", "🏛️",
-    "Tourist Visas", "🌍",
-    "Family Visas", "👨‍👩‍👧‍👦",
-  ];
-
   return (
-    <div className="relative min-h-[90vh] bg-[#070D1B] text-white overflow-hidden flex flex-col justify-between">
+    <div className="relative min-h-[85vh] bg-[#070D1B] text-white overflow-hidden flex flex-col justify-center">
       {/* Background Soft Glow Effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-32 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse" />
@@ -36,7 +25,7 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
         <div className="absolute inset-0 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 lg:px-8 py-12 lg:py-16 w-full flex-1 flex items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 lg:px-8 py-12 lg:py-16 w-full">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center w-full">
 
           {/* Left Column (Content) - 7 cols */}
@@ -142,24 +131,6 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
 
         </div>
       </div>
-
-      {/* Services Ticker */}
-      <div className="border-y border-gold/20 bg-navy/80 backdrop-blur-md py-3.5 overflow-hidden">
-        <div className="flex gap-8 whitespace-nowrap" style={{ animation: "marqueeScroll 30s linear infinite" }}>
-          {[...services, ...services].map((item, i) => (
-            <span key={i} className="text-white/80 text-xs sm:text-sm font-bold tracking-widest uppercase flex-shrink-0">
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <style>{`
-        @keyframes marqueeScroll {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
     </div>
   );
 }
