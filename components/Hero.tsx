@@ -11,161 +11,143 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
   }, []);
 
   const stats = [
-    { number: "1000+", label: "Visas Processed" },
+    { number: "1000+", label: "Visas Assisted" },
     { number: "98%", label: "Success Rate" },
-    { number: "15+", label: "Countries" },
+    { number: "15+", label: "Top Countries" },
   ];
 
   const services = [
     "Work Visas", "✈️",
     "Student Visas", "🎓",
-    "Permanent Residency", "控制",
+    "Permanent Residency", "🛂",
     "Immigration Appeals", "⚖️",
     "Business Visas", "💼",
-    "Citizenship", "🏛️",
+    "Citizenship Pathways", "🏛️",
     "Tourist Visas", "🌍",
-    "Family Sponsorship", "👨‍👩‍👧‍👦",
+    "Family Visas", "👨‍👩‍👧‍👦",
   ];
 
   return (
-    <div className="relative min-h-screen bg-[#06090f] overflow-hidden flex flex-col">
-
-      {/* Animated Background Glows */}
+    <div className="relative min-h-[90vh] bg-[#070D1B] text-white overflow-hidden flex flex-col justify-between">
+      {/* Background Soft Glow Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#d4af37]/10 blur-[120px] animate-pulse" />
-        <div className="absolute bottom-[-15%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#8B1538]/15 blur-[100px] animate-pulse" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute top-[40%] left-[40%] w-[300px] h-[300px] rounded-full bg-[#d4af37]/5 blur-[80px] animate-pulse" style={{ animationDelay: "3s" }} />
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: "linear-gradient(rgba(212,175,55,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.5) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }} />
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-1/2 -right-32 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03]" />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 flex-1 max-w-7xl mx-auto px-5 lg:px-8 w-full">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[calc(100vh-72px)] py-16 lg:py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 lg:px-8 py-12 lg:py-16 w-full flex-1 flex items-center">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center w-full">
 
-          {/* ── Left Column ── */}
-          <div className={`text-white transition-opacity duration-1000 ${mounted ? "opacity-100" : "opacity-0"}`}>
-
-            {/* Badge */}
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/5 border border-[#d4af37]/30 backdrop-blur-md mb-8">
-              <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" />
-              <span className="text-[#d4af37] text-xs font-bold tracking-[0.2em] uppercase">Expert Immigration Lawyer</span>
-              <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" />
+          {/* Left Column (Content) - 7 cols */}
+          <div className={`lg:col-span-7 transition-opacity duration-700 ${mounted ? "opacity-100" : "opacity-0"}`}>
+            
+            {/* Top Verified Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/15 border border-gold/30 backdrop-blur-md mb-6">
+              <span className="w-2 h-2 rounded-full bg-gold animate-ping" />
+              <span className="text-gold text-xs font-bold uppercase tracking-wider">
+                Bar Council Registered Advocate &amp; Legal Specialist
+              </span>
             </div>
 
-            {/* Heading */}
-            <h1 className="font-serif text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.05] mb-6">
-              Your Pathway To
-              <br />
-              <span className="relative inline-block">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#E8C547] to-[#d4af37]">
-                  Global Opportunities
-                </span>
-                <span className="absolute -bottom-2 left-0 w-full h-[3px] bg-gradient-to-r from-[#d4af37]/0 via-[#d4af37] to-[#d4af37]/0 rounded-full" />
+            {/* Simple Clear Headline */}
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] mb-6 text-white">
+              Your Trusted Lawyer For <br />
+              <span className="bg-gradient-to-r from-amber-300 via-gold to-amber-500 bg-clip-text text-transparent">
+                Global Visas &amp; Immigration
               </span>
             </h1>
 
-            {/* Description */}
-            <p className="text-lg lg:text-xl text-white/60 max-w-lg leading-relaxed mb-10 font-light">
-              Advocate Richa Dhanda — Expert Immigration Lawyer. Navigating complex
-              visa laws, securing your future abroad, and delivering successful
-              immigration outcomes with a client-first approach.
+            {/* Simple Clear English Subtitle */}
+            <p className="text-white/80 text-base sm:text-lg lg:text-xl font-normal leading-relaxed max-w-2xl mb-8">
+              Advocate Richa Dhanda provides honest, straightforward legal assistance for <strong>Work Visas</strong>, <strong>Student Visas</strong>, <strong>PR Applications</strong>, and <strong>Visa Refusal Appeals</strong> with 100% legal clarity.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 mb-14">
+            <div className="flex flex-wrap items-center gap-4 mb-10">
               <button
                 onClick={() => setActiveView && setActiveView("book")}
-                className="relative inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-[#06090f] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] cursor-pointer"
-                style={{ background: "linear-gradient(135deg, #d4af37, #E8C547, #d4af37)" }}
+                className="bg-gradient-to-r from-amber-400 via-gold to-amber-500 text-navy font-bold text-sm px-8 py-4 rounded-2xl hover:scale-105 transition-all duration-300 shadow-xl flex items-center gap-2 cursor-pointer"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" />
                 </svg>
-                Book Consultation
+                Book Legal Consultation
               </button>
 
               <button
                 onClick={() => setActiveView && setActiveView("services")}
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-white border border-white/20 backdrop-blur-md hover:bg-white/10 hover:border-[#d4af37]/40 transition-all duration-300 hover:scale-105 cursor-pointer"
+                className="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-sm px-8 py-4 rounded-2xl transition-all duration-300 flex items-center gap-2 cursor-pointer backdrop-blur-sm"
               >
-                <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <polygon points="5 3 19 12 5 21 5 3" />
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" />
                 </svg>
-                View Services
+                Explore Legal Services
               </button>
             </div>
 
-            {/* Stats */}
-            <div className="flex items-center gap-8 lg:gap-12">
-              {stats.map((stat, i) => (
-                <div key={i} className="text-center">
-                  <div className="font-serif text-3xl lg:text-4xl font-bold text-[#d4af37]">{stat.number}</div>
-                  <div className="text-white/50 text-xs tracking-wider uppercase mt-1">{stat.label}</div>
+            {/* Stats Counter Row */}
+            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-white/10 max-w-lg">
+              {stats.map((st, i) => (
+                <div key={i}>
+                  <div className="font-serif font-bold text-2xl sm:text-3xl text-gold">{st.number}</div>
+                  <div className="text-white/70 text-xs mt-1 font-medium">{st.label}</div>
                 </div>
               ))}
             </div>
 
-            {/* Trust badges */}
-            <div className="mt-10 flex flex-wrap gap-4">
-              {["Bar Council Enrolled", "LL.M. Qualified", "High Court Practitioner"].map((badge, i) => (
-                <div key={i} className="flex items-center gap-2 text-white/40 text-xs">
-                  <svg className="w-3.5 h-3.5 text-[#d4af37]" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  {badge}
-                </div>
-              ))}
+            {/* Trust Checkmarks */}
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-xs font-semibold text-white/70">
+              <span className="flex items-center gap-1.5 text-amber-300">✓ Bar Council Enrolled</span>
+              <span className="flex items-center gap-1.5 text-amber-300">✓ LL.M. Degree Holder</span>
+              <span className="flex items-center gap-1.5 text-amber-300">✓ High Court Advocate</span>
             </div>
+
           </div>
 
-          {/* ── Right Column — Advocate Richa Dhanda Official Certificate Wall Photo ── */}
-          <div className={`relative transition-opacity duration-1000 delay-300 ${mounted ? "opacity-100" : "opacity-0"}`}>
+          {/* Right Column (Advocate Photo Card) - 5 cols */}
+          <div className={`lg:col-span-5 transition-opacity duration-700 delay-200 ${mounted ? "opacity-100" : "opacity-0"}`}>
+            <div className="relative mx-auto max-w-md">
+              {/* Outer Golden Glow & Frame */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-gold/20 rounded-3xl blur-xl" />
+              
+              <div className="relative bg-gradient-to-b from-white/10 to-white/5 border border-gold/30 rounded-3xl p-3 shadow-2xl backdrop-blur-md overflow-hidden">
+                <div className="relative h-[440px] sm:h-[500px] w-full rounded-2xl overflow-hidden bg-navy">
+                  <Image
+                    src="/images/richa_tribune.png"
+                    alt="Advocate Richa Dhanda"
+                    fill
+                    className="object-cover object-top hover:scale-105 transition-transform duration-700"
+                    priority
+                  />
+                  
+                  {/* Subtle Gradient Shadow at bottom */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/20 to-transparent" />
 
-            {/* Glow ring */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#d4af37]/20 via-transparent to-[#8B1538]/20 blur-xl scale-105" />
-
-            <div className="relative rounded-3xl overflow-hidden border border-[#d4af37]/20 shadow-[0_0_60px_rgba(212,175,55,0.15)] bg-black/40">
-              <Image
-                src="/images/richa_tribune.png"
-                alt="Advocate Richa Dhanda – Official Certification & Certificate Wall"
-                width={800}
-                height={1000}
-                className="w-full h-[500px] lg:h-[660px] object-cover object-top"
-                priority
-              />
-
-              {/* Bottom gradient */}
-              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#06090f] via-[#06090f]/40 to-transparent" />
-
-              {/* Floating name card */}
-              <div className="absolute bottom-6 left-6 right-6 flex gap-4">
-                <div className="flex-1 bg-black/60 backdrop-blur-xl rounded-2xl p-4 border border-[#d4af37]/20">
-                  <div className="text-[#d4af37] font-bold text-xl font-serif">Advocate Richa Dhanda</div>
-                  <div className="text-white/60 text-xs tracking-wider mt-0.5">Expert Immigration Lawyer</div>
-                </div>
-                <div className="bg-[#d4af37] rounded-2xl p-4 flex flex-col items-center justify-center min-w-[80px]">
-                  <div className="font-serif font-bold text-2xl text-[#06090f]">5+</div>
-                  <div className="text-[#06090f]/70 text-[10px] font-bold tracking-wider text-center">YRS EXP</div>
+                  {/* Name Badge */}
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3 bg-black/80 backdrop-blur-md p-4 rounded-xl border border-gold/30">
+                    <div>
+                      <h3 className="font-serif font-bold text-white text-lg sm:text-xl">Advocate Richa Dhanda</h3>
+                      <p className="text-amber-300 text-xs font-semibold">High Court &amp; Immigration Lawyer</p>
+                    </div>
+                    <div className="bg-gold text-navy font-bold px-3 py-2 rounded-lg text-center shrink-0">
+                      <div className="text-sm font-black leading-none">5+</div>
+                      <div className="text-[9px] uppercase tracking-wider font-extrabold mt-0.5">Years Exp</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-
-            {/* Corner ornaments */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 border-t-2 border-r-2 border-[#d4af37]/30 rounded-tr-3xl" />
-            <div className="absolute -bottom-4 -left-4 w-20 h-20 border-b-2 border-l-2 border-[#d4af37]/30 rounded-bl-3xl" />
           </div>
 
         </div>
       </div>
 
-      {/* Scrolling Marquee */}
-      <div className="relative z-10 border-t border-b border-[#d4af37]/40 bg-[#d4af37]/15 backdrop-blur-md py-4 overflow-hidden">
+      {/* Services Ticker */}
+      <div className="border-y border-gold/20 bg-navy/80 backdrop-blur-md py-3.5 overflow-hidden">
         <div className="flex gap-8 whitespace-nowrap" style={{ animation: "marqueeScroll 30s linear infinite" }}>
           {[...services, ...services].map((item, i) => (
-            <span key={i} className="text-white/90 text-sm font-semibold tracking-widest uppercase flex-shrink-0">
+            <span key={i} className="text-white/80 text-xs sm:text-sm font-bold tracking-widest uppercase flex-shrink-0">
               {item}
             </span>
           ))}
