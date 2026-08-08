@@ -16,15 +16,15 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
     { number: "15+", label: "Countries" },
   ];
 
-  const serviceList = [
-    "Work Visas",
-    "Student Visas",
-    "Permanent Residency",
-    "Immigration Appeals",
-    "Business Visas",
-    "Citizenship Pathways",
-    "Tourist Visas",
-    "Family Sponsorship",
+  const services = [
+    "Work Visas", "✈️",
+    "Student Visas", "🎓",
+    "Permanent Residency", "🛂",
+    "Immigration Appeals", "⚖️",
+    "Business Visas", "💼",
+    "Citizenship", "🏛️",
+    "Tourist Visas", "🌍",
+    "Family Sponsorship", "👨‍👩‍👧‍👦",
   ];
 
   return (
@@ -143,13 +143,12 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
         </div>
       </div>
 
-      {/* Pure Text Services Marquee Ticker (No Emoji Dots / Icons) */}
+      {/* Original Services Marquee Ticker */}
       <div className="relative z-10 border-t border-b border-[#d4af37]/40 bg-[#d4af37]/15 backdrop-blur-md py-4 overflow-hidden">
-        <div className="flex gap-10 whitespace-nowrap" style={{ animation: "marqueeScroll 35s linear infinite" }}>
-          {[...serviceList, ...serviceList, ...serviceList].map((item, i) => (
-            <span key={i} className="inline-flex items-center gap-10 text-white/90 text-sm font-semibold tracking-widest uppercase flex-shrink-0">
-              <span>{item}</span>
-              <span className="text-[#d4af37]/60">✦</span>
+        <div className="flex gap-8 whitespace-nowrap" style={{ animation: "marqueeScroll 30s linear infinite" }}>
+          {[...services, ...services].map((item, i) => (
+            <span key={i} className="text-white/90 text-sm font-semibold tracking-widest uppercase flex-shrink-0">
+              {item}
             </span>
           ))}
         </div>
