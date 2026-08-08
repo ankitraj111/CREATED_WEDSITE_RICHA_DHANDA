@@ -25,10 +25,10 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
         <div className="absolute inset-0 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 lg:px-8 py-12 lg:py-16 w-full">
+      <div className="relative z-10 w-full px-5 lg:px-8 py-12 lg:py-16">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center w-full">
 
-          {/* Left Column (Content) - 7 cols */}
+          {/* Left Column (Content) - 7 cols aligned to left side */}
           <div className={`lg:col-span-7 transition-opacity duration-700 ${mounted ? "opacity-100" : "opacity-0"}`}>
             
             {/* Top Verified Badge */}
@@ -96,7 +96,7 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
 
           {/* Right Column (Advocate Photo Card) - 5 cols */}
           <div className={`lg:col-span-5 transition-opacity duration-700 delay-200 ${mounted ? "opacity-100" : "opacity-0"}`}>
-            <div className="relative mx-auto max-w-md">
+            <div className="relative ml-auto max-w-md">
               {/* Outer Golden Glow & Frame */}
               <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-gold/20 rounded-3xl blur-xl" />
               
