@@ -56,13 +56,13 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
         </div>
       </div>
 
-      {/* Marquee Ticker with Authentic Brand Logos */}
-      <div className="relative w-full marquee-container py-3 bg-white/[0.02]">
-        <div className="marquee-track flex gap-6 items-center">
+      {/* Pure Text Marquee Ticker (No Background Boxes, No Borders) */}
+      <div className="relative w-full marquee-container py-2">
+        <div className="marquee-track flex gap-8 items-center">
           {[...logos, ...logos, ...logos].map((logo, idx) => (
             <div
               key={idx}
-              className="hover:scale-105 transition cursor-pointer shrink-0"
+              className="hover:opacity-80 transition cursor-pointer shrink-0"
               onClick={() => {
                 if (setActiveView) {
                   setActiveView("media");
@@ -70,7 +70,7 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
                 }
               }}
             >
-              <BrandLogo name={logo} />
+              <BrandLogo name={logo} isDarkTheme={true} />
             </div>
           ))}
         </div>
@@ -80,7 +80,7 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
       <div className="max-w-7xl mx-auto px-5 lg:px-8 mt-5">
         <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-left">
-            <span className="px-3 py-1 rounded bg-[#C8102E] text-white text-[11px] font-bold uppercase tracking-wider shrink-0">
+            <span className="px-3 py-1 rounded bg-[#ef4444] text-white text-[11px] font-bold uppercase tracking-wider shrink-0">
               Breaking News
             </span>
             <p className="text-white/90 text-xs sm:text-sm font-medium line-clamp-1">

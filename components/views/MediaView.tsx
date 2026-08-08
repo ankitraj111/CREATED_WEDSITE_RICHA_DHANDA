@@ -49,7 +49,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
               Back to Website
             </button>
 
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#C8102E] text-white text-xs font-bold uppercase tracking-wider">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#ef4444] text-white text-xs font-bold uppercase tracking-wider">
               ● Official Media Room
             </span>
           </div>
@@ -105,19 +105,19 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
         </div>
       </div>
 
-      {/* TOP FEATURED LOGOS STRIP */}
+      {/* TOP FEATURED LOGOS STRIP (NO BACKGROUND BOXES, PURE TEXT LOGOS) */}
       <div className="bg-white border-b border-gray-200 py-4 shadow-sm">
-        <div className="max-w-7xl mx-auto px-5 lg:px-8 flex flex-wrap items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-5 lg:px-8 flex flex-wrap items-center justify-between gap-6">
           <span className="text-xs font-bold text-gray-500 uppercase tracking-widest shrink-0">
             Featured In Top Media:
           </span>
-          <div className="flex flex-wrap gap-4 items-center overflow-x-auto py-1">
-            <BrandLogo name="Google News" />
-            <BrandLogo name="Yahoo! News" />
-            <BrandLogo name="The Tribune" />
-            <BrandLogo name="Ahmedabad Mirror" />
-            <BrandLogo name="India Today" />
-            <BrandLogo name="Times of India" />
+          <div className="flex flex-wrap gap-6 items-center overflow-x-auto py-1">
+            <BrandLogo name="Google News" isDarkTheme={false} />
+            <BrandLogo name="Yahoo! News" isDarkTheme={false} />
+            <BrandLogo name="The Tribune" isDarkTheme={false} />
+            <BrandLogo name="Ahmedabad Mirror" isDarkTheme={false} />
+            <BrandLogo name="India Today" isDarkTheme={false} />
+            <BrandLogo name="Times of India" isDarkTheme={false} />
           </div>
         </div>
       </div>
@@ -129,7 +129,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
         <div id="featured-news" className="mb-16 scroll-mt-24">
           <div className="border-b border-gray-200 pb-4 mb-8 flex items-center justify-between">
             <div>
-              <span className="text-[#C8102E] text-xs font-bold uppercase tracking-widest block mb-1">
+              <span className="text-[#ef4444] text-xs font-bold uppercase tracking-widest block mb-1">
                 Featured Lead Stories
               </span>
               <h2 className="font-serif text-2xl lg:text-3xl font-bold text-[#0B1426]">
@@ -153,8 +153,8 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                     fill
                     className="object-cover object-top"
                   />
-                  <div className="absolute top-4 left-4 flex gap-2">
-                    <BrandLogo name="The Tribune" />
+                  <div className="absolute top-4 left-4 bg-black/80 px-3 py-1.5 rounded-lg shadow-md">
+                    <BrandLogo name="The Tribune" isDarkTheme={true} />
                   </div>
                   <div className="absolute bottom-4 left-4 bg-black/75 text-white px-3 py-1 rounded text-xs font-medium backdrop-blur-sm">
                     Published: August 14, 2024
@@ -162,17 +162,17 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                 </div>
 
                 <div className="p-7">
-                  <span className="text-xs font-bold text-[#C8102E] uppercase tracking-wider block mb-2">
+                  <span className="text-xs font-bold text-[#ef4444] uppercase tracking-wider block mb-2">
                     National Partner Exclusive
                   </span>
-                  <h3 className="font-serif text-2xl font-bold text-[#0B1426] mb-3 leading-snug hover:text-[#C8102E] transition">
+                  <h3 className="font-serif text-2xl font-bold text-[#0B1426] mb-3 leading-snug hover:text-[#ef4444] transition">
                     Immigration Experts Highlight Fraud Risks Linked to Fake Work Permit Offers in India
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed mb-5">
                     Every week, families from small towns across Punjab, Haryana, Uttar Pradesh, Himachal Pradesh and several other states make one of the biggest financial decisions of their lives — navigating fake work permit risks with guidance from expert immigration advocates.
                   </p>
 
-                  <div className="bg-gray-50 border-l-4 border-[#C8102E] p-4 rounded-r-xl text-gray-700 text-xs italic mb-4">
+                  <div className="bg-gray-50 border-l-4 border-[#ef4444] p-4 rounded-r-xl text-gray-700 text-xs italic mb-4">
                     <strong className="not-italic text-gray-900 font-bold block mb-1">Statement from Advocate Richa Dhanda:</strong>
                     &quot;Applicants must rigorously verify employer sponsor licenses and official contract letters prior to transferring retainer funds.&quot;
                   </div>
@@ -185,7 +185,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                   href="https://www.tribuneindia.com/partner-exclusives/immigration-experts-highlight-fraud-risks-linked-to-fake-work-permit-offers-in-india/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#C8102E] hover:bg-red-700 text-white font-bold px-5 py-2.5 rounded-lg text-xs transition inline-flex items-center gap-1.5"
+                  className="bg-[#ef4444] hover:bg-red-700 text-white font-bold px-5 py-2.5 rounded-lg text-xs transition inline-flex items-center gap-1.5"
                 >
                   Read Full Tribune Article →
                 </a>
@@ -202,8 +202,8 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                     fill
                     className="object-cover object-top"
                   />
-                  <div className="absolute top-4 left-4 flex gap-2">
-                    <BrandLogo name="Ahmedabad Mirror" />
+                  <div className="absolute top-4 left-4 bg-black/80 px-3 py-1.5 rounded-lg shadow-md">
+                    <BrandLogo name="Ahmedabad Mirror" isDarkTheme={true} />
                   </div>
                   <div className="absolute bottom-4 left-4 bg-black/75 text-white px-3 py-1 rounded text-xs font-medium backdrop-blur-sm">
                     Published: August 14, 2024
@@ -211,17 +211,17 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                 </div>
 
                 <div className="p-7">
-                  <span className="text-xs font-bold text-[#E65100] uppercase tracking-wider block mb-2">
+                  <span className="text-xs font-bold text-[#f97316] uppercase tracking-wider block mb-2">
                     National News Feature
                   </span>
-                  <h3 className="font-serif text-2xl font-bold text-[#0B1426] mb-3 leading-snug hover:text-[#E65100] transition">
+                  <h3 className="font-serif text-2xl font-bold text-[#0B1426] mb-3 leading-snug hover:text-[#f97316] transition">
                     Young Indians From Small Towns Losing Savings to Fake Work Permit Offers, Warn Immigration Experts
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed mb-5">
                     Legal experts issue crucial warnings regarding fraudulent overseas employment schemes, fake job offers, and essential document verification steps for aspiring international migrants seeking global careers.
                   </p>
 
-                  <div className="bg-gray-50 border-l-4 border-[#E65100] p-4 rounded-r-xl text-gray-700 text-xs italic mb-4">
+                  <div className="bg-gray-50 border-l-4 border-[#f97316] p-4 rounded-r-xl text-gray-700 text-xs italic mb-4">
                     <strong className="not-italic text-gray-900 font-bold block mb-1">Key Legal Advisory:</strong>
                     &quot;Small-town candidates are often targeted by unaccredited agents. Legal verification before payment is the best protection.&quot;
                   </div>
@@ -234,7 +234,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                   href="https://www.ahmedabadmirror.com/young-indians-from-small-towns-losing-savings-to-fake-work-permit-offers-warn-immigration-experts/81918948.html"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#E65100] hover:bg-orange-700 text-white font-bold px-5 py-2.5 rounded-lg text-xs transition inline-flex items-center gap-1.5"
+                  className="bg-[#f97316] hover:bg-orange-700 text-white font-bold px-5 py-2.5 rounded-lg text-xs transition inline-flex items-center gap-1.5"
                 >
                   Read Full Mirror Article →
                 </a>
@@ -251,8 +251,8 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                 className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between"
               >
                 <div>
-                  <div className="mb-4">
-                    <BrandLogo name={item.name} />
+                  <div className="mb-3">
+                    <BrandLogo name={item.name} isDarkTheme={false} />
                   </div>
                   <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1">
                     {item.category}
@@ -355,7 +355,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                 >
                   <div>
                     <div className="flex items-center justify-between gap-3 mb-3">
-                      <BrandLogo name={item.name} />
+                      <BrandLogo name={item.name} isDarkTheme={false} />
                       <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider bg-gray-200 px-2.5 py-0.5 rounded">
                         {item.category}
                       </span>
@@ -370,7 +370,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                     href={item.link && item.link !== "#" ? item.link : `https://news.google.com/search?q=${encodeURIComponent(item.name + " Advocate Richa Dhanda")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-between w-full pt-3 border-t border-gray-200 text-xs font-bold text-[#0B1426] hover:text-[#C8102E] transition"
+                    className="inline-flex items-center justify-between w-full pt-3 border-t border-gray-200 text-xs font-bold text-[#0B1426] hover:text-[#ef4444] transition"
                   >
                     <span>Read Coverage</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
