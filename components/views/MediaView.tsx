@@ -34,50 +34,53 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
   return (
     <div className="min-h-screen bg-[#F8F9FA] text-[#111827]">
 
-      {/* CLEAN PROFESSIONAL PRESSROOM HEADER */}
-      <div className="bg-[#0B1426] text-white py-14 border-b border-[#1E293B]">
-        <div className="max-w-7xl mx-auto px-5 lg:px-8">
+      {/* CLEAN PROFESSIONAL PRESSROOM HEADER — Executive Light Theme */}
+      <div className="bg-gradient-to-b from-[#FAF9F5] via-[#FFFFFF] to-[#F1F3F5] text-slate-900 py-12 lg:py-16 border-b border-gray-200">
+        <div className="w-full px-5 lg:px-8 max-w-7xl mx-auto">
           
-          <div className="flex items-center justify-between gap-4 mb-6">
+          <div className="flex items-center justify-between gap-4 mb-8">
             <button
               onClick={() => setActiveView("home")}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-gold hover:text-navy text-white text-xs font-semibold transition cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-700 text-xs font-bold transition cursor-pointer shadow-xs"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M19 12H5M12 5l-7 7 7 7" />
               </svg>
               Back to Website
             </button>
 
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#ef4444] text-white text-xs font-bold uppercase tracking-wider">
-              ● Official Media Room
+            <span className="inline-flex items-center px-3.5 py-1 rounded-full bg-amber-100/90 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-wider shadow-xs">
+              Official Media Room
             </span>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 items-center">
             <div className="lg:col-span-2">
-              <span className="text-gold text-xs font-bold uppercase tracking-widest block mb-2">
-                Press Releases &amp; Media Mentions
+              <span className="text-[#8B1538] text-xs font-extrabold uppercase tracking-widest block mb-2">
+                Press Releases &amp; Media Coverage
               </span>
-              <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+              <h1 className="font-serif text-3xl sm:text-5xl font-bold text-[#0B1426] mb-4 leading-tight">
                 Advocate Richa Dhanda <br />
-                <span className="text-gold">In National Media</span>
+                <span className="text-[#8B1538]">In National Media</span>
               </h1>
 
-              <p className="text-gray-300 text-base lg:text-lg max-w-2xl leading-relaxed mb-6 font-light">
-                Verified legal commentary, work permit scam advisories, and expert opinions published in major national news outlets including <strong className="text-white">The Tribune</strong>, <strong className="text-white">Ahmedabad Mirror</strong>, <strong className="text-white">Google News</strong>, and over 200+ media portals across India.
+              <p className="text-slate-600 text-base lg:text-lg max-w-2xl leading-relaxed mb-6 font-normal">
+                Verified legal commentary, work permit scam advisories, and expert opinions published in major national news outlets including <strong className="text-slate-900 font-bold">The Tribune</strong>, <strong className="text-slate-900 font-bold">Ahmedabad Mirror</strong>, <strong className="text-slate-900 font-bold">Google News</strong>, and over 200+ media portals across India.
               </p>
 
               <div className="flex flex-wrap gap-3 items-center">
                 <a
                   href="#featured-news"
-                  className="bg-gold text-navy font-bold px-6 py-3 rounded-lg text-xs uppercase tracking-wider hover:bg-gold-soft transition shadow-md"
+                  className="bg-[#8B1538] text-white font-bold px-6 py-3 rounded-lg text-xs uppercase tracking-wider hover:bg-[#70102d] transition shadow-md inline-flex items-center gap-2"
                 >
-                  Featured Cover Stories ↓
+                  Featured Cover Stories
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M19 14l-7 7-7-7m14-8l-7 7-7-7" />
+                  </svg>
                 </a>
                 <a
                   href="#search-directory"
-                  className="bg-white/10 text-white font-bold px-6 py-3 rounded-lg text-xs uppercase tracking-wider hover:bg-white/20 transition border border-white/20"
+                  className="bg-white text-slate-800 font-bold px-6 py-3 rounded-lg text-xs uppercase tracking-wider hover:bg-slate-50 transition border border-slate-300 shadow-xs"
                 >
                   Search 200+ Outlets 🔍
                 </a>
@@ -85,8 +88,8 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
             </div>
 
             {/* Official Advocate Profile Card */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center">
-              <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-gold shadow-md mb-3">
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col items-center text-center shadow-lg">
+              <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-[#D4AF37] shadow-md mb-3">
                 <Image
                   src="/images/richa_tribune.png"
                   alt="Advocate Richa Dhanda"
@@ -94,14 +97,13 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                   className="object-cover object-top"
                 />
               </div>
-              <h3 className="font-serif font-bold text-white text-lg">Advocate Richa Dhanda</h3>
-              <p className="text-gold text-xs font-medium">Bar Council Reg. PH/1260/2025</p>
-              <p className="text-gray-400 text-xs mt-2 leading-relaxed">
+              <h3 className="font-serif font-bold text-slate-900 text-lg">Advocate Richa Dhanda</h3>
+              <p className="text-[#8B1538] text-xs font-bold tracking-wide mt-0.5">Bar Council Reg. PH/1260/2025</p>
+              <p className="text-slate-600 text-xs mt-2 leading-relaxed">
                 Expert Immigration Lawyer &amp; National Press Spokesperson.
               </p>
             </div>
           </div>
-
         </div>
       </div>
 
