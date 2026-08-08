@@ -1,5 +1,7 @@
 "use client";
 
+import Logo from "@/components/Logo";
+
 interface FooterProps {
   setActiveView: (view: string) => void;
 }
@@ -15,18 +17,8 @@ export default function Footer({ setActiveView }: FooterProps) {
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full seal flex items-center justify-center font-bold font-serif">
-                RD
-              </div>
-              <div>
-                <div className="font-serif text-white text-lg">
-                  Advocate Richa Dhanda
-                </div>
-                <div className="text-[10px] tracking-[0.22em] uppercase text-gold">
-                  Expert Immigration Lawyer
-                </div>
-              </div>
+            <div className="cursor-pointer" onClick={() => handleNavClick("home")}>
+              <Logo size={44} isDarkBg={true} />
             </div>
             <p className="text-sm mt-4 leading-relaxed">
               Compassionate, precise immigration legal help for individuals,

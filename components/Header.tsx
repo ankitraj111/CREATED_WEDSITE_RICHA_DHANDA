@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Logo from "@/components/Logo";
 
 interface HeaderProps {
   activeView: string;
@@ -31,22 +32,12 @@ export default function Header({ activeView, setActiveView }: HeaderProps) {
       <div className="w-full px-5 lg:px-8">
         <div className="flex items-center justify-between h-[72px]">
 
-          {/* Logo / Brand Name */}
+          {/* Custom SVG Logo Emblem / Brand Name */}
           <button
             onClick={() => handleNavClick("home")}
-            className="flex items-center gap-3 group text-left cursor-pointer"
+            className="cursor-pointer text-left focus:outline-none"
           >
-            <div className="w-11 h-11 rounded-full border-2 border-[#8B1538] bg-amber-50 flex items-center justify-center font-bold font-serif text-lg text-[#8B1538]">
-              RD
-            </div>
-            <div className="leading-tight">
-              <div className="font-serif text-slate-900 text-lg font-bold tracking-wide group-hover:text-[#8B1538] transition">
-                Advocate Richa Dhanda
-              </div>
-              <div className="text-[10px] tracking-[0.2em] uppercase text-[#8B1538] font-bold">
-                Expert Immigration Lawyer
-              </div>
-            </div>
+            <Logo size={46} isDarkBg={false} />
           </button>
 
           {/* Desktop Navigation Links */}
