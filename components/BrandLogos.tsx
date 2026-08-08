@@ -10,7 +10,7 @@ interface BrandLogoProps {
 export default function BrandLogo({ name, isDarkTheme = true }: BrandLogoProps) {
   const lower = name.toLowerCase();
 
-  // Official Google News SVG + Colored Text (No Background Box, No Border!)
+  // Official Google News SVG + Colored Text (No Background Box, No Border, No Dot!)
   if (lower.includes("google")) {
     return (
       <div className="inline-flex items-center gap-2 shrink-0 py-1">
@@ -33,7 +33,7 @@ export default function BrandLogo({ name, isDarkTheme = true }: BrandLogoProps) 
     );
   }
 
-  // Official Yahoo! News Purple Text (No Background Box, No Border!)
+  // Official Yahoo! News Purple Text (No Background Box, No Border, No Dot!)
   if (lower.includes("yahoo")) {
     return (
       <div className="inline-flex items-center gap-1.5 shrink-0 py-1">
@@ -43,7 +43,7 @@ export default function BrandLogo({ name, isDarkTheme = true }: BrandLogoProps) 
     );
   }
 
-  // Official The Tribune Crimson Red Text (No Background Box, No Border!)
+  // Official The Tribune Crimson Red Text (No Background Box, No Border, No Dot!)
   if (lower.includes("tribune")) {
     return (
       <div className="inline-flex items-center shrink-0 py-1">
@@ -52,7 +52,7 @@ export default function BrandLogo({ name, isDarkTheme = true }: BrandLogoProps) 
     );
   }
 
-  // Official Ahmedabad Mirror Orange Text (No Background Box, No Border!)
+  // Official Ahmedabad Mirror Orange Text (No Background Box, No Border, No Dot!)
   if (lower.includes("ahmedabad mirror")) {
     return (
       <div className="inline-flex items-center shrink-0 py-1">
@@ -61,7 +61,7 @@ export default function BrandLogo({ name, isDarkTheme = true }: BrandLogoProps) 
     );
   }
 
-  // Official India Today Red Text (No Background Box, No Border!)
+  // Official India Today Red Text (No Background Box, No Border, No Dot!)
   if (lower.includes("india today")) {
     return (
       <div className="inline-flex items-center gap-1 shrink-0 py-1">
@@ -71,7 +71,7 @@ export default function BrandLogo({ name, isDarkTheme = true }: BrandLogoProps) 
     );
   }
 
-  // Official Times of India Red Text (No Background Box, No Border!)
+  // Official Times of India Red Text (No Background Box, No Border, No Dot!)
   if (lower.includes("times of india")) {
     return (
       <div className="inline-flex items-center shrink-0 py-1">
@@ -88,10 +88,9 @@ export default function BrandLogo({ name, isDarkTheme = true }: BrandLogoProps) 
     );
   }
 
-  // Pure Text Only for all other outlets (India Global Live, Indian Press Wire, Maharashtra Portal, Gujarat Watch, Rajasthan Headlines, etc.) - NO border, NO background box!
+  // Pure Text Only for all other outlets (India Global Live, Indian Press Wire, Maharashtra Portal, Gujarat Watch, Rajasthan Headlines, etc.) - NO dot!
   return (
-    <div className="inline-flex items-center gap-2 shrink-0 py-1">
-      <span className="w-1.5 h-1.5 rounded-full bg-gold/70" />
+    <div className="inline-flex items-center shrink-0 py-1">
       <span className={isDarkTheme ? "font-serif font-bold text-sm text-white/90" : "font-serif font-bold text-sm text-navy"}>
         {name}
       </span>

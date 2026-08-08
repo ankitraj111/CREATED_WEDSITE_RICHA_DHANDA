@@ -26,7 +26,6 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
       <div className="max-w-7xl mx-auto px-5 lg:px-8 mb-5 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/15 text-gold text-xs font-bold uppercase tracking-widest mb-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
             Media &amp; Press Recognition
           </div>
           <h2 className="font-serif text-2xl lg:text-3xl font-bold text-white">
@@ -56,7 +55,7 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
         </div>
       </div>
 
-      {/* Pure Text Marquee Ticker (No Background Boxes, No Borders) */}
+      {/* Pure Text Marquee Ticker (No Dots, No Background Boxes, No Borders) */}
       <div className="relative w-full marquee-container py-2">
         <div className="marquee-track flex gap-8 items-center">
           {[...logos, ...logos, ...logos].map((logo, idx) => (
