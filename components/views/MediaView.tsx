@@ -139,15 +139,15 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
             {/* THE TRIBUNE SPOTLIGHT CARD */}
             <div className="group bg-white rounded-3xl border border-cream-2 shadow-lg overflow-hidden hover:shadow-2xl hover:border-gold/50 transition-all duration-500 flex flex-col justify-between">
               <div>
-                <div className="relative h-64 w-full overflow-hidden">
+                <div className="relative h-72 w-full overflow-hidden bg-navy/90">
                   <Image
-                    src="/images/tribune_coverage.jpg"
-                    alt="The Tribune Coverage"
+                    src="/images/richa_tribune.png"
+                    alt="Advocate Richa Dhanda - The Tribune Feature"
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />
-                  <div className="absolute top-4 left-4 flex gap-2">
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/20 to-transparent" />
+                  <div className="absolute top-4 left-4 flex gap-2 z-10">
                     <span className="bg-red-600 text-white px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-md">
                       The Tribune
                     </span>
@@ -155,7 +155,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                       Partner Exclusive
                     </span>
                   </div>
-                  <div className="absolute bottom-4 left-4 text-white/80 text-xs font-medium flex items-center gap-2">
+                  <div className="absolute bottom-4 left-4 text-white/90 text-xs font-medium flex items-center gap-2 z-10">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2">
                       <rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" />
                     </svg>
@@ -193,15 +193,15 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
             {/* AHMEDABAD MIRROR SPOTLIGHT CARD */}
             <div className="group bg-white rounded-3xl border border-cream-2 shadow-lg overflow-hidden hover:shadow-2xl hover:border-gold/50 transition-all duration-500 flex flex-col justify-between">
               <div>
-                <div className="relative h-64 w-full overflow-hidden">
+                <div className="relative h-72 w-full overflow-hidden bg-navy/90">
                   <Image
-                    src="/images/ahmedabad_coverage.jpg"
-                    alt="Ahmedabad Mirror Coverage"
+                    src="/images/richa_tribune.png"
+                    alt="Advocate Richa Dhanda - Ahmedabad Mirror Feature"
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />
-                  <div className="absolute top-4 left-4 flex gap-2">
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/20 to-transparent" />
+                  <div className="absolute top-4 left-4 flex gap-2 z-10">
                     <span className="bg-amber-600 text-white px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-md">
                       Ahmedabad Mirror
                     </span>
@@ -209,7 +209,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                       National Feature
                     </span>
                   </div>
-                  <div className="absolute bottom-4 left-4 text-white/80 text-xs font-medium flex items-center gap-2">
+                  <div className="absolute bottom-4 left-4 text-white/90 text-xs font-medium flex items-center gap-2 z-10">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="2">
                       <rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" />
                     </svg>
