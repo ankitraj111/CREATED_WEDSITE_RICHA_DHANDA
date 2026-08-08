@@ -28,7 +28,7 @@ export default function Header({ activeView, setActiveView }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#333]">
-      <div className="max-w-7xl mx-auto px-5 lg:px-8">
+      <div className="w-full px-5 lg:px-8">
         <div className="flex items-center justify-between h-[72px]">
 
           {/* Logo / Brand Name */}
