@@ -1,155 +1,179 @@
 "use client";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
-
-const faqCategories = [
-  { id: 'all', label: 'All Questions' },
-  { id: 'work', label: 'Work Visas' },
-  { id: 'student', label: 'Student Visas' },
-  { id: 'pr', label: 'Permanent Residency' },
-  { id: 'appeals', label: 'Appeals & Refusals' }
-];
-
-const faqs = [
-  {
-    category: 'work',
-    question: 'What are the requirements for a skilled worker visa?',
-    answer: 'Requirements vary by country, but generally include a valid job offer from a sponsored employer, proof of relevant skills/qualifications, passing a points-based assessment, and meeting English language requirements.'
-  },
-  {
-    category: 'work',
-    question: 'Can I bring my family with me on a work visa?',
-    answer: 'Yes, in most cases, skilled worker visas allow you to bring your spouse and dependent children. They will typically be granted dependent visas which may also allow them to work or study.'
-  },
-  {
-    category: 'student',
-    question: 'Can I work while studying abroad?',
-    answer: 'Most popular study destinations (like Canada, UK, Australia) allow international students to work part-time (usually up to 20 hours per week) during the academic term and full-time during scheduled breaks.'
-  },
-  {
-    category: 'student',
-    question: 'What is a Post-Graduation Work Permit (PGWP)?',
-    answer: 'A PGWP allows international students who have graduated from a participating post-secondary institution to gain valuable work experience in that country, which often counts towards Permanent Residency.'
-  },
-  {
-    category: 'pr',
-    question: 'How long does the Permanent Residency process take?',
-    answer: 'Processing times vary wildly based on the pathway (e.g., Express Entry vs. Family Sponsorship) and the country. It can take anywhere from 6 months for highly skilled express pathways to 2+ years for other streams.'
-  },
-  {
-    category: 'pr',
-    question: 'What is a points-based immigration system?',
-    answer: 'Countries like Canada and Australia use a points system to evaluate candidates for PR. Points are awarded for age, education, work experience, language proficiency, and adaptability.'
-  },
-  {
-    category: 'appeals',
-    question: 'My visa was refused. What are my options?',
-    answer: 'Depending on the country and visa type, you may have the option to appeal the decision, request an administrative review, or reapply with stronger evidence addressing the refusal reasons. Consulting an immigration lawyer immediately is highly recommended.'
-  },
-  {
-    category: 'appeals',
-    question: 'Can I appeal a deportation order?',
-    answer: 'Yes, deportation orders can often be appealed on humanitarian and compassionate grounds, risk to life in the home country, or procedural errors. Time is critical, so immediate legal counsel is necessary.'
-  }
-];
 
 interface EnhancedFAQProps {
   setActiveView?: (view: string) => void;
 }
 
 export default function EnhancedFAQ({ setActiveView }: EnhancedFAQProps = {}) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [selectedCategory, setSelectedCategory] = useState("all");
+
+  const categories = [
+    { id: "all", label: "All Questions" },
+    { id: "visas", label: "Visas & PR" },
+    { id: "work", label: "Work Permits" },
+    { id: "refusals", label: "Visa Refusals" },
+    { id: "consultation", label: "Consultation" },
+  ];
+
+  const faqs = [
+    {
+      category: "consultation",
+      q: "How do I book a consultation with Advocate Richa Dhanda?",
+      a: "You can easily schedule a 30-minute consultation by clicking the 'Book a Consultation' button on this website or contacting us directly on WhatsApp (+91 93067 92300). Sessions are available both online and in-person.",
+    },
+    {
+      category: "visas",
+      q: "What immigration and visa services do you provide?",
+      a: "Advocate Richa Dhanda provides complete legal guidance for Work Visas, Student Permits, Permanent Residency (PR), Family & Spouse Sponsorship, Business Investment Visas, and Citizenship applications across top global destinations.",
+    },
+    {
+      category: "refusals",
+      q: "My visa application was rejected. Can you help me appeal?",
+      a: "Yes. Visa refusals and rejections are a core legal specialty. We thoroughly analyze your refusal letter, identify legal or documentation gaps, and file a strong legal appeal or re-application bundle.",
+    },
+    {
+      category: "work",
+      q: "What are the key requirements for a skilled worker visa?",
+      a: "Requirements depend on the destination country, but generally require verified work experience, educational credentials, language proficiency (IELTS/PTE), and a valid job offer or points score.",
+    },
+    {
+      category: "visas",
+      q: "Can I bring my spouse and children with me on a work visa?",
+      a: "Yes. Most major immigration destinations allow skilled work visa holders to bring their legally married spouse and dependent children under dependent visa permits.",
+    },
+    {
+      category: "consultation",
+      q: "What are your consultation fees and process?",
+      a: "We offer complete transparency with clear upfront consultation fees and no hidden charges. During your consultation, Advocate Richa Dhanda evaluates your case and provides an exact legal strategy.",
+    },
+  ];
 
   const filteredFaqs =
     selectedCategory === "all"
       ? faqs
-      : faqs.filter((faq) => faq.category === selectedCategory);
+      : faqs.filter((f) => f.category === selectedCategory);
+
+  const toggleAccordion = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const handleBookClick = () => {
+    if (setActiveView) {
+      setActiveView("book");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.open(
+        `https://wa.me/919306792300?text=${encodeURIComponent(
+          "Hi, I want to book a consultation regarding my visa matter."
+        )}`
+      );
+    }
+  };
 
   return (
-    <div className="py-16 lg:py-24 bg-cream">
-      <div className="max-w-4xl mx-auto px-5 lg:px-8">
+    <section className="py-20 lg:py-28 bg-gradient-to-b from-[#FAF9F5] via-[#FFFFFF] to-[#F1F3F5] border-t border-b border-gray-200">
+      <div className="w-full px-5 lg:px-8 max-w-5xl mx-auto">
+        
         {/* Header */}
-        <div className="text-center mb-12 animate-fade-in">
-          <Badge variant="outline" className="mb-4">
+        <div className="text-center mb-12">
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-amber-100/90 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
             Frequently Asked Questions
-          </Badge>
-          <h2 className="font-serif text-3xl lg:text-4xl font-semibold text-navy">
-            Common Immigration Questions Answered
+          </span>
+
+          <h2 className="font-serif text-3xl lg:text-5xl font-bold text-[#0B1426] mb-4">
+            Everything You Need To Know About <span className="text-[#8B1538]">Visas &amp; Legal Consultation</span>
           </h2>
-          <p className="text-muted mt-4 max-w-2xl mx-auto">
-            Find quick answers to common legal questions. Can&apos;t find what you&apos;re
-            looking for? Contact me for personalized assistance.
+
+          <p className="text-slate-600 text-base lg:text-lg max-w-2xl mx-auto">
+            Clear, simple answers to common questions about your immigration journey and legal representation.
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap gap-2 justify-center mb-10 animate-slide-up">
-          {faqCategories.map((cat) => (
+        {/* Category Filters */}
+        <div className="flex flex-wrap gap-2.5 justify-center mb-10">
+          {categories.map((cat) => (
             <button
               key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-250 cursor-pointer focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 ${
+              onClick={() => {
+                setSelectedCategory(cat.id);
+                setOpenIndex(0);
+              }}
+              className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 selectedCategory === cat.id
-                  ? "bg-navy text-white shadow-md scale-105"
-                  : "bg-white text-navy hover:bg-navy/5 hover:scale-102"
+                  ? "bg-[#8B1538] text-white shadow-md"
+                  : "bg-white text-slate-700 hover:bg-slate-100 border border-gray-200"
               }`}
-              aria-label={`Filter by ${cat.label}`}
-              aria-pressed={selectedCategory === cat.id}
             >
               {cat.label}
             </button>
           ))}
         </div>
 
-        {/* FAQ Accordion */}
-        <div className="animate-slide-up">
-          <Accordion className="space-y-4">
-            {filteredFaqs.map((faq, index) => (
-              <AccordionItem
+        {/* Accordion FAQ List */}
+        <div className="space-y-4 mb-16">
+          {filteredFaqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div
                 key={index}
-                value={`item-${index}`}
-                className="bg-white rounded-xl border border-cream-2 shadow-sm hover:shadow-md transition-shadow duration-250"
+                className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-xs hover:border-[#8B1538]/30 transition-all duration-200"
               >
-                <AccordionTrigger className="px-6 py-4 text-left hover:no-underline focus:outline-none focus:ring-2 focus:ring-gold focus:ring-inset rounded-xl">
-                  <span className="font-semibold text-navy pr-4">
-                    {faq.question}
+                <button
+                  onClick={() => toggleAccordion(index)}
+                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                >
+                  <span className="font-serif text-lg font-bold text-slate-900 pr-2">
+                    {faq.q}
                   </span>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4 text-muted leading-relaxed">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+                  <div
+                    className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
+                      isOpen
+                        ? "bg-[#8B1538] text-white rotate-180"
+                        : "bg-slate-100 text-slate-600"
+                    }`}
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </button>
+
+                {isOpen && (
+                  <div className="px-6 pb-6 pt-2 text-slate-600 text-base leading-relaxed border-t border-gray-100">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
-        {/* CTA */}
-        <div className="mt-12 text-center bg-white rounded-2xl p-8 border border-cream-2 shadow-sm animate-scale-in">
-          <p className="text-navy font-medium mb-4">
-            Still have questions?
-          </p>
-          <button 
-            onClick={() => {
-              if (setActiveView) {
-                setActiveView('book');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              } else {
-                window.open(`https://wa.me/919306792300?text=${encodeURIComponent("Hi, I have some questions and want to schedule a consultation.")}`, "_blank");
-              }
-            }}
-            className="bg-gold hover:bg-gold/90 text-white px-8 py-3 rounded-full font-semibold transition-all duration-250 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 cursor-pointer shadow-md"
+        {/* Still Have Questions CTA */}
+        <div className="rounded-2xl bg-white border border-amber-200/80 p-8 text-center shadow-md flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="text-left">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-1">
+              Still Have Questions About Your Case?
+            </h3>
+            <p className="text-slate-600 text-sm">
+              Get personalized legal advice directly from Advocate Richa Dhanda.
+            </p>
+          </div>
+
+          <button
+            onClick={handleBookClick}
+            className="bg-[#8B1538] hover:bg-[#70102d] text-white font-bold px-6 py-3 rounded-xl text-sm transition shadow-md shrink-0 cursor-pointer inline-flex items-center gap-2"
           >
-            Schedule a Consultation
+            Ask Us Directly
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
           </button>
         </div>
+
       </div>
-    </div>
+    </section>
   );
 }
