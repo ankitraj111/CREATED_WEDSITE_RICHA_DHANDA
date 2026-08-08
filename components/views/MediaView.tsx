@@ -52,41 +52,65 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
             Back to Homepage
           </button>
 
-          <div className="flex flex-wrap items-center gap-3 mb-4">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-gold/20 via-gold/30 to-gold/20 border border-gold/40 text-gold text-xs font-bold tracking-widest uppercase shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-gold animate-ping" />
-              Verified Press &amp; Media Hub
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/20 border border-red-500/30 text-red-300 text-xs font-semibold">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
-              200+ Publications
-            </span>
-          </div>
+          <div className="grid lg:grid-cols-3 gap-8 items-center">
+            <div className="lg:col-span-2">
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-gold/20 via-gold/30 to-gold/20 border border-gold/40 text-gold text-xs font-bold tracking-widest uppercase shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-gold animate-ping" />
+                  Verified Press &amp; Media Hub
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/20 border border-red-500/30 text-red-300 text-xs font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
+                  200+ Publications
+                </span>
+              </div>
 
-          <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-            Advocate Richa Dhanda <br />
-            <span className="bg-gradient-to-r from-gold via-amber-300 to-gold-soft bg-clip-text text-transparent">
-              In National Media &amp; Press
-            </span>
-          </h1>
+              <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+                Advocate Richa Dhanda <br />
+                <span className="bg-gradient-to-r from-gold via-amber-300 to-gold-soft bg-clip-text text-transparent">
+                  In National Media &amp; Press
+                </span>
+              </h1>
 
-          <p className="text-white/80 text-base lg:text-lg max-w-2xl font-light leading-relaxed mb-8">
-            Expert legal opinions on overseas work permit fraud, visa refusal remedies, and applicant rights covered extensively across <strong className="text-gold font-semibold">200+ verified national &amp; regional news portals</strong>.
-          </p>
+              <p className="text-white/80 text-base lg:text-lg max-w-2xl font-light leading-relaxed mb-8">
+                Expert legal opinions on overseas work permit fraud, visa refusal remedies, and applicant rights covered extensively across <strong className="text-gold font-semibold">200+ verified national &amp; regional news portals</strong>.
+              </p>
 
-          <div className="flex flex-wrap gap-4 items-center">
-            <a
-              href="#featured-news"
-              className="bg-gradient-to-r from-gold to-gold-soft text-navy px-7 py-3.5 rounded-xl font-bold text-sm hover:scale-105 transition-transform duration-300 shadow-xl cursor-pointer inline-flex items-center gap-2"
-            >
-              Featured Lead Stories ↓
-            </a>
-            <a
-              href="#search-directory"
-              className="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-7 py-3.5 rounded-xl font-bold text-sm transition-all duration-300 cursor-pointer inline-flex items-center gap-2 backdrop-blur-sm"
-            >
-              Search 200+ Publications 🔍
-            </a>
+              <div className="flex flex-wrap gap-4 items-center">
+                <a
+                  href="#featured-news"
+                  className="bg-gradient-to-r from-gold to-gold-soft text-navy px-7 py-3.5 rounded-xl font-bold text-sm hover:scale-105 transition-transform duration-300 shadow-xl cursor-pointer inline-flex items-center gap-2"
+                >
+                  Featured Lead Stories ↓
+                </a>
+                <a
+                  href="#search-directory"
+                  className="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-7 py-3.5 rounded-xl font-bold text-sm transition-all duration-300 cursor-pointer inline-flex items-center gap-2 backdrop-blur-sm"
+                >
+                  Search 200+ Publications 🔍
+                </a>
+              </div>
+            </div>
+
+            {/* Advocate Richa Dhanda Profile Card in Hero */}
+            <div className="hidden lg:flex flex-col items-center text-center bg-white/10 border border-gold/30 rounded-3xl p-6 backdrop-blur-md shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-gold text-navy text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-xl">
+                Featured Advocate
+              </div>
+              <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-gold shadow-xl mb-4">
+                <Image
+                  src="/advocate-richa-new.jpg"
+                  alt="Advocate Richa Dhanda"
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
+              <h3 className="font-serif font-bold text-white text-xl">Advocate Richa Dhanda</h3>
+              <p className="text-gold text-xs font-semibold mt-0.5">Bar Council Reg. PH/1260/2025</p>
+              <p className="text-white/70 text-xs mt-2 leading-relaxed">
+                Expert Immigration Practitioner &amp; Media Contributor on Legal Migration &amp; Fraud Prevention.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -400,16 +424,26 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
           <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gold/10 blur-3xl pointer-events-none" />
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
-            <div>
-              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold/20 text-gold text-xs font-bold uppercase tracking-widest mb-3">
-                Media &amp; Press Advisory
-              </span>
-              <h3 className="font-serif text-3xl lg:text-4xl font-bold mb-3">
-                Need Legal Opinions or Press Quotes?
-              </h3>
-              <p className="text-white/70 text-sm lg:text-base max-w-xl leading-relaxed">
-                Advocate Richa Dhanda regularly contributes legal commentary for news outlets on work permit fraud, visa refusal trends, and international migration policies.
-              </p>
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+              <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-gold shadow-lg shrink-0">
+                <Image
+                  src="/advocate-richa-photo.jpg"
+                  alt="Advocate Richa Dhanda"
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
+              <div>
+                <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold/20 text-gold text-xs font-bold uppercase tracking-widest mb-3">
+                  Media &amp; Press Advisory
+                </span>
+                <h3 className="font-serif text-3xl lg:text-4xl font-bold mb-3">
+                  Need Legal Opinions or Press Quotes?
+                </h3>
+                <p className="text-white/70 text-sm lg:text-base max-w-xl leading-relaxed">
+                  Advocate Richa Dhanda regularly contributes legal commentary for news outlets on work permit fraud, visa refusal trends, and international migration policies.
+                </p>
+              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
