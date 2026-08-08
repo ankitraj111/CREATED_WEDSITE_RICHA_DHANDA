@@ -19,7 +19,7 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
   const services = [
     "Work Visas", "✈️",
     "Student Visas", "🎓",
-    "Permanent Residency", "🛂",
+    "Permanent Residency", "控制",
     "Immigration Appeals", "⚖️",
     "Business Visas", "💼",
     "Citizenship", "🏛️",
@@ -89,7 +89,7 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
 
               <button
                 onClick={() => setActiveView && setActiveView("services")}
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-white border border-white/20 backdrop-blur-md hover:bg-white/10 hover:border-[#d4af37]/40 transition-all duration-300 hover:scale-105"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-white border border-white/20 backdrop-blur-md hover:bg-white/10 hover:border-[#d4af37]/40 transition-all duration-300 hover:scale-105 cursor-pointer"
               >
                 <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <polygon points="5 3 19 12 5 21 5 3" />
@@ -121,19 +121,19 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
             </div>
           </div>
 
-          {/* ── Right Column — Image ── */}
+          {/* ── Right Column — Advocate Richa Dhanda Official Certificate Wall Photo ── */}
           <div className={`relative transition-opacity duration-1000 delay-300 ${mounted ? "opacity-100" : "opacity-0"}`}>
 
             {/* Glow ring */}
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#d4af37]/20 via-transparent to-[#8B1538]/20 blur-xl scale-105" />
 
-            <div className="relative rounded-3xl overflow-hidden border border-[#d4af37]/20 shadow-[0_0_60px_rgba(212,175,55,0.15)]">
+            <div className="relative rounded-3xl overflow-hidden border border-[#d4af37]/20 shadow-[0_0_60px_rgba(212,175,55,0.15)] bg-black/40">
               <Image
-                src="/advocate-richa-photo.jpg"
-                alt="Advocate Richa Dhanda – Expert Immigration Lawyer"
+                src="/images/richa_tribune.png"
+                alt="Advocate Richa Dhanda – Official Certification & Certificate Wall"
                 width={800}
                 height={1000}
-                className="w-full h-[500px] lg:h-[660px] object-cover object-[center_top]"
+                className="w-full h-[500px] lg:h-[660px] object-cover object-top"
                 priority
               />
 
