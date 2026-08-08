@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 interface ServicesViewProps {
   setActiveView?: (view: string) => void;
@@ -16,227 +15,267 @@ export default function ServicesView({ setActiveView }: ServicesViewProps = {}) 
 
   const services = [
     {
-      icon: "https://images.pexels.com/photos/5668772/pexels-photo-5668772.jpeg?auto=compress&cs=tinysrgb&w=200",
+      icon: (
+        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      ),
       title: "Immigration Consultation",
-      desc: "Initial assessment of your profile to determine the best immigration pathway or visa strategy for your goals.",
-      tag: "Initial Assessment",
-      gradient: "from-gold/90 via-gold-soft/90 to-platinum/90",
-    },
-    {
-      icon: "https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=200",
-      title: "Work Visas",
-      desc: "Expert guidance on skilled worker visas, employer sponsorships, and temporary work permits across major destinations.",
+      desc: "Comprehensive initial assessment of your background to chart the fastest and most secure visa strategy.",
       tag: "Popular",
-      gradient: "from-navy/90 via-gold/80 to-platinum/90",
     },
     {
-      icon: "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=200",
-      title: "Student Visas",
-      desc: "End-to-end assistance for study permits, university admissions alignment, and post-graduation work pathways.",
+      icon: (
+        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
+      title: "Work & Skilled Visas",
+      desc: "Legal representation for work permits, skilled worker applications, and employer sponsorships worldwide.",
+      tag: "High Demand",
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+        </svg>
+      ),
+      title: "Student Visas & Permits",
+      desc: "Complete assistance for international university admissions, study permits, and post-study work rights.",
       tag: "",
-      gradient: "from-maroon/90 via-gold/80 to-gold-soft/90",
     },
     {
-      icon: "https://images.pexels.com/photos/7292911/pexels-photo-7292911.jpeg?auto=compress&cs=tinysrgb&w=200",
-      title: "Permanent Residency",
-      desc: "Comprehensive support for PR applications, points-based systems, and provincial/state nomination programs.",
+      icon: (
+        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+      ),
+      title: "Permanent Residency (PR)",
+      desc: "End-to-end legal support for points-based Express Entry, Provincial Nominations, and PR card renewals.",
       tag: "",
-      gradient: "from-gold/90 via-platinum/90 to-gold-soft/90",
     },
     {
-      icon: "https://images.pexels.com/photos/4259140/pexels-photo-4259140.jpeg?auto=compress&cs=tinysrgb&w=200",
-      title: "Family Sponsorship",
-      desc: "Reunite with your loved ones through spouse, parent, and dependent child sponsorship programs.",
+      icon: (
+        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+      ),
+      title: "Family & Spouse Sponsorship",
+      desc: "Reunite families through spouse, partner, dependent child, and parent immigration sponsorship pathways.",
       tag: "",
-      gradient: "from-navy/90 via-gold/80 to-gold-soft/90",
     },
     {
-      icon: "https://images.pexels.com/photos/936137/pexels-photo-936137.jpeg?auto=compress&cs=tinysrgb&w=200",
+      icon: (
+        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+        </svg>
+      ),
       title: "Business & Investor Visas",
-      desc: "Strategic pathways for entrepreneurs, startup founders, and high-net-worth investors seeking global mobility.",
+      desc: "Strategic visa pathways for business owners, startup founders, and investors expanding internationally.",
       tag: "",
-      gradient: "from-maroon/90 via-gold-soft/90 to-platinum/90",
     },
     {
-      icon: "https://images.pexels.com/photos/8084666/pexels-photo-8084666.jpeg?auto=compress&cs=tinysrgb&w=200",
-      title: "Citizenship Applications",
-      desc: "Guidance on naturalization processes, dual citizenship laws, and passport applications.",
+      icon: (
+        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
+      title: "Visitor & Tourist Visas",
+      desc: "Hassle-free application handling for short-term tourism, family visits, and business travel visas.",
       tag: "",
-      gradient: "from-gold/90 via-gold-soft/90 to-platinum/90",
     },
     {
-      icon: "https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&w=200",
-      title: "Tourist & Visitor Visas",
-      desc: "Hassle-free processing for short-term visitor visas, tourist applications, and business visitor documentation.",
-      tag: "",
-      gradient: "from-navy/90 via-gold/80 to-platinum/90",
+      icon: (
+        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+      ),
+      title: "Appeals & Refusal Cases",
+      desc: "Expert legal representation to challenge visa refusals, file appeals, and overcome procedural objections.",
+      tag: "Specialized",
     },
     {
-      icon: "https://images.pexels.com/photos/5668774/pexels-photo-5668774.jpeg?auto=compress&cs=tinysrgb&w=200",
-      title: "Appeals & Refusals",
-      desc: "Strong legal representation for visa refusals, deportation defense, and immigration appeals tribunals.",
+      icon: (
+        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+      ),
+      title: "Citizenship & Naturalization",
+      desc: "Step-by-step assistance for permanent residents applying for full citizenship and passport issuance.",
       tag: "",
-      gradient: "from-maroon/90 via-gold-soft/90 to-platinum/90",
     },
   ];
 
   const process = [
     {
-      num: "1",
-      title: "Initial Consultation",
-      desc: "We evaluate your profile, review documents, and identify the most suitable immigration pathway for your goals.",
+      num: "01",
+      title: "Profile Assessment",
+      desc: "We review your educational, work, and personal background to find the most successful visa option.",
     },
     {
-      num: "2",
-      title: "Strategy & Eligibility",
-      desc: "We prepare a tailored immigration plan with clear timelines, cost breakdowns, and success probability assessment.",
+      num: "02",
+      title: "Custom Legal Strategy",
+      desc: "You receive a clear roadmap outlining exact requirements, costs, document checklists, and expected timelines.",
     },
     {
-      num: "3",
-      title: "Application & Filing",
-      desc: "Meticulous preparation and filing of all visa applications, supporting documents, and evidence packages.",
+      num: "03",
+      title: "Filing & Documentation",
+      desc: "Our legal team meticulously compiles, verifies, and submits your complete visa application bundle.",
     },
     {
-      num: "4",
-      title: "Visa Approval",
-      desc: "Active case tracking, responding to queries from authorities, and guiding you through landing formalities.",
+      num: "04",
+      title: "Visa Approval & Support",
+      desc: "We manage inquiries from authorities, track case status in real-time, and guide you until passport delivery.",
     },
   ];
 
+  const handleBookClick = () => {
+    if (setActiveView) {
+      setActiveView("book");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.open(
+        `https://wa.me/919306792300?text=${encodeURIComponent(
+          "Hi Advocate Richa Dhanda, I want to inquire about your legal immigration services."
+        )}`
+      );
+    }
+  };
+
   return (
-    <div className="bg-white min-h-screen">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-navy pt-24 pb-32 lg:pt-32 lg:pb-40">
-        <div className="max-w-7xl mx-auto px-5 lg:px-8 relative z-10 text-center animate-fade-in">
-          <div className="inline-block px-6 py-2 rounded-full border border-gold/30 text-gold text-sm font-bold tracking-widest uppercase mb-6 bg-gold/10 backdrop-blur-md">
-            Our Expertise
+    <div className="min-h-screen bg-gradient-to-b from-[#FAF9F5] via-[#FFFFFF] to-[#F1F3F5] text-slate-900">
+      
+      {/* Hero Header Section */}
+      <section className="relative pt-16 pb-20 lg:pt-24 lg:pb-28 border-b border-gray-200">
+        <div className="w-full px-5 lg:px-8 max-w-7xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/90 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-wider mb-6 shadow-xs">
+            Professional Legal Services
           </div>
-          <h1 className="font-serif text-5xl lg:text-7xl font-bold text-white mb-8 premium-text-shadow leading-tight">
-            Comprehensive <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-soft to-platinum">Immigration Solutions</span>
+
+          <h1 className="font-serif text-4xl lg:text-6xl font-bold text-[#0B1426] mb-6 leading-tight max-w-4xl mx-auto">
+            Trusted Legal Solutions For Your <span className="text-[#8B1538]">Global Visas &amp; Immigration</span>
           </h1>
-          <p className="text-white/80 text-xl max-w-2xl mx-auto leading-relaxed font-light">
-            From initial consultation to final visa approval — we provide expert immigration representation with a personal touch that prioritizes your global mobility goals.
+
+          <p className="text-slate-600 text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
+            From initial strategy to final visa grant — Advocate Richa Dhanda provides high-trust, legal representation tailored to your unique goals.
           </p>
         </div>
-        
-        {/* Decorative divider */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-          <svg className="relative block w-full h-12 lg:h-24" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.3,197.35,112.5,239.5,108.18,280.9,94.27,321.39,56.44Z" className="fill-cream-2"></path>
-          </svg>
-        </div>
-      </div>
+      </section>
 
       {/* Services Grid Section */}
-      <div className="bg-cream-2 py-20 lg:py-32 relative">
-        <div className="max-w-7xl mx-auto px-5 lg:px-8">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="font-serif text-4xl lg:text-5xl font-bold text-navy mb-6">
-              Immigration Services
+      <section className="py-16 lg:py-24">
+        <div className="w-full px-5 lg:px-8 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl lg:text-4xl font-bold text-[#0B1426] mb-3">
+              Explore Our Practice Areas
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-gold to-gold-soft mx-auto rounded-full"></div>
+            <p className="text-slate-600 max-w-2xl mx-auto">
+              Select a service below to book a direct consultation with Advocate Richa Dhanda.
+            </p>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-            {services.map((service, i) => (
-               <div
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((s, i) => (
+              <div
                 key={i}
-                className={`group premium-card rounded-3xl p-8 hover:shadow-premium-lg cursor-default transition-all duration-500 relative overflow-hidden bg-white border border-gold/10 ${mounted ? 'opacity-100' : 'opacity-0'}`}
-                style={{ transitionDelay: `${i * 0.1}s` }}
+                className={`bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:border-[#8B1538]/30 transition-all duration-300 flex flex-col justify-between ${
+                  mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
+                style={{ transitionDelay: `${i * 0.05}s` }}
               >
-                {/* Premium background overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
-                
-                <div className="relative z-10">
-                  <div className="flex justify-between items-start mb-6">
-                    <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 overflow-hidden shadow-sm group-hover:scale-110 transition-transform duration-300 bg-cream-2 relative">
-                      <Image src={service.icon} alt={service.title} fill className="object-cover" sizes="64px" unoptimized />
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-14 h-14 rounded-xl bg-amber-50 border border-amber-200/60 flex items-center justify-center">
+                      {s.icon}
                     </div>
-                    {service.tag && (
-                      <span className="px-4 py-1 text-xs font-bold text-maroon bg-maroon/10 rounded-full uppercase tracking-wider">
-                        {service.tag}
+                    {s.tag && (
+                      <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#8B1538]/10 text-[#8B1538] border border-[#8B1538]/20">
+                        {s.tag}
                       </span>
                     )}
                   </div>
-                  
-                  <h3 className="font-serif text-2xl font-bold text-navy mb-4 group-hover:text-gold transition-colors duration-500">
-                    {service.title}
+
+                  <h3 className="font-serif text-xl font-bold text-slate-900 mb-3 group-hover:text-[#8B1538] transition-colors">
+                    {s.title}
                   </h3>
-                  
-                  <p className="text-charcoal/70 leading-relaxed text-lg h-24">
-                    {service.desc}
+
+                  <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                    {s.desc}
                   </p>
-                  
                 </div>
+
+                <button
+                  onClick={handleBookClick}
+                  className="w-full py-2.5 px-4 rounded-lg bg-slate-50 hover:bg-[#8B1538] text-slate-800 hover:text-white border border-gray-200 hover:border-[#8B1538] font-bold text-sm transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"
+                >
+                  Book This Service
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </button>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* The Immigration Process */}
-      <div className="py-20 lg:py-32 relative overflow-hidden bg-white">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:20px_20px]"></div>
-        
-        <div className="max-w-7xl mx-auto px-5 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <div className="inline-block px-6 py-2 rounded-full border border-gold/30 text-navy text-sm font-bold tracking-widest uppercase mb-6 bg-gold/5">
-              How It Works
-            </div>
-            <h2 className="font-serif text-4xl lg:text-5xl font-bold text-navy mb-6">
-              Our Immigration Process
+      {/* The 4-Step Process */}
+      <section className="py-16 lg:py-24 bg-white border-t border-b border-gray-200">
+        <div className="w-full px-5 lg:px-8 max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[#8B1538] font-bold text-xs uppercase tracking-widest block mb-2">
+              Transparent &amp; Simple
+            </span>
+            <h2 className="font-serif text-3xl lg:text-4xl font-bold text-[#0B1426] mb-4">
+              How We Work With You
             </h2>
-            <p className="text-charcoal/70 text-lg">
-              A transparent, systematic approach designed to give you clarity and confidence at every step of your visa journey.
+            <p className="text-slate-600 text-base">
+              A step-by-step process built to give you 100% legal clarity at every stage.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((step, i) => (
-              <div key={i} className="relative group">
-                <div className="hidden lg:block absolute top-1/2 left-[60%] w-full h-[2px] bg-gradient-to-r from-gold/50 to-transparent -z-10 group-last:hidden"></div>
-                <div className="bg-white rounded-3xl p-8 border border-gold/20 shadow-lg hover:shadow-premium transition-all duration-500 hover:-translate-y-2 h-full">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-navy to-charcoal text-white flex items-center justify-center font-bold font-serif text-2xl mb-6 shadow-md group-hover:scale-110 transition-transform duration-500 border-2 border-gold/30">
-                    {step.num}
-                  </div>
-                  <h3 className="font-serif font-bold text-xl text-navy mb-4 group-hover:text-gold transition-colors">{step.title}</h3>
-                  <p className="text-charcoal/70 leading-relaxed">{step.desc}</p>
+            {process.map((p, i) => (
+              <div key={i} className="bg-[#FAF9F5] rounded-2xl p-6 border border-amber-200/60 relative">
+                <div className="text-3xl font-extrabold text-[#D4AF37] font-serif mb-4">
+                  {p.num}
                 </div>
+                <h3 className="font-serif text-lg font-bold text-slate-900 mb-2">
+                  {p.title}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  {p.desc}
+                </p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="mt-20 text-center">
-             <div className="premium-glass rounded-3xl p-12 max-w-4xl mx-auto border border-gold/30 shadow-2xl relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-navy to-charcoal -z-10"></div>
-                <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
-                
-                <h3 className="font-serif text-3xl font-bold text-white mb-4">
-                  Need Immigration Assistance?
-                </h3>
-                <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-                  Take the first step towards your global mobility goals. Schedule a consultation with our immigration experts today.
-                </p>
-                <button 
-                  onClick={() => {
-                    if (setActiveView) {
-                      setActiveView('book');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    } else {
-                      window.open(`https://wa.me/919306792300?text=${encodeURIComponent("Hi, I want to book a free consultation regarding my immigration matter.")}`);
-                    }
-                  }}
-                  className="bg-gradient-to-r from-gold to-gold-soft text-navy px-10 py-4 rounded-full font-bold text-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-105 inline-flex items-center gap-3">
-                  Schedule Your Consultation
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </button>
-             </div>
+      {/* Executive Call to Action Banner */}
+      <section className="py-16 lg:py-20">
+        <div className="w-full px-5 lg:px-8 max-w-5xl mx-auto">
+          <div className="rounded-3xl bg-gradient-to-r from-[#7A1532] via-[#8B1538] to-[#0A1628] p-10 lg:p-14 text-center text-white shadow-2xl relative overflow-hidden">
+            <h3 className="font-serif text-3xl lg:text-4xl font-bold mb-4">
+              Need Personalized Legal Advice?
+            </h3>
+            <p className="text-white/80 text-base lg:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+              Book a 1-on-1 consultation session with Advocate Richa Dhanda to discuss your specific immigration matter with complete confidentiality.
+            </p>
+            <button
+              onClick={handleBookClick}
+              className="bg-[#D4AF37] hover:bg-[#c29f2e] text-[#0A1628] font-extrabold px-8 py-3.5 rounded-xl text-base transition-all duration-300 shadow-lg cursor-pointer inline-flex items-center gap-3"
+            >
+              Book Your Consultation Now
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
           </div>
         </div>
-      </div>
+      </section>
+
     </div>
   );
 }
