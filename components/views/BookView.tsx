@@ -276,7 +276,7 @@ export default function BookView() {
   return (
     <section className="min-h-screen bg-gradient-to-b from-[#faf8f5] to-white">
       {/* Header */}
-
+      <div className="bg-gradient-to-r from-[#7a2d2d] via-[#8b3a3a] to-[#0a1628] py-16 lg:py-20 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-5 lg:px-8 text-center relative">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-[#f0d78c] text-sm font-semibold mb-4">
             <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" />

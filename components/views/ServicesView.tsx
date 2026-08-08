@@ -106,7 +106,7 @@ export default function ServicesView({ setActiveView }: ServicesViewProps = {}) 
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
-
+      <div className="relative overflow-hidden bg-navy pt-24 pb-32 lg:pt-32 lg:pb-40">
         <div className="max-w-7xl mx-auto px-5 lg:px-8 relative z-10 text-center animate-fade-in">
           <div className="inline-block px-6 py-2 rounded-full border border-gold/30 text-gold text-sm font-bold tracking-widest uppercase mb-6 bg-gold/10 backdrop-blur-md">
             Our Expertise
