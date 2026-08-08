@@ -379,7 +379,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                   </div>
 
                   <a
-                    href={item.link !== "#" ? item.link : "https://news.google.com"}
+                    href={item.link && item.link !== "#" ? item.link : `https://news.google.com/search?q=${encodeURIComponent(item.name + " Advocate Richa Dhanda")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-between w-full pt-3 border-t border-cream-2 text-xs font-bold text-navy hover:text-gold transition group-hover:translate-x-0.5"
