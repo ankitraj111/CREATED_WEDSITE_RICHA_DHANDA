@@ -13,7 +13,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
   const categories = [
-    { name: "All", label: "All Releases (200+)", color: "bg-navy text-gold" },
+    { name: "All", label: "All Outlets (200+)", color: "bg-navy text-gold" },
     { name: "National", label: "🔴 National News", color: "bg-red-600/10 text-red-700 border-red-200" },
     { name: "Regional", label: "🟠 Regional Wire", color: "bg-amber-600/10 text-amber-700 border-amber-200" },
     { name: "Business", label: "🟣 Business & Economy", color: "bg-purple-600/10 text-purple-700 border-purple-200" },
@@ -29,6 +29,58 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
       activeCategory === "All" || item.category === activeCategory;
     return matchesSearch && matchesCategory;
   });
+
+  // Authentic Brand Colors for News Outlets
+  const renderBrandTitle = (name: string) => {
+    const lower = name.toLowerCase();
+    if (lower.includes("google")) {
+      return (
+        <span className="font-sans text-xl font-bold tracking-tight">
+          <span className="text-[#4285F4]">G</span>
+          <span className="text-[#EA4335]">o</span>
+          <span className="text-[#FBBC05]">o</span>
+          <span className="text-[#4285F4]">g</span>
+          <span className="text-[#34A853]">l</span>
+          <span className="text-[#EA4335]">e</span>{" "}
+          <span className="text-[#5F6368] font-normal">News</span>
+        </span>
+      );
+    }
+    if (lower.includes("yahoo")) {
+      return (
+        <span className="font-sans text-xl font-black tracking-tight text-[#6001D2]">
+          Yahoo!<span className="text-[#222] font-semibold text-base ml-1">News</span>
+        </span>
+      );
+    }
+    if (lower.includes("tribune")) {
+      return <span className="font-serif text-xl font-bold text-[#C8102E]">The Tribune</span>;
+    }
+    if (lower.includes("ahmedabad mirror")) {
+      return <span className="font-serif text-xl font-extrabold text-[#E65100]">Ahmedabad Mirror</span>;
+    }
+    if (lower.includes("india today")) {
+      return (
+        <span className="font-sans text-lg font-black text-[#E50914] tracking-tighter">
+          INDIA TODAY <span className="text-[#333] font-serif capitalize font-normal text-base">Times</span>
+        </span>
+      );
+    }
+    if (lower.includes("times of india")) {
+      return (
+        <span className="font-serif text-lg font-black text-[#990000]">
+          Times of India <span className="text-[#333] font-sans font-normal text-sm">Daily</span>
+        </span>
+      );
+    }
+    if (lower.includes("business") || lower.includes("corporate")) {
+      return <span className="font-sans font-bold text-[#0D47A1]">{name}</span>;
+    }
+    if (lower.includes("karnataka") || lower.includes("punjab") || lower.includes("delhi")) {
+      return <span className="font-serif font-bold text-[#D97706]">{name}</span>;
+    }
+    return <span className="font-serif font-bold text-navy">{name}</span>;
+  };
 
   const getCategoryBadge = (cat: string) => {
     switch (cat) {
@@ -117,7 +169,17 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
               </h1>
 
               <p className="text-white/80 text-base lg:text-lg max-w-2xl font-light leading-relaxed mb-8">
-                Legal commentary, fraud awareness advisories, and work permit insights published in <strong className="text-amber-300 font-semibold">The Tribune, Ahmedabad Mirror, Google News</strong> and over 200+ news portals across India.
+                Legal commentary, fraud awareness advisories, and work permit insights published in{" "}
+                <span className="font-sans font-bold text-white">
+                  <span className="text-[#4285F4]">G</span>
+                  <span className="text-[#EA4335]">o</span>
+                  <span className="text-[#FBBC05]">o</span>
+                  <span className="text-[#4285F4]">g</span>
+                  <span className="text-[#34A853]">l</span>
+                  <span className="text-[#EA4335]">e</span> News
+                </span>,{" "}
+                <span className="font-sans font-black text-[#a755f7]">Yahoo! News</span>,{" "}
+                <strong className="text-[#ff4d6d]">The Tribune</strong>, and over 200+ news portals across India.
               </p>
 
               <div className="flex flex-wrap gap-4 items-center">
@@ -159,19 +221,36 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
         </div>
       </div>
 
-      {/* TOP PUBLICATIONS BRAND BADGE STRIP */}
+      {/* TOP PUBLICATIONS AUTHENTIC BRAND COLOR STRIP */}
       <div className="bg-navy border-y border-gold/20 py-4 overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 lg:px-8 flex flex-wrap items-center justify-between gap-4">
           <span className="text-amber-400 text-xs font-bold uppercase tracking-widest shrink-0">
-            Featured In Top Media:
+            Featured Outlets:
           </span>
-          <div className="flex flex-wrap gap-3 items-center">
-            <span className="px-4 py-1.5 rounded-full bg-red-600/90 text-white text-xs font-bold">The Tribune</span>
-            <span className="px-4 py-1.5 rounded-full bg-amber-600/90 text-white text-xs font-bold">Ahmedabad Mirror</span>
-            <span className="px-4 py-1.5 rounded-full bg-blue-600/90 text-white text-xs font-bold">Google News</span>
-            <span className="px-4 py-1.5 rounded-full bg-purple-600/90 text-white text-xs font-bold">Yahoo! News</span>
-            <span className="px-4 py-1.5 rounded-full bg-emerald-600/90 text-white text-xs font-bold">India Today Times</span>
-            <span className="px-4 py-1.5 rounded-full bg-yellow-600/90 text-white text-xs font-bold">Times of India Daily</span>
+          <div className="flex flex-wrap gap-4 items-center">
+            <span className="px-4 py-1.5 rounded-full bg-white text-navy text-xs font-bold shadow-md border border-gray-200">
+              <span className="text-[#4285F4]">G</span>
+              <span className="text-[#EA4335]">o</span>
+              <span className="text-[#FBBC05]">o</span>
+              <span className="text-[#4285F4]">g</span>
+              <span className="text-[#34A853]">l</span>
+              <span className="text-[#EA4335]">e</span> <span className="text-[#5F6368]">News</span>
+            </span>
+            <span className="px-4 py-1.5 rounded-full bg-[#6001D2] text-white text-xs font-black shadow-md">
+              Yahoo! News
+            </span>
+            <span className="px-4 py-1.5 rounded-full bg-[#C8102E] text-white text-xs font-bold shadow-md">
+              The Tribune
+            </span>
+            <span className="px-4 py-1.5 rounded-full bg-[#E65100] text-white text-xs font-extrabold shadow-md">
+              Ahmedabad Mirror
+            </span>
+            <span className="px-4 py-1.5 rounded-full bg-[#E50914] text-white text-xs font-black shadow-md uppercase">
+              India Today
+            </span>
+            <span className="px-4 py-1.5 rounded-full bg-[#990000] text-white text-xs font-bold shadow-md">
+              Times of India
+            </span>
           </div>
         </div>
       </div>
@@ -196,7 +275,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
 
             {/* THE TRIBUNE COVERAGE CARD */}
             <div className="group bg-white rounded-3xl border border-cream-2 shadow-xl overflow-hidden hover:shadow-2xl hover:border-red-500/50 transition-all duration-500 flex flex-col justify-between">
@@ -212,7 +291,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                   <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/30 to-transparent" />
 
                   <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
-                    <span className="bg-gradient-to-r from-red-600 to-rose-600 text-white px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider shadow-lg">
+                    <span className="bg-[#C8102E] text-white px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider shadow-lg">
                       The Tribune
                     </span>
                     <span className="bg-black/70 backdrop-blur-md text-amber-300 px-3.5 py-1.5 rounded-full text-xs font-semibold border border-amber-300/30">
@@ -230,10 +309,10 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
 
                 {/* Card Content */}
                 <div className="p-8">
-                  <span className="text-red-600 text-xs font-bold uppercase tracking-wider block mb-2">
+                  <span className="text-[#C8102E] text-xs font-bold uppercase tracking-wider block mb-2">
                     Legal Advisory &amp; Fraud Prevention
                   </span>
-                  <h3 className="font-serif text-2xl lg:text-3xl font-bold text-navy mb-4 leading-snug group-hover:text-red-600 transition-colors duration-300">
+                  <h3 className="font-serif text-2xl lg:text-3xl font-bold text-navy mb-4 leading-snug group-hover:text-[#C8102E] transition-colors duration-300">
                     Immigration Experts Highlight Fraud Risks Linked to Fake Work Permit Offers in India
                   </h3>
                   <p className="text-navy/70 text-sm leading-relaxed mb-6">
@@ -254,7 +333,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                   href="https://www.tribuneindia.com/partner-exclusives/immigration-experts-highlight-fraud-risks-linked-to-fake-work-permit-offers-in-india/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-red-600 to-rose-600 text-white hover:from-red-700 hover:to-rose-700 px-6 py-3 rounded-xl text-xs font-bold transition-all duration-300 shadow-md group-hover:translate-x-1"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C8102E] text-white hover:bg-red-700 px-6 py-3 rounded-xl text-xs font-bold transition-all duration-300 shadow-md group-hover:translate-x-1"
                 >
                   Read Full Tribune Article →
                 </a>
@@ -275,7 +354,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                   <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/30 to-transparent" />
 
                   <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
-                    <span className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider shadow-lg">
+                    <span className="bg-[#E65100] text-white px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider shadow-lg">
                       Ahmedabad Mirror
                     </span>
                     <span className="bg-black/70 backdrop-blur-md text-amber-300 px-3.5 py-1.5 rounded-full text-xs font-semibold border border-amber-300/30">
@@ -293,17 +372,17 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
 
                 {/* Card Content */}
                 <div className="p-8">
-                  <span className="text-amber-600 text-xs font-bold uppercase tracking-wider block mb-2">
+                  <span className="text-[#E65100] text-xs font-bold uppercase tracking-wider block mb-2">
                     Overseas Job Offer Scam Warning
                   </span>
-                  <h3 className="font-serif text-2xl lg:text-3xl font-bold text-navy mb-4 leading-snug group-hover:text-amber-600 transition-colors duration-300">
+                  <h3 className="font-serif text-2xl lg:text-3xl font-bold text-navy mb-4 leading-snug group-hover:text-[#E65100] transition-colors duration-300">
                     Young Indians From Small Towns Losing Savings to Fake Work Permit Offers, Warn Immigration Experts
                   </h3>
                   <p className="text-navy/70 text-sm leading-relaxed mb-6">
                     Legal experts issue crucial warnings regarding fraudulent overseas employment schemes, fake job offers, and essential document verification steps for aspiring international migrants seeking global careers.
                   </p>
 
-                  <div className="bg-orange-500/10 border-l-4 border-amber-600 p-4 rounded-r-2xl text-navy/90 text-xs italic mb-6">
+                  <div className="bg-orange-500/10 border-l-4 border-[#E65100] p-4 rounded-r-2xl text-navy/90 text-xs italic mb-6">
                     <strong className="not-italic text-amber-700 font-bold block mb-1">Key Legal Advisory:</strong>
                     &quot;Small-town candidates are often targeted by unaccredited agents. Legal verification before payment is the best protection.&quot;
                   </div>
@@ -317,13 +396,61 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                   href="https://www.ahmedabadmirror.com/young-indians-from-small-towns-losing-savings-to-fake-work-permit-offers-warn-immigration-experts/81918948.html"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white hover:from-amber-600 hover:to-orange-700 px-6 py-3 rounded-xl text-xs font-bold transition-all duration-300 shadow-md group-hover:translate-x-1"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#E65100] text-white hover:bg-orange-700 px-6 py-3 rounded-xl text-xs font-bold transition-all duration-300 shadow-md group-hover:translate-x-1"
                 >
                   Read Full Mirror Article →
                 </a>
               </div>
             </div>
 
+          </div>
+
+          {/* MAJOR MEDIA CARDS WITH ORIGINAL BRAND LOGOS & COLORS (MATCHING USER SCREENSHOT) */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {FEATURED_ARTICLES.slice(2).map((item) => (
+              <div
+                key={item.id}
+                className="group bg-white rounded-3xl border border-cream-2 shadow-lg overflow-hidden hover:shadow-2xl hover:border-gold/50 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="relative h-48 w-full overflow-hidden">
+                    <Image
+                      src={item.img || "/images/consultation.jpg"}
+                      alt={item.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
+                    <span className="absolute top-3 left-3 bg-navy/90 backdrop-blur-md text-amber-300 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                      {item.category}
+                    </span>
+                  </div>
+
+                  <div className="p-6">
+                    <div className="mb-3">
+                      {renderBrandTitle(item.name)}
+                    </div>
+                    <p className="text-navy/70 text-xs leading-relaxed line-clamp-3 mb-4">
+                      {item.summary || item.title}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-6 pt-0">
+                  <a
+                    href={item.link && item.link !== "#" ? item.link : `https://news.google.com/search?q=${encodeURIComponent(item.name + " Advocate Richa Dhanda")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 rounded-xl bg-cream/70 hover:bg-gold hover:text-navy text-navy font-bold text-xs transition-all duration-300 text-center flex items-center justify-center gap-2 shadow-sm"
+                  >
+                    <span>Read Coverage</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -362,7 +489,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by publication name or headline (e.g. Tribune, Karnataka, Punjab, Work Permit, Appeals...)"
+              placeholder="Search by publication name or headline (e.g. Google, Yahoo, Tribune, Karnataka, Punjab, Work Permit, Appeals...)"
               className="w-full pl-14 pr-6 py-4 bg-cream/40 border border-cream-2 rounded-2xl text-base text-navy placeholder:text-navy/40 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition shadow-inner font-medium"
             />
           </div>
@@ -410,9 +537,9 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                 >
                   <div>
                     <div className="flex items-center justify-between gap-3 mb-3">
-                      <span className="font-serif font-bold text-navy text-lg group-hover:text-amber-600 transition">
-                        {item.name}
-                      </span>
+                      <div>
+                        {renderBrandTitle(item.name)}
+                      </div>
                       <span className={`px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider ${getCategoryBadge(item.category)}`}>
                         {item.category}
                       </span>
