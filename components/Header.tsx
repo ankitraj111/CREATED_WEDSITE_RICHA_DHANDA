@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 
 interface HeaderProps {
   activeView: string;
@@ -31,16 +30,18 @@ export default function Header({ activeView, setActiveView }: HeaderProps) {
     <header className="sticky top-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#333]">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <div className="flex items-center justify-between h-[72px]">
+
+          {/* Logo / Brand Name */}
           <button
             onClick={() => handleNavClick("home")}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-3 group text-left cursor-pointer"
           >
             <div className="w-11 h-11 rounded-full border-2 border-[#d4af37] bg-transparent flex items-center justify-center font-bold font-serif text-lg text-white">
               RD
             </div>
             <div className="leading-tight">
-              <div className="font-serif text-white text-lg font-semibold tracking-wide">
-                Advocate Richa Dhandha
+              <div className="font-serif text-white text-lg font-semibold tracking-wide group-hover:text-[#d4af37] transition">
+                Advocate Richa Dhanda
               </div>
               <div className="text-[10px] tracking-[0.2em] uppercase text-[#d4af37]/70 font-medium">
                 Expert Immigration Lawyer
@@ -48,13 +49,14 @@ export default function Header({ activeView, setActiveView }: HeaderProps) {
             </div>
           </button>
 
+          {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-white/70">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`hover:text-white transition ${
-                  activeView === item.id ? "text-[#d4af37]" : ""
+                className={`hover:text-white transition cursor-pointer ${
+                  activeView === item.id ? "text-[#d4af37] font-semibold" : ""
                 }`}
               >
                 {item.label}
@@ -62,10 +64,11 @@ export default function Header({ activeView, setActiveView }: HeaderProps) {
             ))}
           </nav>
 
+          {/* Action Buttons */}
           <div className="flex items-center gap-3">
             <button
               onClick={() => handleNavClick("book")}
-              className="hidden sm:inline-flex items-center gap-2 bg-[#d4af37] text-black px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-[#c9a030] transition"
+              className="hidden sm:inline-flex items-center gap-2 bg-[#d4af37] text-black px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-[#c9a030] transition cursor-pointer shadow-md"
             >
               <svg
                 width="15"
@@ -81,9 +84,10 @@ export default function Header({ activeView, setActiveView }: HeaderProps) {
               Book a Consultation
             </button>
 
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden text-white p-2"
+              className="lg:hidden text-white p-2 cursor-pointer"
               aria-label="Menu"
             >
               <svg
@@ -101,22 +105,24 @@ export default function Header({ activeView, setActiveView }: HeaderProps) {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full z-50 bg-[#0a0a0a] border-t border-[#333] shadow-xl">
+        <div className="lg:hidden absolute top-full left-0 w-full z-50 bg-[#0a0a0a] border-t border-[#333] shadow-2xl">
           <div className="px-5 py-4 flex flex-col gap-3 text-white/90 text-sm">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className="py-2 border-b border-[#333] text-left"
+                className={`py-2.5 border-b border-[#333] text-left transition cursor-pointer ${
+                  activeView === item.id ? "text-[#d4af37] font-bold" : "text-white/80"
+                }`}
               >
                 {item.label}
               </button>
             ))}
             <button
               onClick={() => handleNavClick("book")}
-              className="bg-[#d4af37] text-black text-center py-3 rounded font-semibold mt-2"
+              className="bg-[#d4af37] text-black text-center py-3 rounded-md font-bold mt-2 shadow-md cursor-pointer"
             >
               Book a Consultation
             </button>
