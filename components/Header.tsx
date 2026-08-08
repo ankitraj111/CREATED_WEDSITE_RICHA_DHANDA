@@ -15,6 +15,7 @@ export default function Header({ activeView, setActiveView }: HeaderProps) {
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
     { id: "services", label: "Services" },
+    { id: "media", label: "Media & Press" },
     { id: "blog", label: "Blog" },
     { id: "faq", label: "FAQs" },
     { id: "contact", label: "Contact" },

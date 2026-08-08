@@ -328,6 +328,47 @@ export default function AboutView({ setActiveView }: AboutViewProps = {}) {
         </div>
       </section>
 
+      {/* Media Authority Section */}
+      <section className="bg-cream py-16 lg:py-20 border-t border-[#e8e0cc]">
+        <div className="max-w-5xl mx-auto px-5 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#d4af37]/15 border border-[#d4af37]/30 text-[#0B1426] text-xs font-bold uppercase tracking-wider mb-4">
+            National Recognition
+          </div>
+          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-[#0B1426] mb-4">
+            Featured in <span className="text-[#d4af37]">Leading Media Publications</span>
+          </h2>
+          <p className="text-[#6B7280] max-w-2xl mx-auto text-base mb-10 leading-relaxed">
+            Advocate Richa Dhanda&apos;s legal commentary on fraud awareness and immigration rights has been covered in <strong>200+ national and regional news portals</strong> including <em>The Tribune</em> and <em>Ahmedabad Mirror</em>.
+          </p>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            {[
+              { name: "The Tribune", tag: "National News" },
+              { name: "Ahmedabad Mirror", tag: "National News" },
+              { name: "Google News", tag: "Global Coverage" },
+              { name: "Yahoo! News", tag: "Media Coverage" },
+            ].map((media, idx) => (
+              <div key={idx} className="bg-white p-5 rounded-2xl border border-[#e8e0cc] shadow-sm flex flex-col items-center justify-center">
+                <span className="font-serif font-bold text-[#0B1426] text-lg mb-1">{media.name}</span>
+                <span className="text-[11px] font-semibold text-[#d4af37] uppercase tracking-wider">{media.tag}</span>
+              </div>
+            ))}
+          </div>
+
+          <button
+            onClick={() => {
+              if (setActiveView) {
+                setActiveView("media");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+            className="inline-flex items-center gap-2 text-sm font-bold text-[#0B1426] hover:text-[#d4af37] transition underline underline-offset-4 cursor-pointer"
+          >
+            Explore All 200+ Media Mentions &amp; Press Coverage →
+          </button>
+        </div>
+      </section>
+
       {/* CTA Section — Light */}
       <section className="bg-white py-16 lg:py-20 border-t border-[#e8e0cc]">
         <div className="max-w-4xl mx-auto px-5 lg:px-8 text-center">

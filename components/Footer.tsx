@@ -75,14 +75,14 @@ export default function Footer({ setActiveView }: FooterProps) {
           <div>
             <h4 className="font-serif text-white text-lg mb-4">Quick Links</h4>
             <ul className="space-y-2.5 text-sm">
-              {["home", "about", "services", "blog", "faq", "book"].map(
+              {["home", "about", "services", "media", "blog", "faq", "book"].map(
                 (view) => (
                   <li key={view}>
                     <button
                       onClick={() => handleNavClick(view)}
                       className="hover:text-gold-soft transition capitalize"
                     >
-                      {view === "book" ? "Book a Consultation" : view}
+                      {view === "book" ? "Book a Consultation" : view === "media" ? "Media & Press" : view}
                     </button>
                   </li>
                 )

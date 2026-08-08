@@ -11,8 +11,10 @@ import EnhancedFAQ from "@/components/EnhancedFAQ";
 import EnhancedContactForm from "@/components/EnhancedContactForm";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
+import MediaTicker from "@/components/MediaTicker";
 import AboutView from "@/components/views/AboutView";
 import ServicesView from "@/components/views/ServicesView";
+import MediaView from "@/components/views/MediaView";
 import BlogView from "@/components/views/BlogView";
 import FAQView from "@/components/views/FAQView";
 import ContactView from "@/components/views/ContactView";
@@ -123,7 +125,7 @@ export default function Home() {
         {activeView === "home" && (
           <>
             <Hero setActiveView={setActiveView} />
-
+            <MediaTicker setActiveView={setActiveView} />
             <WhyChoose setActiveView={setActiveView} />
             <ServicesPreview setActiveView={setActiveView} />
             <CTABanner setActiveView={setActiveView} />
@@ -134,6 +136,7 @@ export default function Home() {
         )}
         {activeView === "about" && <AboutView setActiveView={setActiveView} />}
         {activeView === "services" && <ServicesView setActiveView={setActiveView} />}
+        {activeView === "media" && <MediaView setActiveView={setActiveView} />}
         {activeView === "blog" && <BlogView />}
         {activeView === "faq" && <FAQView />}
         {activeView === "contact" && <ContactView />}
