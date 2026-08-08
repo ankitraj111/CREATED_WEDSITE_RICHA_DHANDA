@@ -40,12 +40,6 @@ export default function WhyChoose({ setActiveView }: WhyChooseProps = {}) {
 
   return (
     <section className="py-20 bg-gradient-to-b from-[#FFFFFF] via-[#F8F9FA] to-[#F1F3F5] relative overflow-hidden border-b border-gray-200">
-      {/* Background Soft Glow Accents */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 right-10 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
-      </div>
-
       <div className="relative z-10 w-full px-5 lg:px-8">
         {/* Header */}
         <div className="text-center mb-14">

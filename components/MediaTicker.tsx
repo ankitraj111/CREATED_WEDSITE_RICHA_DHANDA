@@ -23,12 +23,6 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
 
   return (
     <section className="bg-gradient-to-b from-[#F8F9FA] via-[#FFFFFF] to-[#F1F3F5] py-10 border-y border-gray-200 overflow-hidden relative shadow-sm">
-      {/* Background Soft Subtlety */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl" />
-      </div>
-
       <div className="relative z-10 w-full px-5 lg:px-8 mb-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100/80 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-widest mb-2 shadow-xs">

@@ -107,11 +107,7 @@ export default function Testimonials() {
 
   return (
     <section className="py-20 lg:py-32 bg-cream relative overflow-hidden">
-      {/* Background glow orbs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-gold/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-maroon/5 rounded-full blur-[80px]" />
-      </div>
+
 
       <div className="max-w-7xl mx-auto px-5 lg:px-8 relative z-10">
         {/* Header */}

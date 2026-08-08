@@ -89,11 +89,7 @@ export default function AboutView({ setActiveView }: AboutViewProps = {}) {
     <>
       {/* Hero Banner — Light */}
       <section className="relative bg-white overflow-hidden border-b border-[#e8e0cc]">
-        {/* Background subtle accent */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-[#d4af37]/5 rounded-full blur-[120px]" />
-          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#F8F6ED] rounded-full blur-[100px]" />
-        </div>
+
 
         <div className="max-w-7xl mx-auto px-5 lg:px-8 py-20 lg:py-28 relative z-10">
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#0B1426]/5 border border-[#0B1426]/10 text-[#0B1426] text-sm font-bold tracking-widest uppercase mb-6">
