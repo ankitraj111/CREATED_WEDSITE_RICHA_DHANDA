@@ -73,7 +73,7 @@ export default function RazorpayPayment({
         currency: order.currency,
         name: 'Advocate Richa Dhanda',
         description: description,
-        image: '/advocate-richa-new.jpg',
+        image: '/images/richa_tribune.png',
         order_id: order.id,
         handler: function (response: any) {
           // Payment success
