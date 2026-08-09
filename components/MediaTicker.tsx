@@ -44,7 +44,7 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
                 setActiveView("media");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="bg-[#06090F] hover:bg-slate-800 text-white px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition duration-300 hover:scale-105 cursor-pointer flex items-center gap-2 shadow-md"
+              className="bg-transparent text-[#2563eb] hover:text-[#1d4ed8] border border-[#2563eb]/40 hover:border-[#2563eb] px-5 py-2.5 rounded-xl font-extrabold text-xs uppercase tracking-wider transition duration-300 hover:scale-105 cursor-pointer flex items-center gap-2 shadow-xs"
             >
               View All Media Coverage
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
