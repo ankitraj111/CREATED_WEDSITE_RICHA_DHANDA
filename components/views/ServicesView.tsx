@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 interface ServicesViewProps {
   setActiveView?: (view: string) => void;
@@ -15,92 +16,55 @@ export default function ServicesView({ setActiveView }: ServicesViewProps = {}) 
 
   const services = [
     {
-      icon: (
-        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80",
       title: "Immigration Consultation",
       desc: "Comprehensive initial assessment of your background to chart the fastest and most secure visa strategy.",
       tag: "Popular",
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80",
       title: "Work & Skilled Visas",
       desc: "Legal representation for work permits, skilled worker applications, and employer sponsorships worldwide.",
       tag: "High Demand",
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80",
       title: "Student Visas & Permits",
       desc: "Complete assistance for international university admissions, study permits, and post-study work rights.",
-      tag: "",
+      tag: "Top Choice",
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80",
       title: "Permanent Residency (PR)",
       desc: "End-to-end legal support for points-based Express Entry, Provincial Nominations, and PR card renewals.",
       tag: "",
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80",
       title: "Family & Spouse Sponsorship",
       desc: "Reunite families through spouse, partner, dependent child, and parent immigration sponsorship pathways.",
       tag: "",
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80",
       title: "Business & Investor Visas",
       desc: "Strategic visa pathways for business owners, startup founders, and investors expanding internationally.",
       tag: "",
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600&q=80",
       title: "Visitor & Tourist Visas",
       desc: "Hassle-free application handling for short-term tourism, family visits, and business travel visas.",
       tag: "",
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80",
       title: "Appeals & Refusal Cases",
       desc: "Expert legal representation to challenge visa refusals, file appeals, and overcome procedural objections.",
       tag: "Specialized",
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-[#8B1538]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=600&q=80",
       title: "Citizenship & Naturalization",
       desc: "Step-by-step assistance for permanent residents applying for full citizenship and passport issuance.",
       tag: "",
@@ -138,7 +102,8 @@ export default function ServicesView({ setActiveView }: ServicesViewProps = {}) 
       window.open(
         `https://wa.me/919306792300?text=${encodeURIComponent(
           "Hi Advocate Richa Dhanda, I want to inquire about your legal immigration services."
-        )}`
+        )}`,
+        "_blank"
       );
     }
   };
@@ -147,11 +112,11 @@ export default function ServicesView({ setActiveView }: ServicesViewProps = {}) 
     <div className="min-h-screen bg-gradient-to-b from-[#FAF9F5] via-[#FFFFFF] to-[#F1F3F5] text-slate-900">
       
       {/* Hero Header Section */}
-      <section className="relative pt-16 pb-20 lg:pt-24 lg:pb-28 border-b border-gray-200">
+      <section className="relative pt-16 pb-20 lg:pt-24 lg:pb-24 border-b border-gray-200">
         <div className="w-full px-5 lg:px-8 max-w-7xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/90 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-wider mb-6 shadow-xs">
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-amber-100/90 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-wider mb-6 shadow-xs">
             Professional Legal Services
-          </div>
+          </span>
 
           <h1 className="font-serif text-4xl lg:text-6xl font-bold text-[#0B1426] mb-6 leading-tight max-w-4xl mx-auto">
             Trusted Legal Solutions For Your <span className="text-[#8B1538]">Global Visas &amp; Immigration</span>
@@ -179,41 +144,52 @@ export default function ServicesView({ setActiveView }: ServicesViewProps = {}) 
             {services.map((s, i) => (
               <div
                 key={i}
-                className={`bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:border-[#8B1538]/30 transition-all duration-300 flex flex-col justify-between ${
+                className={`bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:border-[#8B1538]/40 transition-all duration-300 flex flex-col justify-between overflow-hidden group ${
                   mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 style={{ transitionDelay: `${i * 0.05}s` }}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-amber-50 border border-amber-200/60 flex items-center justify-center">
-                      {s.icon}
-                    </div>
+                  {/* Image Header */}
+                  <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+                    <Image
+                      src={s.image}
+                      alt={s.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      unoptimized
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
                     {s.tag && (
-                      <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#8B1538]/10 text-[#8B1538] border border-[#8B1538]/20">
+                      <span className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold bg-[#8B1538] text-white shadow-md">
                         {s.tag}
                       </span>
                     )}
                   </div>
 
-                  <h3 className="font-serif text-xl font-bold text-slate-900 mb-3 group-hover:text-[#8B1538] transition-colors">
-                    {s.title}
-                  </h3>
+                  <div className="p-7">
+                    <h3 className="font-serif text-xl font-bold text-slate-900 mb-3 group-hover:text-[#8B1538] transition-colors">
+                      {s.title}
+                    </h3>
 
-                  <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                    {s.desc}
-                  </p>
+                    <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                      {s.desc}
+                    </p>
+                  </div>
                 </div>
 
-                <button
-                  onClick={handleBookClick}
-                  className="w-full py-2.5 px-4 rounded-lg bg-slate-50 hover:bg-[#8B1538] text-slate-800 hover:text-white border border-gray-200 hover:border-[#8B1538] font-bold text-sm transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"
-                >
-                  Book This Service
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </button>
+                <div className="px-7 pb-7 pt-2">
+                  <button
+                    onClick={handleBookClick}
+                    className="w-full py-3 px-4 rounded-xl bg-[#FAF9F5] hover:bg-[#8B1538] text-slate-800 hover:text-white border border-amber-200/80 hover:border-[#8B1538] font-bold text-sm transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 shadow-xs"
+                  >
+                    Book Legal Consultation
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             ))}
           </div>
@@ -225,19 +201,19 @@ export default function ServicesView({ setActiveView }: ServicesViewProps = {}) 
         <div className="w-full px-5 lg:px-8 max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[#8B1538] font-bold text-xs uppercase tracking-widest block mb-2">
-              Transparent &amp; Simple
+              Transparent &amp; Simple Process
             </span>
             <h2 className="font-serif text-3xl lg:text-4xl font-bold text-[#0B1426] mb-4">
               How We Work With You
             </h2>
             <p className="text-slate-600 text-base">
-              A step-by-step process built to give you 100% legal clarity at every stage.
+              A step-by-step legal roadmap built to give you 100% clarity at every stage.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {process.map((p, i) => (
-              <div key={i} className="bg-[#FAF9F5] rounded-2xl p-6 border border-amber-200/60 relative">
+              <div key={i} className="bg-[#FAF9F5] rounded-2xl p-6 border border-amber-200/80 relative shadow-xs">
                 <div className="text-3xl font-extrabold text-[#D4AF37] font-serif mb-4">
                   {p.num}
                 </div>
@@ -265,7 +241,7 @@ export default function ServicesView({ setActiveView }: ServicesViewProps = {}) 
             </p>
             <button
               onClick={handleBookClick}
-              className="bg-[#D4AF37] hover:bg-[#c29f2e] text-[#0A1628] font-extrabold px-8 py-3.5 rounded-xl text-base transition-all duration-300 shadow-lg cursor-pointer inline-flex items-center gap-3"
+              className="bg-[#D4AF37] hover:bg-[#c29f2e] text-[#0A1628] font-extrabold px-8 py-4 rounded-xl text-base transition-all duration-300 shadow-lg cursor-pointer inline-flex items-center gap-3 hover:scale-105"
             >
               Book Your Consultation Now
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
