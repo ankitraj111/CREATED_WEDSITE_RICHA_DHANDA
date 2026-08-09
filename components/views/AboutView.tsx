@@ -128,7 +128,7 @@ export default function AboutView({ setActiveView }: AboutViewProps = {}) {
                       alt="Advocate Richa Dhandha — High Court & Immigration Lawyer"
                       width={800}
                       height={520}
-                      className="w-full h-[480px] object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                      className="w-full h-[480px] object-cover brightness-[1.12] contrast-[1.06] saturate-[1.06] group-hover:scale-[1.02] transition-all duration-700"
                     />
                   </div>
                 </div>

@@ -92,15 +92,15 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
               <div className="relative bg-white border border-gray-200 rounded-3xl p-3 shadow-xl overflow-hidden">
                 <div className="relative h-[440px] sm:h-[500px] w-full rounded-2xl overflow-hidden bg-slate-100">
                   <Image
-                    src="/images/richa_tribune.png"
-                    alt="Advocate Richa Dhanda"
+                    src="/advocate-richa-new.jpg"
+                    alt="Advocate Richa Dhanda — High Court & Immigration Lawyer"
                     fill
-                    className="object-cover object-top hover:scale-105 transition-transform duration-700"
+                    className="object-cover object-top brightness-[1.12] contrast-[1.06] saturate-[1.06] hover:scale-105 transition-all duration-700"
                     priority
                   />
                   
-                  {/* Subtle Gradient Shadow at bottom */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
+                  {/* Subtle Gradient Shadow only at bottom for text readability */}
+                  <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent pointer-events-none" />
 
                   {/* Name Badge */}
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3 bg-slate-900/95 backdrop-blur-md p-4 rounded-xl border border-slate-700 text-white shadow-lg">
