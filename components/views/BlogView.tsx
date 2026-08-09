@@ -104,7 +104,7 @@ export default function BlogView() {
       excerpt:
         "From SEVIS registration to embassy interview — complete guide for Indian students planning to study in the United States.",
       date: "10 Feb 2025",
-      img: "https://images.unsplash.com/photo-1485738422979-f5c462d49f04?w=600&q=80",
+      img: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80",
       link: "https://travel.state.gov/content/travel/en/us-visas/study/student-visa.html",
     },
   ];
@@ -205,16 +205,15 @@ export default function BlogView() {
                   className="bg-white rounded-2xl border border-gray-200/90 shadow-sm hover:shadow-xl hover:border-[#8B1538]/40 transition-all duration-300 group overflow-hidden flex flex-col justify-between"
                 >
                   <article>
-                    <div className="relative h-52 w-full overflow-hidden bg-slate-100">
-                      <Image
+                    <div className="relative h-52 w-full overflow-hidden bg-slate-200">
+                      {/* Standard IMG tag with fallback styling so it never breaks */}
+                      <img
                         src={post.img}
-                        alt={post.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        unoptimized
+                        alt=""
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent pointer-events-none" />
                       <span className="absolute top-4 right-4 px-3 py-1 rounded-full text-[11px] font-bold bg-[#8B1538] text-white shadow-md">
                         {post.cat}
                       </span>
