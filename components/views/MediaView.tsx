@@ -372,7 +372,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
                     href={item.link && item.link !== "#" ? item.link : `https://news.google.com/search?q=${encodeURIComponent(item.name + " Advocate Richa Dhanda")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-between w-full pt-3 border-t border-gray-200 text-xs font-bold text-[#0B1426] hover:text-[#ef4444] transition"
+                    className="inline-flex items-center justify-between w-full pt-3 border-t border-gray-200 text-xs font-bold text-[#2563eb] hover:text-[#1d4ed8] transition"
                   >
                     <span>Read Coverage</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

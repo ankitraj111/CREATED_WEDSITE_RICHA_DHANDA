@@ -92,7 +92,7 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
                 setActiveView("media");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="text-[#8B1538] hover:text-slate-900 text-xs font-bold underline underline-offset-4 shrink-0 cursor-pointer transition"
+              className="text-[#2563eb] hover:text-[#1d4ed8] text-xs font-bold underline underline-offset-4 shrink-0 cursor-pointer transition-colors"
             >
               Read Coverage →
             </button>
