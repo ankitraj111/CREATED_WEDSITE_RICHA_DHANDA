@@ -27,19 +27,19 @@ import RefundPolicyView from "@/components/views/RefundPolicyView";
 function ServicesPreview({ setActiveView }: { setActiveView: (v: string) => void }) {
   const services = [
     {
-      image: "https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80",
       title: "Work & Business Visas",
       description: "Expert legal representation for skilled worker permits, LMIA approvals, corporate immigration, and investor visa pathways worldwide.",
       features: ["Skilled Worker Visas", "Investor & Entrepreneur Visas", "Corporate Immigration"],
     },
     {
-      image: "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80",
       title: "Student & Education Visas",
       description: "Complete assistance for international university admissions, study permits, statement of purpose, and post-graduation work rights.",
       features: ["Study Permits & Admissions", "Post-Graduation Work Rights", "Dependant Student Visas"],
     },
     {
-      image: "https://images.pexels.com/photos/7292911/pexels-photo-7292911.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80",
       title: "Permanent Residency & Citizenship",
       description: "End-to-end legal support for points-based Express Entry, Provincial Nominee Programs (PNP), spousal sponsorship, and citizenship.",
       features: ["Permanent Residency (PR)", "Family & Spousal Sponsorship", "Citizenship Applications"],
