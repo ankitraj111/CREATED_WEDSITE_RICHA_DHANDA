@@ -167,29 +167,6 @@ export default function Footer({ setActiveView }: FooterProps) {
                   Advocatericha29@gmail.com
                 </a>
               </li>
-              <li className="flex gap-3">
-                <svg
-                  className="shrink-0 text-gold"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="2" y1="12" x2="22" y2="12" />
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                </svg>
-                <a
-                  href="https://advocate-richa-dhanda.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gold-soft break-all"
-                >
-                  advocate-richa-dhanda.vercel.app
-                </a>
-              </li>
             </ul>
           </div>
         </div>
