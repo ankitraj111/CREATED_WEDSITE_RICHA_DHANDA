@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import BrandLogo from "@/components/BrandLogos";
 
 interface AboutViewProps {
   setActiveView?: (view: string) => void;
@@ -343,9 +344,9 @@ export default function AboutView({ setActiveView }: AboutViewProps = {}) {
               { name: "Google News", tag: "Global Coverage" },
               { name: "Yahoo! News", tag: "Media Coverage" },
             ].map((media, idx) => (
-              <div key={idx} className="bg-white p-5 rounded-2xl border border-[#e8e0cc] shadow-sm flex flex-col items-center justify-center">
-                <span className="font-serif font-bold text-[#0B1426] text-lg mb-1">{media.name}</span>
-                <span className="text-[11px] font-semibold text-[#d4af37] uppercase tracking-wider">{media.tag}</span>
+              <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex flex-col items-center justify-center min-h-[90px]">
+                <BrandLogo name={media.name} isDarkTheme={false} />
+                <span className="text-[11px] font-semibold text-[#8B1538] uppercase tracking-wider mt-1">{media.tag}</span>
               </div>
             ))}
           </div>
