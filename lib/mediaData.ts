@@ -59,7 +59,7 @@ export const FEATURED_ARTICLES: MediaItem[] = [
     title: "Understanding Overseas Employment Visa Scams & Safe Migration Pathways",
     date: "2024",
     summary: "Insights on how Indian professionals and students can verify international job offers and avoid common visa fraud pitfalls.",
-    link: "https://news.search.yahoo.com/search?p=Advocate+Richa+Dhanda",
+    link: "https://search.yahoo.com/search?p=Young+Indians+From+Small+Towns+Losing+Savings+to+Fake+Work+Permit+Offers+Warn+Immigration+Experts",
     featured: true,
     logoText: "Yahoo! News",
     img: "/images/business.jpg",
@@ -315,6 +315,8 @@ export const ALL_MEDIA_PUBLICATIONS: MediaItem[] = RAW_PUBLICATIONS.map((pub, in
     directLink = "https://www.tribuneindia.com/partner-exclusives/immigration-experts-highlight-fraud-risks-linked-to-fake-work-permit-offers-in-india/";
   } else if (pub.name.includes("Ahmedabad") || pub.name.includes("Newz Today")) {
     directLink = "https://www.ahmedabadmirror.com/young-indians-from-small-towns-losing-savings-to-fake-work-permit-offers-warn-immigration-experts/81918948.html";
+  } else if (pub.name.includes("Yahoo")) {
+    directLink = "https://search.yahoo.com/search?p=Young+Indians+From+Small+Towns+Losing+Savings+to+Fake+Work+Permit+Offers+Warn+Immigration+Experts";
   }
 
   return {
