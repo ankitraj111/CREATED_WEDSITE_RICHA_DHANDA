@@ -358,7 +358,7 @@ export default function AboutView({ setActiveView }: AboutViewProps = {}) {
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }
             }}
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#8B1538] hover:bg-[#70102d] text-white text-sm font-extrabold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-sm font-extrabold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer"
           >
             Explore All 200+ Media Mentions &amp; Press Coverage →
           </button>
