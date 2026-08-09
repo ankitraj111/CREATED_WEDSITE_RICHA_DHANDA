@@ -76,9 +76,9 @@ function ServicesPreview({ setActiveView }: { setActiveView: (v: string) => void
                     src={service.image}
                     alt={service.title}
                     fill
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 33vw"
+                    quality={75}
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
                 </div>

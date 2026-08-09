@@ -95,6 +95,8 @@ export default function Hero({ setActiveView }: { setActiveView?: (view: string)
                     src="/advocate-richa-new.jpg"
                     alt="Advocate Richa Dhanda — High Court & Immigration Lawyer"
                     fill
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 400px"
+                    quality={80}
                     className="object-cover object-top brightness-[1.12] contrast-[1.06] saturate-[1.06] hover:scale-105 transition-all duration-700"
                     priority
                   />

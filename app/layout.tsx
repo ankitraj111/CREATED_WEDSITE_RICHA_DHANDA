@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({ 
   subsets: ["latin"],
   variable: '--font-inter',
+  display: 'swap',
 });
 
 const playfair = Playfair_Display({ 
   subsets: ["latin"],
   weight: ['400', '500', '600', '700'],
   variable: '--font-playfair',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -34,10 +37,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <script src="https://checkout.razorpay.com/v1/checkout.js" async></script>
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-cream text-charcoal`}>
         {children}
+        <Script 
+          src="https://checkout.razorpay.com/v1/checkout.js" 
+          strategy="lazyOnload" 
+        />
       </body>
     </html>
   );
