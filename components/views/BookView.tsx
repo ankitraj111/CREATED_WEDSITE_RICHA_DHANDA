@@ -208,14 +208,8 @@ export default function BookView() {
         throw new Error(orderData.error || "Failed to create payment order");
       }
 
-      // 2. Load Cashfree JS SDK and trigger authenticated checkout
-      const { load } = await import("@cashfreepayments/cashfree-js");
-      const cashfree = await load({ mode: "production" });
-
-      cashfree.checkout({
-        paymentSessionId: orderData.paymentSessionId,
-        redirectTarget: "_self",
-      });
+      // Direct redirect to Cashfree hosted checkout — most reliable
+      window.location.href = `https://payments.cashfree.com/order/#${orderData.paymentSessionId}`;
 
     } catch (error) {
       console.error("Cashfree payment error:", error);
