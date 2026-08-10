@@ -343,17 +343,17 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
               {filteredPublications.map((item) => (
                 <div
                   key={item.id}
-                  className="bg-gray-50/50 rounded-xl border border-gray-200 p-5 hover:bg-white hover:border-gray-300 transition flex flex-col justify-between"
+                  className="bg-white rounded-xl border border-gray-200 p-5 shadow-xs hover:shadow-md transition flex flex-col justify-between"
                 >
                   <div>
-                    <div className="flex items-center justify-between gap-3 mb-3">
+                    <div className="flex items-center justify-between gap-3 mb-3 pb-2 border-b border-gray-100">
                       <BrandLogo name={item.name} isDarkTheme={false} />
-                      <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider bg-gray-200 px-2.5 py-0.5 rounded">
+                      <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider bg-gray-100 px-2 py-0.5 rounded">
                         {item.category}
                       </span>
                     </div>
 
-                    <h5 className="text-gray-800 text-xs font-semibold leading-relaxed mb-4 line-clamp-2">
+                    <h5 className="text-gray-900 text-xs font-semibold leading-relaxed mb-4 line-clamp-2">
                       {item.title}
                     </h5>
                   </div>

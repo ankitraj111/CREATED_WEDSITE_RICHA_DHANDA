@@ -53,7 +53,7 @@ export default function BrandLogo({ name, isDarkTheme = false }: BrandLogoProps)
   }
 
   // Official Ahmedabad Mirror Bright Orange Font
-  if (lower.includes("ahmedabad mirror")) {
+  if (lower.includes("ahmedabad mirror") || lower.includes("newz today")) {
     return (
       <div className="inline-flex items-center shrink-0 py-1">
         <span className="font-serif font-extrabold text-lg tracking-tight text-[#E65100]">Ahmedabad Mirror</span>
@@ -79,9 +79,36 @@ export default function BrandLogo({ name, isDarkTheme = false }: BrandLogoProps)
     );
   }
 
+  // Express / Wire / Press Outlets
+  if (lower.includes("express") || lower.includes("wire")) {
+    return (
+      <div className="inline-flex items-center gap-1.5 shrink-0 py-1">
+        <span className="bg-[#2563eb] text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded tracking-wider uppercase">WIRE</span>
+        <span className="font-serif font-bold text-sm text-[#0F172A]">{name}</span>
+      </div>
+    );
+  }
+
+  // Live / Flash / Breaking Outlets
+  if (lower.includes("live") || lower.includes("flash") || lower.includes("breaking")) {
+    return (
+      <div className="inline-flex items-center gap-1.5 shrink-0 py-1">
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+        </span>
+        <span className="font-serif font-bold text-sm text-[#0F172A]">{name}</span>
+      </div>
+    );
+  }
+
+  // Default Custom Newspaper Logo Style
   return (
-    <div className="inline-flex items-center shrink-0 py-1">
-      <span className={isDarkTheme ? "font-serif font-bold text-base text-white/90" : "font-serif font-bold text-base text-[#0F172A]"}>
+    <div className="inline-flex items-center gap-1.5 shrink-0 py-1">
+      <div className="w-5 h-5 rounded bg-slate-100 border border-slate-300 flex items-center justify-center text-[10px] font-extrabold text-slate-700 uppercase">
+        {name.charAt(0)}
+      </div>
+      <span className={isDarkTheme ? "font-serif font-bold text-sm text-white/90" : "font-serif font-bold text-sm text-[#0F172A]"}>
         {name}
       </span>
     </div>
