@@ -290,7 +290,7 @@ export const ALL_MEDIA_PUBLICATIONS: MediaItem[] = [
     title: "The Tribune: Work Permit Scam Advisory",
     date: "2024",
     summary: "Verified press release published across The Tribune network detailing legal immigration compliance and Advocate Richa Dhanda's expert commentary.",
-    link: "https://indiatribunetimes.co.in/young-indians-from-small-towns-losing-savings-to-fake-work-permit-offers-warn-immigration-experts/",
+    link: "https://www.tribuneindia.com/partner-exclusives/immigration-experts-highlight-fraud-risks-linked-to-fake-work-permit-offers-in-india/",
   },
   {
     id: "pub-23",
@@ -308,7 +308,7 @@ export const ALL_MEDIA_PUBLICATIONS: MediaItem[] = [
     title: "Ahmedabad Mirror: Small-Town Visa Scam Warning",
     date: "2024",
     summary: "Verified press release published across Ahmedabad Mirror network detailing legal immigration compliance and Advocate Richa Dhanda's expert commentary.",
-    link: "https://newztoday24.in/young-indians-from-small-towns-losing-savings-to-fake-work-permit-offers-warn-immigration-experts/",
+    link: "https://www.ahmedabadmirror.com/young-indians-from-small-towns-losing-savings-to-fake-work-permit-offers-warn-immigration-experts/81918948.html",
   },
   {
     id: "pub-25",
