@@ -139,34 +139,42 @@ function ServicesPreview({ setActiveView }: { setActiveView: (v: string) => void
 export default function Home() {
   const [activeView, setActiveView] = useState("home");
 
+  const handleViewChange = (view: string) => {
+    if (view === "book") {
+      window.location.href = "/book";
+      return;
+    }
+    setActiveView(view);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
-      <Header activeView={activeView} setActiveView={setActiveView} />
+      <Header activeView={activeView} setActiveView={handleViewChange} />
       <main>
         {activeView === "home" && (
           <>
-            <Hero setActiveView={setActiveView} />
-            <MediaTicker setActiveView={setActiveView} />
-            <WhyChoose setActiveView={setActiveView} />
-            <ServicesPreview setActiveView={setActiveView} />
-            <CTABanner setActiveView={setActiveView} />
+            <Hero setActiveView={handleViewChange} />
+            <MediaTicker setActiveView={handleViewChange} />
+            <WhyChoose setActiveView={handleViewChange} />
+            <ServicesPreview setActiveView={handleViewChange} />
+            <CTABanner setActiveView={handleViewChange} />
             <Testimonials />
-            <EnhancedFAQ setActiveView={setActiveView} />
+            <EnhancedFAQ setActiveView={handleViewChange} />
             <EnhancedContactForm />
           </>
         )}
-        {activeView === "about" && <AboutView setActiveView={setActiveView} />}
-        {activeView === "services" && <ServicesView setActiveView={setActiveView} />}
-        {activeView === "media" && <MediaView setActiveView={setActiveView} />}
+        {activeView === "about" && <AboutView setActiveView={handleViewChange} />}
+        {activeView === "services" && <ServicesView setActiveView={handleViewChange} />}
+        {activeView === "media" && <MediaView setActiveView={handleViewChange} />}
         {activeView === "blog" && <BlogView />}
         {activeView === "faq" && <FAQView />}
         {activeView === "contact" && <ContactView />}
-        {activeView === "book" && <BookView />}
-        {activeView === "privacy" && <PrivacyPolicyView setActiveView={setActiveView} />}
-        {activeView === "terms" && <TermsView setActiveView={setActiveView} />}
-        {activeView === "refund" && <RefundPolicyView setActiveView={setActiveView} />}
+        {activeView === "privacy" && <PrivacyPolicyView setActiveView={handleViewChange} />}
+        {activeView === "terms" && <TermsView setActiveView={handleViewChange} />}
+        {activeView === "refund" && <RefundPolicyView setActiveView={handleViewChange} />}
       </main>
-      <Footer setActiveView={setActiveView} />
+      <Footer setActiveView={handleViewChange} />
       <CookieBanner />
     </>
   );
