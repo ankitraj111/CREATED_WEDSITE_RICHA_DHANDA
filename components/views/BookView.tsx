@@ -176,7 +176,8 @@ export default function BookView() {
 
       // 2. Load Cashfree JS SDK and launch checkout
       const { load } = await import("@cashfreepayments/cashfree-js");
-      const cashfree = await load({ mode: "sandbox" });
+      const mode = (process.env.NEXT_PUBLIC_CASHFREE_MODE as "sandbox" | "production") || "production";
+      const cashfree = await load({ mode });
 
       const checkoutOptions = {
         paymentSessionId: orderData.paymentSessionId,
