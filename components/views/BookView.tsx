@@ -153,9 +153,20 @@ export default function BookView() {
     try {
       const bookingDetails = {
         ...formData,
-        date: selectedDate,
-        time: selectedSlot,
+        service: formData.service || "Legal Consultation Booking",
+        consultationDate: selectedDate,
+        consultationTime: selectedSlot,
+        bookingType: true,
       };
+
+      // 1. Send lead email to Advocatericha29@gmail.com
+      fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(bookingDetails),
+      }).catch((err) => console.warn("Booking email notification error:", err));
+
+      // 2. Process booking confirm
       const res = await fetch("/api/booking/confirm", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -167,13 +178,11 @@ export default function BookView() {
         setBookingConfirmed(true);
         setStep(5);
       } else {
-        // Still confirm locally even if API fails
         setBookingId("BOOK" + Date.now());
         setBookingConfirmed(true);
         setStep(5);
       }
     } catch {
-      // Confirm locally if API is unavailable
       setBookingId("BOOK" + Date.now());
       setBookingConfirmed(true);
       setStep(5);

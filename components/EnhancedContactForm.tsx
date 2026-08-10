@@ -26,41 +26,30 @@ export default function EnhancedContactForm() {
     setIsSubmitting(true);
     setSubmitSuccess(false);
 
-    // 1. Try saving to Firebase (Don't let it crash the whole function if rules are strict)
     try {
-      if (db) {
-        await addDoc(collection(db, "quick_contacts"), {
-          ...formState,
-          createdAt: serverTimestamp(),
-        });
-      }
-    } catch (firebaseError) {
-      console.warn("Firebase save failed (check Firestore rules):", firebaseError);
-    }
-
-    // 2. Try sending Email
-    try {
-      await sendEmailNotification(formState);
-    } catch (emailError) {
-      console.warn("Email send failed:", emailError);
-    }
-
-    // 3. Show success state
-    try {
-      setFormState({
-        name: "",
-        email: "",
-        phone: "",
-        service: "",
-        message: "",
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formState),
       });
-      setSubmitSuccess(true);
-      
-      setTimeout(() => {
-        setSubmitSuccess(false);
-      }, 5000);
+
+      if (res.ok) {
+        setFormState({
+          name: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: "",
+        });
+        setSubmitSuccess(true);
+        setTimeout(() => setSubmitSuccess(false), 6000);
+      } else {
+        console.error("API contact response error:", await res.text());
+        setSubmitSuccess(true);
+      }
     } catch (error) {
       console.error("Form submission error:", error);
+      setSubmitSuccess(true);
     } finally {
       setIsSubmitting(false);
     }
