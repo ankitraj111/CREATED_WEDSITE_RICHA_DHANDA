@@ -174,13 +174,30 @@ export default function BookView() {
         throw new Error(orderData.error || "Failed to create payment order");
       }
 
-      // 2. Load Cashfree JS SDK and launch checkout
-      const { load } = await import("@cashfreepayments/cashfree-js");
-      const cashfree = await load({ mode: "production" });
+      // 2. Load Cashfree JS via CDN script tag (most reliable)
+      const cashfree = await new Promise<any>((resolve, reject) => {
+        // If already loaded, use it
+        if ((window as any).Cashfree) {
+          resolve((window as any).Cashfree({ mode: "production" }));
+          return;
+        }
+        const script = document.createElement("script");
+        script.src = "https://sdk.cashfree.com/js/v3/cashfree.js";
+        script.async = true;
+        script.onload = () => {
+          if ((window as any).Cashfree) {
+            resolve((window as any).Cashfree({ mode: "production" }));
+          } else {
+            reject(new Error("Cashfree SDK failed to initialize"));
+          }
+        };
+        script.onerror = () => reject(new Error("Failed to load Cashfree payment SDK. Please check your internet connection."));
+        document.head.appendChild(script);
+      });
 
       const checkoutOptions = {
         paymentSessionId: orderData.paymentSessionId,
-        redirectTarget: "_modal" as const,
+        redirectTarget: "_modal",
       };
 
       cashfree.checkout(checkoutOptions).then(async () => {
@@ -228,6 +245,7 @@ export default function BookView() {
           ? error.message
           : "Failed to initiate payment. Please try again."
       );
+
       setStep(3);
       setIsProcessing(false);
     }
