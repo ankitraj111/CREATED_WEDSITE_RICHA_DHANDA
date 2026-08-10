@@ -208,34 +208,11 @@ export default function BookView() {
         throw new Error(orderData.error || "Failed to create payment order");
       }
 
-      // 2. Load Cashfree JS via CDN script tag (most reliable)
-      const cashfree = await new Promise<any>((resolve, reject) => {
-        // If already loaded, use it
-        if ((window as any).Cashfree) {
-          resolve((window as any).Cashfree({ mode: "production" }));
-          return;
-        }
-        const script = document.createElement("script");
-        script.src = "https://sdk.cashfree.com/js/v3/cashfree.js";
-        script.async = true;
-        script.onload = () => {
-          if ((window as any).Cashfree) {
-            resolve((window as any).Cashfree({ mode: "production" }));
-          } else {
-            reject(new Error("Cashfree SDK failed to initialize"));
-          }
-        };
-        script.onerror = () => reject(new Error("Failed to load Cashfree payment SDK. Please check your internet connection."));
-        document.head.appendChild(script);
-      });
+      // 2. Direct Cashfree payment URL redirect — most reliable approach
+      // paymentSessionId se Cashfree ka hosted checkout URL open karo
+      const paymentUrl = `https://payments.cashfree.com/order/#${orderData.paymentSessionId}`;
+      window.location.href = paymentUrl;
 
-      const checkoutOptions = {
-        paymentSessionId: orderData.paymentSessionId,
-        redirectTarget: "_self",
-      };
-
-      // Launch Cashfree Checkout — redirects browser to Cashfree payment gateway
-      cashfree.checkout(checkoutOptions);
     } catch (error) {
       console.error("Cashfree payment error:", error);
       setPaymentError(
@@ -243,7 +220,6 @@ export default function BookView() {
           ? error.message
           : "Failed to initiate payment. Please try again."
       );
-
       setStep(3);
       setIsProcessing(false);
     }
