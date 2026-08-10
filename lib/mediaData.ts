@@ -46,7 +46,7 @@ export const FEATURED_ARTICLES: MediaItem[] = [
     title: "Legal Commentary: Navigating Global Immigration Laws & Visa Refusal Appeals",
     date: "2024",
     summary: "Comprehensive coverage of immigration policy developments, student study permits, and legal remedies for visa rejections.",
-    link: "https://news.google.com/search?q=Young+Indians+From+Small+Towns+Losing+Savings+to+Fake+Work+Permit+Offers+Warn+Immigration+Experts",
+    link: "https://news.google.com/search?q=Young%20Indians%20From%20Small%20Towns%20Losing%20Savings%20to%20Fake%20Work%20Permit%20Offers%20Warn%20Immigration%20Experts",
     featured: true,
     logoText: "Google News",
     img: "/images/consultation.jpg",
@@ -101,7 +101,7 @@ export const ALL_MEDIA_PUBLICATIONS: MediaItem[] = [
     title: "Global Immigration & Legal Rights Release",
     date: "2024",
     summary: "Verified press release published across Google News network detailing legal immigration compliance and Advocate Richa Dhanda's expert commentary.",
-    link: "https://news.google.com/search?q=Young+Indians+From+Small+Towns+Losing+Savings+to+Fake+Work+Permit+Offers+Warn+Immigration+Experts",
+    link: "https://news.google.com/search?q=Young%20Indians%20From%20Small%20Towns%20Losing%20Savings%20to%20Fake%20Work%20Permit%20Offers%20Warn%20Immigration%20Experts",
   },
   {
     id: "pub-2",
