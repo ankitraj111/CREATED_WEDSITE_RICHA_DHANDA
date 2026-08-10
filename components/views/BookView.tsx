@@ -234,44 +234,8 @@ export default function BookView() {
         redirectTarget: "_self",
       };
 
-      cashfree.checkout(checkoutOptions).then(async () => {
-        // 3. After modal closes, verify payment
-        try {
-          const verifyRes = await fetch("/api/booking/verify-payment", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              orderId: orderData.orderId,
-              bookingDetails: {
-                name: formData.name,
-                email: formData.email,
-                phone: formData.phone,
-                service: formData.service,
-                date: selectedDate,
-                time: selectedSlot,
-                notes: formData.notes,
-              },
-            }),
-          });
-
-          const verifyData = await verifyRes.json();
-
-          if (verifyRes.ok && verifyData.success) {
-            setBookingId(verifyData.bookingId || orderData.orderId);
-            setBookingConfirmed(true);
-            setStep(5);
-          } else {
-            setPaymentError(
-              verifyData.error || "Payment verification failed. Please try again."
-            );
-            setStep(3);
-          }
-        } catch {
-          setPaymentError("Payment verification failed. Please contact us.");
-          setStep(3);
-        }
-        setIsProcessing(false);
-      });
+      // Launch Cashfree Checkout — redirects browser to Cashfree payment gateway
+      cashfree.checkout(checkoutOptions);
     } catch (error) {
       console.error("Cashfree payment error:", error);
       setPaymentError(
