@@ -89,7 +89,8 @@ function generateAllSlots(date: Date): { time: string; hour: number; minute: num
 
 // Get available slots for a date (check Google Calendar for conflicts)
 export async function getAvailableSlots(dateStr: string) {
-  const date = new Date(dateStr);
+  const [year, month, day] = dateStr.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
   const allSlots = generateAllSlots(date);
   if (allSlots.length === 0) return [];
 

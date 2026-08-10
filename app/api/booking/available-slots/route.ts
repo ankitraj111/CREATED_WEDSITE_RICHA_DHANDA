@@ -26,7 +26,8 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "Date parameter required" }, { status: 400 });
   }
 
-  const date = new Date(dateStr);
+  const [year, month, day] = dateStr.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
   const dayOfWeek = date.getDay();
 
   // Check if it's a business day
