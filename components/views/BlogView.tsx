@@ -207,9 +207,10 @@ export default function BlogView() {
                   <article>
                     <div className="relative h-52 w-full overflow-hidden bg-slate-200">
                       {/* Standard IMG tag with fallback styling so it never breaks */}
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={post.img}
-                        alt=""
+                        alt={post.title}
                         loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
