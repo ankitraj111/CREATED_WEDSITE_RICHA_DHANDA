@@ -376,15 +376,8 @@ export default function AboutView({ setActiveView }: AboutViewProps = {}) {
             Schedule a consultation today and take the first step towards achieving your immigration goals.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={() => {
-                if (setActiveView) {
-                  setActiveView('book');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                  window.open(`https://wa.me/919306792300?text=${encodeURIComponent("Hi, I want to book a free consultation regarding my immigration matter.")}`, "_blank");
-                }
-              }}
+            <a
+              href="/book"
               className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-base font-semibold bg-gradient-to-r from-[#d4af37] to-[#c9a030] text-[#0B1426] hover:from-[#e0bc45] hover:to-[#d4af37] hover:shadow-[0_8px_30px_rgba(212,175,55,0.25)] hover:-translate-y-[1px] transition-all duration-300"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -392,7 +385,7 @@ export default function AboutView({ setActiveView }: AboutViewProps = {}) {
                 <path d="M16 2v4M8 2v4M3 10h18" />
               </svg>
               Book Free Consultation
-            </button>
+            </a>
             <a
               href="tel:+919306792300"
               className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-base font-semibold bg-[#0B1426] border border-[#0B1426] text-white hover:bg-[#122040] hover:shadow-[0_8px_30px_rgba(11,20,38,0.2)] transition-all duration-300"

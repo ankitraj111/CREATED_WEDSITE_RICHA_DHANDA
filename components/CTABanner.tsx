@@ -24,13 +24,8 @@ export default function CTABanner({ setActiveView }: CTABannerProps = {}) {
         </div>
 
         <div className="flex flex-col lg:flex-row items-center justify-center gap-6">
-          <button 
-            onClick={() => {
-              if (setActiveView) {
-                setActiveView('book');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }
-            }}
+          <a 
+            href="/book"
             className="group btn-gold inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-navy shadow-xl hover:shadow-2xl hover:shadow-gold/25 transition-all duration-300 hover:scale-105 cursor-pointer text-center relative overflow-hidden"
           >
             <svg className="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,7 +43,7 @@ export default function CTABanner({ setActiveView }: CTABannerProps = {}) {
             >
               <path d="M5 12h14M13 5l7 7-7 7" />
             </svg>
-          </button>
+          </a>
         </div>
       </div>
     </div>

@@ -102,16 +102,7 @@ export default function FAQView({ setActiveView }: FAQViewProps = {}) {
   };
 
   const handleBookClick = () => {
-    if (setActiveView) {
-      setActiveView("book");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      window.open(
-        `https://wa.me/919306792300?text=${encodeURIComponent(
-          "Hi Advocate Richa Dhanda, I want to book a consultation regarding my visa matter."
-        )}`
-      );
-    }
+    window.location.href = "/book";
   };
 
   return (

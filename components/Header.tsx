@@ -57,8 +57,8 @@ export default function Header({ activeView, setActiveView }: HeaderProps) {
 
           {/* Action Buttons */}
           <div className="flex items-center gap-3">
-            <button
-              onClick={() => handleNavClick("book")}
+            <a
+              href="/book"
               className="hidden sm:inline-flex items-center gap-2 bg-[#8B1538] hover:bg-[#70102d] text-white px-5 py-2.5 rounded-lg text-sm font-bold transition cursor-pointer shadow-md"
             >
               <svg
@@ -73,7 +73,7 @@ export default function Header({ activeView, setActiveView }: HeaderProps) {
                 <path d="M16 2v4M8 2v4M3 10h18" />
               </svg>
               Book a Consultation
-            </button>
+            </a>
 
             {/* Mobile Menu Button */}
             <button
@@ -111,12 +111,12 @@ export default function Header({ activeView, setActiveView }: HeaderProps) {
                 {item.label}
               </button>
             ))}
-            <button
-              onClick={() => handleNavClick("book")}
-              className="bg-[#8B1538] text-white text-center py-3 rounded-md font-bold mt-2 shadow-md cursor-pointer"
+            <a
+              href="/book"
+              className="bg-[#8B1538] text-white text-center py-3 rounded-md font-bold mt-2 shadow-md cursor-pointer block"
             >
               Book a Consultation
-            </button>
+            </a>
           </div>
         </div>
       )}

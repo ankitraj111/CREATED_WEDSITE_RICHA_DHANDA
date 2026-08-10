@@ -95,17 +95,7 @@ export default function ServicesView({ setActiveView }: ServicesViewProps = {}) 
   ];
 
   const handleBookClick = () => {
-    if (setActiveView) {
-      setActiveView("book");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      window.open(
-        `https://wa.me/919306792300?text=${encodeURIComponent(
-          "Hi Advocate Richa Dhanda, I want to inquire about your legal immigration services."
-        )}`,
-        "_blank"
-      );
-    }
+    window.location.href = "/book";
   };
 
   return (

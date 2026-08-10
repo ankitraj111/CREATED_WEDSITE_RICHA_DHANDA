@@ -8,6 +8,10 @@ interface FooterProps {
 
 export default function Footer({ setActiveView }: FooterProps) {
   const handleNavClick = (view: string) => {
+    if (view === "book") {
+      window.location.href = "/book";
+      return;
+    }
     setActiveView(view);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
