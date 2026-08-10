@@ -147,47 +147,90 @@ export default function BookView() {
       return;
     }
 
-    // Directly confirm booking without payment
+    // Step 4: Create Cashfree order and launch checkout
     setIsProcessing(true);
     setPaymentError("");
+    setStep(4);
+
     try {
-      const bookingDetails = {
-        ...formData,
-        service: formData.service || "Legal Consultation Booking",
-        consultationDate: selectedDate,
-        consultationTime: selectedSlot,
-        bookingType: true,
+      // 1. Create order on server
+      const orderRes = await fetch("/api/booking/create-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          date: selectedDate,
+          time: selectedSlot,
+          notes: formData.notes,
+        }),
+      });
+
+      const orderData = await orderRes.json();
+
+      if (!orderRes.ok || !orderData.success) {
+        throw new Error(orderData.error || "Failed to create payment order");
+      }
+
+      // 2. Load Cashfree JS SDK and launch checkout
+      const { load } = await import("@cashfreepayments/cashfree-js");
+      const cashfree = await load({ mode: "sandbox" });
+
+      const checkoutOptions = {
+        paymentSessionId: orderData.paymentSessionId,
+        redirectTarget: "_modal" as const,
       };
 
-      // 1. Send lead email to Advocatericha29@gmail.com
-      fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(bookingDetails),
-      }).catch((err) => console.warn("Booking email notification error:", err));
+      cashfree.checkout(checkoutOptions).then(async () => {
+        // 3. After modal closes, verify payment
+        try {
+          const verifyRes = await fetch("/api/booking/verify-payment", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              orderId: orderData.orderId,
+              bookingDetails: {
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                service: formData.service,
+                date: selectedDate,
+                time: selectedSlot,
+                notes: formData.notes,
+              },
+            }),
+          });
 
-      // 2. Process booking confirm
-      const res = await fetch("/api/booking/confirm", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(bookingDetails),
+          const verifyData = await verifyRes.json();
+
+          if (verifyRes.ok && verifyData.success) {
+            setBookingId(verifyData.bookingId || orderData.orderId);
+            setBookingConfirmed(true);
+            setStep(5);
+          } else {
+            setPaymentError(
+              verifyData.error || "Payment verification failed. Please try again."
+            );
+            setStep(3);
+          }
+        } catch {
+          setPaymentError("Payment verification failed. Please contact us.");
+          setStep(3);
+        }
+        setIsProcessing(false);
       });
-      const data = await res.json();
-      if (data.success) {
-        setBookingId(data.bookingId || "BOOK" + Date.now());
-        setBookingConfirmed(true);
-        setStep(5);
-      } else {
-        setBookingId("BOOK" + Date.now());
-        setBookingConfirmed(true);
-        setStep(5);
-      }
-    } catch {
-      setBookingId("BOOK" + Date.now());
-      setBookingConfirmed(true);
-      setStep(5);
+    } catch (error) {
+      console.error("Cashfree payment error:", error);
+      setPaymentError(
+        error instanceof Error
+          ? error.message
+          : "Failed to initiate payment. Please try again."
+      );
+      setStep(3);
+      setIsProcessing(false);
     }
-    setIsProcessing(false);
   };
 
 
@@ -644,20 +687,56 @@ export default function BookView() {
                   />
                 </div>
 
-                <button
+                {paymentError && (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
+                  ⚠️ {paymentError}
+                </div>
+              )}
+
+              <button
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-[#7a2d2d] to-[#0a1628] text-white font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:opacity-90"
+                  disabled={isProcessing}
+                  className="w-full py-4 rounded-xl bg-gradient-to-r from-[#7a2d2d] to-[#0a1628] text-white font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isProcessing ? (
                     <>
                       <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin inline-block mr-2" />
-                      Booking...
+                      Processing Payment...
                     </>
                   ) : (
-                    "Confirm Booking →"
+                    "Pay ₹499 & Book Consultation →"
                   )}
                 </button>
+                <p className="text-center text-xs text-[#9ca3af] mt-2">Secure payment powered by Cashfree</p>
               </form>
+            </div>
+          </div>
+        )}
+
+        {/* Step 4: Payment Processing */}
+        {step === 4 && (
+          <div className="max-w-lg mx-auto">
+            <div className="bg-white rounded-3xl shadow-xl p-8 lg:p-12 border border-[#e5e0d8] text-center">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#d4af37] to-[#a67c00] flex items-center justify-center shadow-lg animate-pulse">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </div>
+              <h2 className="font-serif text-2xl font-bold text-[#111827] mb-3">
+                Secure Payment
+              </h2>
+              <p className="text-[#6b7280] mb-6">
+                Please complete your payment of <strong className="text-[#111827]">₹499</strong> in the Cashfree checkout window.
+              </p>
+              <div className="w-12 h-12 border-4 border-[#d4af37] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+              <p className="text-sm text-[#9ca3af]">Waiting for payment confirmation...</p>
+
+              <button
+                onClick={() => { setStep(3); setIsProcessing(false); setPaymentError(""); }}
+                className="mt-6 text-sm text-[#a67c00] hover:underline font-medium"
+              >
+                ← Go Back
+              </button>
             </div>
           </div>
         )}
