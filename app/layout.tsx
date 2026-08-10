@@ -42,10 +42,6 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-cream text-charcoal`}>
         {children}
-        <Script 
-          src="https://checkout.razorpay.com/v1/checkout.js" 
-          strategy="lazyOnload" 
-        />
       </body>
     </html>
   );
