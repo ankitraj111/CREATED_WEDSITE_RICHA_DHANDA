@@ -40,7 +40,7 @@ const nextConfig = {
           // Permissions Policy - disable unnecessary browser features
           {
             key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=(), payment=()',
+            value: 'camera=(), microphone=(), geolocation=()',
           },
           // Strict Transport Security (HSTS) - force HTTPS
           {
@@ -52,12 +52,12 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://checkout.razorpay.com",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://sdk.cashfree.com https://api.cashfree.com https://sandbox.cashfree.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://sdk.cashfree.com",
               "font-src 'self' https://fonts.gstatic.com",
-              "img-src 'self' data: blob: https://images.unsplash.com https://images.pexels.com https://www.google-analytics.com",
-              "connect-src 'self' https://firestore.googleapis.com https://www.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.razorpay.com",
-              "frame-src 'self' https://www.google.com https://api.razorpay.com",
+              "img-src 'self' data: blob: https://images.unsplash.com https://images.pexels.com https://www.google-analytics.com https://sdk.cashfree.com https://cashfree-static.s3.amazonaws.com",
+              "connect-src 'self' https://firestore.googleapis.com https://www.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.cashfree.com https://sandbox.cashfree.com https://sdk.cashfree.com",
+              "frame-src 'self' https://www.google.com https://api.cashfree.com https://sandbox.cashfree.com https://sdk.cashfree.com",
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",
