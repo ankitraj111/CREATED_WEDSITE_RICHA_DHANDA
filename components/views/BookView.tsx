@@ -208,9 +208,20 @@ export default function BookView() {
         throw new Error(orderData.error || "Failed to create payment order");
       }
 
-      // Direct browser navigation to Cashfree hosted checkout
-      // (bypasses CORS/origin check since it's a page redirect, not AJAX)
-      window.location.href = `https://payments.cashfree.com/order/#${orderData.paymentSessionId}`;
+      // Official Cashfree PG v6 Form POST Checkout Submission
+      // Submits payment_session_id to Cashfree's checkout engine
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = "https://api.cashfree.com/pg/view/sessions/checkout";
+
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "payment_session_id";
+      input.value = orderData.paymentSessionId;
+
+      form.appendChild(input);
+      document.body.appendChild(form);
+      form.submit();
 
     } catch (error) {
       console.error("Cashfree payment error:", error);
