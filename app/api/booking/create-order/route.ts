@@ -4,20 +4,16 @@ export const dynamic = "force-dynamic";
 
 const CONSULTATION_FEE = 499; // ₹499
 
-// Decode credentials at runtime (server-side only)
-// These are the VERIFIED production credentials tested locally
-const APP_ID = Buffer.from("MTM1NjIyNDI5NzJlZmUyMWZmZTU3MGY3ZWM5NDIyNjUzMQ==", "base64").toString("utf-8");
-const SECRET  = Buffer.from("Y2Zza19tYV9wcm9kX2JmYzZlODhkY2JmMGE1MmRkYTAzMTRmMWM3MmNiMjFiX2YzMmZiOGRm", "base64").toString("utf-8");
+// Use Vercel env vars first (user has set correct production keys there)
+// Fallback to hardcoded decoded credentials only if env vars are missing
+const FB_APP_ID = Buffer.from("MTM1NjIyNDI5NzJlZmUyMWZmZTU3MGY3ZWM5NDIyNjUzMQ==", "base64").toString("utf-8");
+const FB_SECRET  = Buffer.from("Y2Zza19tYV9wcm9kX2JmYzZlODhkY2JmMGE1MmRkYTAzMTRmMWM3MmNiMjFiX2YzMmZiOGRm", "base64").toString("utf-8");
 
-// Use env vars ONLY if they look like valid production keys, otherwise use hardcoded
-const envAppId = process.env.CASHFREE_APP_ID || "";
-const envSecret = process.env.CASHFREE_SECRET_KEY || "";
-
-const CASHFREE_APP_ID     = (envSecret.includes("_ma_prod_") ? envAppId : null) || APP_ID;
-const CASHFREE_SECRET_KEY = (envSecret.includes("_ma_prod_") ? envSecret : null) || SECRET;
+const CASHFREE_APP_ID     = process.env.CASHFREE_APP_ID     || FB_APP_ID;
+const CASHFREE_SECRET_KEY = process.env.CASHFREE_SECRET_KEY || FB_SECRET;
 const BASE_URL            = process.env.NEXT_PUBLIC_BASE_URL || "https://advocate-richa-dhanda.vercel.app";
 
-console.log("[Cashfree] Using AppID prefix:", CASHFREE_APP_ID.substring(0, 8), "| Secret is prod:", CASHFREE_SECRET_KEY.includes("_ma_prod_"));
+console.log("[Cashfree] AppID prefix:", CASHFREE_APP_ID.substring(0, 10), "| Secret prefix:", CASHFREE_SECRET_KEY.substring(0, 20), "| Secret length:", CASHFREE_SECRET_KEY.length);
 
 export async function POST(request: Request) {
   try {
