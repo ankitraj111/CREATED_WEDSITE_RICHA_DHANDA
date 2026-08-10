@@ -11,8 +11,4 @@ const PROD_SECRET = typeof window === "undefined"
 const clientId = process.env.CASHFREE_APP_ID || PROD_APP_ID;
 const clientSecret = process.env.CASHFREE_SECRET_KEY || PROD_SECRET;
 
-Cashfree.XClientId = clientId;
-Cashfree.XClientSecret = clientSecret;
-Cashfree.XEnvironment = CFEnvironment.PRODUCTION;
-
-export { Cashfree as cashfree };
+export const cashfree = new Cashfree(CFEnvironment.PRODUCTION, clientId, clientSecret);

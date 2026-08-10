@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { cashfree } from "@/lib/cashfree";
 
+export const dynamic = "force-dynamic";
+
 const CONSULTATION_FEE = 499; // ₹499
 
 export async function POST(request: Request) {

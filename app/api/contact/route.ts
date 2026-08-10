@@ -3,6 +3,8 @@ import { Resend } from "resend";
 
 const RECIPIENT_EMAIL = "Advocatericha29@gmail.com";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();

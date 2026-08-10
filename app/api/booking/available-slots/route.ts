@@ -4,6 +4,8 @@ import { db } from "@/lib/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { rateLimit } from "@/lib/rate-limit";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request: Request) {
   // Rate Limiting — max 30 requests per IP per minute
   const ip =
