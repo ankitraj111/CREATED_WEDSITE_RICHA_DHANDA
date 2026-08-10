@@ -6,7 +6,7 @@ const PROD_APP_ID = typeof window === "undefined"
   : "";
 
 const PROD_SECRET = typeof window === "undefined"
-  ? Buffer.from("Y2Zza19tYV9wcm9kXzc1NmYxMTQ2MmJkNDBmZjk1ZjQ2YjA2OGZjNjhhYTQzXzQzYjdmYWFj", "base64").toString("utf-8")
+  ? Buffer.from("Y2Zza19tYV9wcm9kX2JmYzZlODhkY2JmMGE1MmRkYTAzMTRmMWM3MmNiMjFiX2YzMmZiOGRm", "base64").toString("utf-8")
   : "";
 
 const clientId = process.env.CASHFREE_APP_ID || PROD_APP_ID;
