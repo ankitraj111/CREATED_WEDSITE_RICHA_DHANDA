@@ -46,7 +46,7 @@ export const FEATURED_ARTICLES: MediaItem[] = [
     title: "Legal Commentary: Navigating Global Immigration Laws & Visa Refusal Appeals",
     date: "2024",
     summary: "Comprehensive coverage of immigration policy developments, student study permits, and legal remedies for visa rejections.",
-    link: "https://news.google.com/search?q=Advocate+Richa+Dhanda+Immigration",
+    link: "https://news.google.com/search?q=Young+Indians+From+Small+Towns+Losing+Savings+to+Fake+Work+Permit+Offers+Warn+Immigration+Experts",
     featured: true,
     logoText: "Google News",
     img: "/images/consultation.jpg",
