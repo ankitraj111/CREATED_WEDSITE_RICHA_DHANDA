@@ -31,6 +31,40 @@ export default function BookView() {
     return d;
   });
 
+  // Auto verify payment if redirected back from Cashfree with order_id in URL
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const urlParams = new URLSearchParams(window.location.search);
+    const orderIdParam = urlParams.get("order_id");
+
+    if (orderIdParam) {
+      setIsProcessing(true);
+      setStep(4);
+
+      fetch("/api/booking/verify-payment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ orderId: orderIdParam }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            setBookingId(data.bookingId || orderIdParam);
+            setBookingConfirmed(true);
+            setStep(5);
+          } else {
+            setPaymentError(data.error || "Payment verification failed.");
+            setStep(3);
+          }
+        })
+        .catch(() => {
+          setPaymentError("Payment verification failed. Please contact us.");
+          setStep(3);
+        })
+        .finally(() => setIsProcessing(false));
+    }
+  }, []);
+
   // Check if date is a Sunday
   const isSunday = (dateStr: string) => {
     return new Date(dateStr).getDay() === 0;
@@ -197,7 +231,7 @@ export default function BookView() {
 
       const checkoutOptions = {
         paymentSessionId: orderData.paymentSessionId,
-        redirectTarget: "_modal",
+        redirectTarget: "_self",
       };
 
       cashfree.checkout(checkoutOptions).then(async () => {
