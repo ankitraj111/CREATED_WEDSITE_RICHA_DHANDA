@@ -60,7 +60,7 @@ const nextConfig = {
               "frame-src 'self' https://www.google.com https://api.cashfree.com https://sandbox.cashfree.com https://sdk.cashfree.com https://payments.cashfree.com",
               "frame-ancestors 'none'",
               "base-uri 'self'",
-              "form-action 'self' https://payments.cashfree.com",
+              "form-action 'self' https://api.cashfree.com https://sandbox.cashfree.com https://payments.cashfree.com https://sdk.cashfree.com",
             ].join('; '),
           },
         ],
