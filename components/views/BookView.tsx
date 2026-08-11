@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, FormEvent } from "react";
+import Image from "next/image";
 
 interface SlotData {
   time: string;
@@ -275,8 +276,13 @@ export default function BookView() {
               <div className="h-0.5 bg-gradient-to-r from-[#7a2d2d] to-[#0a1628]" />
               <div className="p-6">
                 <div className="flex items-center gap-4 mb-5">
-                  <div className="w-14 h-14 rounded-full bg-[#0a1628] flex items-center justify-center text-lg font-bold text-[#d4af37] font-serif flex-shrink-0">
-                    RD
+                  <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-[#0a1628] shadow-sm flex-shrink-0">
+                    <Image
+                      src="/advocate-richa-new.jpg"
+                      alt="Advocate Richa Dhanda"
+                      fill
+                      className="object-cover object-top"
+                    />
                   </div>
                   <div>
                     <h3 className="font-serif text-base font-bold text-gray-900">Adv. Richa Dhanda</h3>
