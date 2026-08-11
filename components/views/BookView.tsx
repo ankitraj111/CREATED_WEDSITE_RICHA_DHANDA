@@ -112,7 +112,9 @@ export default function BookView() {
     }
   }, []);
 
-  const isSunday = (d: string) => new Date(d).getDay() === 0;
+  // Parse "YYYY-MM-DD" as LOCAL date (not UTC) to avoid timezone shift
+  const parseLocalDate = (d: string) => { const [y, m, day] = d.split("-").map(Number); return new Date(y, m - 1, day); };
+  const isSunday = (d: string) => parseLocalDate(d).getDay() === 0;
   const nextMonth = () => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1));
   const prevMonth = () => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1));
 
@@ -123,7 +125,7 @@ export default function BookView() {
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const days = [];
     for (let i = 0; i < firstDay; i++) days.push(null);
-    for (let i = 1; i <= daysInMonth; i++) days.push(new Date(year, month, i));
+    for (let i = 1; i <= daysInMonth; i++) days.push(new Date(year, month, i)); // local date, no UTC offset
     return days;
   };
 
@@ -141,7 +143,8 @@ export default function BookView() {
       .then((r) => r.json())
       .then((data) => { setSlots(data.slots || []); setLoadingSlots(false); })
       .catch(() => {
-        const day = new Date(selectedDate).getDay();
+        const [sy, sm, sd] = selectedDate.split("-").map(Number);
+        const day = new Date(sy, sm - 1, sd).getDay();
         const endHour = day === 6 ? 14 : 18;
         const fb: SlotData[] = [];
         for (let h = 10; h < endHour; h++) {
@@ -198,10 +201,10 @@ export default function BookView() {
   };
 
   const formatDate = (dateStr: string) =>
-    new Date(dateStr).toLocaleDateString("en-IN", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+    parseLocalDate(dateStr).toLocaleDateString("en-IN", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
 
   const getDayInfo = (dateStr: string) => {
-    const day = new Date(dateStr).getDay();
+    const day = parseLocalDate(dateStr).getDay();
     if (day === 6) return "Saturday · 10:00 AM – 2:00 PM";
     return "Monday – Friday · 10:00 AM – 6:00 PM";
   };
@@ -485,7 +488,8 @@ export default function BookView() {
                           {generateCalendarDays().map((date, i) => {
                             if (!date) return <div key={`e-${i}`} />;
                             const selectable = isDateSelectable(date);
-                            const dateStr = date.toISOString().split("T")[0];
+                            // Build YYYY-MM-DD from local date components (not UTC, avoids 1-day shift in IST)
+                            const dateStr = `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,"0")}-${String(date.getDate()).padStart(2,"0")}`;
                             const isSelected = selectedDate === dateStr;
                             const isToday = new Date().toDateString() === date.toDateString();
                             const isSun = date.getDay() === 0;
@@ -493,7 +497,7 @@ export default function BookView() {
                               <button key={i} disabled={!selectable} onClick={() => handleDateSelect(dateStr)}
                                 className={`
                                   h-9 w-full rounded-lg text-sm font-medium transition-colors
-                                  ${isSelected ? "bg-[#0a1628] text-white font-semibold" : ""}
+                                  ${isSelected ? "bg-[#7a2d2d] text-white font-semibold shadow-sm" : ""}
                                   ${!isSelected && selectable ? "hover:bg-gray-100 text-gray-700 cursor-pointer" : ""}
                                   ${!selectable ? "text-gray-300 cursor-not-allowed" : ""}
                                   ${isSun ? "!text-red-300 cursor-not-allowed" : ""}
