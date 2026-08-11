@@ -34,7 +34,7 @@ export async function POST(request: Request) {
         customer_id:    `CUST_${Date.now()}`,
         customer_name:  name,
         customer_email: email,
-        customer_phone: phone.replace(/[^0-9]/g, "").slice(-10), // 10-digit only
+        customer_phone: "9871251800", // Advocate Richa Dhanda contact number
       },
       order_meta: {
         return_url:     `${BASE_URL}/book?order_id=${orderId}`,
