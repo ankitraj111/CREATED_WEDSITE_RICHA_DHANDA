@@ -9,14 +9,54 @@ interface SlotData {
 }
 
 const SERVICES = [
-  { value: "Work Visa", label: "Work Visa", icon: "✈️" },
-  { value: "Student Visa", label: "Student Visa", icon: "🎓" },
-  { value: "PR Application", label: "PR / Residency", icon: "🏠" },
-  { value: "Family Immigration", label: "Family Immigration", icon: "👨‍👩‍👧" },
-  { value: "Business Visa", label: "Business Visa", icon: "💼" },
-  { value: "Citizenship & OCI", label: "Citizenship & OCI", icon: "🏛️" },
-  { value: "Visa Refusal / Appeal", label: "Visa Refusal / Appeal", icon: "⚖️" },
-  { value: "Other", label: "Other Matter", icon: "📋" },
+  {
+    value: "Work Visa",
+    label: "Work Visa",
+    sub: "Employment & Work Permit",
+    svgPath: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+  },
+  {
+    value: "Student Visa",
+    label: "Student Visa",
+    sub: "University & Higher Education",
+    svgPath: "M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z",
+  },
+  {
+    value: "PR Application",
+    label: "PR / Residency",
+    sub: "Permanent Residency & Express Entry",
+    svgPath: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
+  },
+  {
+    value: "Family Immigration",
+    label: "Family Immigration",
+    sub: "Spouse & Family Sponsorship",
+    svgPath: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+  },
+  {
+    value: "Business Visa",
+    label: "Business Visa",
+    sub: "Investor, Founder & Business Travel",
+    svgPath: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h2m0 0h2m-4 0V9a1 1 0 011-1h2a1 1 0 011 1v12m-4 0h4",
+  },
+  {
+    value: "Citizenship & OCI",
+    label: "Citizenship & OCI",
+    sub: "Passport, Naturalisation & OCI Cards",
+    svgPath: "M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z",
+  },
+  {
+    value: "Visa Refusal / Appeal",
+    label: "Visa Refusal / Appeal",
+    sub: "Rejection Review & Appeal Filings",
+    svgPath: "M3 6l9-4 9 4M3 6v14a2 2 0 002 2h14a2 2 0 002-2V6M3 6l9 6 9-6",
+  },
+  {
+    value: "Other",
+    label: "Other Matter",
+    sub: "General Legal Consultation",
+    svgPath: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 02 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
+  },
 ];
 
 function groupSlots(slots: SlotData[]) {
@@ -654,24 +694,44 @@ export default function BookView() {
                         <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
                           Type of Matter <span className="text-red-500">*</span>
                         </label>
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                          {SERVICES.map((svc) => (
-                            <button key={svc.value} type="button"
-                              onClick={() => { setFormData((p) => ({ ...p, service: svc.value })); setErrors((p) => ({ ...p, service: false })); }}
-                              className={`p-3 rounded-xl border text-left transition-all duration-150 relative ${
-                                formData.service === svc.value
-                                  ? "border-[#7a2d2d] bg-[#7a2d2d]/5 font-semibold text-[#7a2d2d] ring-1 ring-[#7a2d2d]"
-                                  : "border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50 text-gray-700"
-                              } ${errors.service ? "border-red-300" : ""}`}>
-                              {formData.service === svc.value && (
-                                <span className="absolute top-2 right-2 w-4 h-4 rounded-full bg-[#7a2d2d] text-white flex items-center justify-center text-[10px] font-bold">
-                                  ✓
-                                </span>
-                              )}
-                              <span className="text-xl block mb-1.5">{svc.icon}</span>
-                              <span className="text-xs leading-snug font-medium block">{svc.label}</span>
-                            </button>
-                          ))}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          {SERVICES.map((svc) => {
+                            const isSelected = formData.service === svc.value;
+                            return (
+                              <button key={svc.value} type="button"
+                                onClick={() => { setFormData((p) => ({ ...p, service: svc.value })); setErrors((p) => ({ ...p, service: false })); }}
+                                className={`p-3.5 rounded-xl border text-left transition-all duration-150 flex items-center justify-between group ${
+                                  isSelected
+                                    ? "border-[#7a2d2d] bg-red-50/40 ring-1 ring-[#7a2d2d]"
+                                    : "border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50/80 text-gray-700"
+                                } ${errors.service ? "border-red-300 bg-red-50/30" : ""}`}>
+                                <div className="flex items-center gap-3">
+                                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${
+                                    isSelected
+                                      ? "bg-[#7a2d2d] text-white shadow-xs"
+                                      : "bg-gray-100 text-gray-500 group-hover:bg-[#7a2d2d]/10 group-hover:text-[#7a2d2d]"
+                                  }`}>
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                                      <path strokeLinecap="round" strokeLinejoin="round" d={svc.svgPath} />
+                                    </svg>
+                                  </div>
+                                  <div>
+                                    <p className={`text-xs font-bold ${isSelected ? "text-[#7a2d2d]" : "text-gray-900"}`}>{svc.label}</p>
+                                    <p className="text-[11px] text-gray-400 mt-0.5">{svc.sub}</p>
+                                  </div>
+                                </div>
+                                <div className={`w-4 h-4 rounded-full border flex items-center justify-center flex-shrink-0 transition-all ${
+                                  isSelected ? "border-[#7a2d2d] bg-[#7a2d2d] text-white" : "border-gray-300 bg-white group-hover:border-gray-400"
+                                }`}>
+                                  {isSelected && (
+                                    <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+                                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                  )}
+                                </div>
+                              </button>
+                            );
+                          })}
                         </div>
                         {errors.service && <p className="text-red-500 text-xs mt-1.5">Please select a service type</p>}
                       </div>
