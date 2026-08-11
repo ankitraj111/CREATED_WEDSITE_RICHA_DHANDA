@@ -273,10 +273,10 @@ export default function BookView() {
 
             {/* Advocate Card */}
             <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-              <div className="h-0.5 bg-gradient-to-r from-[#7a2d2d] to-[#0a1628]" />
+              <div className="h-0.5 bg-gradient-to-r from-[#7a2d2d] to-[#5c2323]" />
               <div className="p-6">
                 <div className="flex items-center gap-4 mb-5">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-[#0a1628] shadow-sm flex-shrink-0">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-[#7a2d2d] shadow-sm flex-shrink-0">
                     <Image
                       src="/advocate-richa-photo.jpg"
                       alt="Advocate Richa Dhanda"
@@ -377,8 +377,8 @@ export default function BookView() {
                           disabled={s.num >= step}
                           className="flex items-center gap-2 group">
                           <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
-                            step > s.num ? "bg-[#7a2d2d] text-white"
-                            : step === s.num ? "bg-[#0a1628] text-white"
+                            step > s.num ? "bg-green-600 text-white"
+                            : step === s.num ? "bg-[#7a2d2d] text-white shadow-sm ring-2 ring-[#7a2d2d]/20"
                             : "bg-gray-100 text-gray-400"
                           }`}>
                             {step > s.num ? (
@@ -526,9 +526,9 @@ export default function BookView() {
                                   onClick={() => handleSlotSelect(slot.time)}
                                   className={`py-2.5 px-2 rounded-lg text-sm font-medium transition-colors border ${
                                     selectedSlot === slot.time
-                                      ? "bg-[#0a1628] text-white border-[#0a1628]"
+                                      ? "bg-[#7a2d2d] text-white border-[#7a2d2d]"
                                       : slot.available
-                                      ? "border-gray-200 text-gray-700 hover:border-[#0a1628] hover:text-[#0a1628] bg-white"
+                                      ? "border-gray-200 text-gray-700 hover:border-[#7a2d2d] hover:text-[#7a2d2d] bg-white"
                                       : "border-gray-100 text-gray-300 cursor-not-allowed line-through bg-gray-50"
                                   }`}>
                                   {slot.time}
@@ -667,7 +667,7 @@ export default function BookView() {
 
                       {/* CTA */}
                       <button type="submit" disabled={isProcessing}
-                        className="w-full py-3.5 rounded-lg bg-[#0a1628] hover:bg-[#0f2040] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-sm transition-colors flex items-center justify-center gap-2.5">
+                        className="w-full py-3.5 rounded-lg bg-[#7a2d2d] hover:bg-[#602323] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-sm transition-colors flex items-center justify-center gap-2.5 shadow-sm">
                         {isProcessing ? (
                           <>
                             <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
