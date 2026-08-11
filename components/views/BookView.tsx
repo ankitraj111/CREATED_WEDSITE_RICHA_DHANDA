@@ -14,7 +14,7 @@ const SERVICES = [
   { value: "PR Application", label: "PR / Residency", icon: "🏠" },
   { value: "Family Immigration", label: "Family Immigration", icon: "👨‍👩‍👧" },
   { value: "Business Visa", label: "Business Visa", icon: "💼" },
-  { value: "Citizenship & OCI", label: "Citizenship & OCI", icon: "🇮🇳" },
+  { value: "Citizenship & OCI", label: "Citizenship & OCI", icon: "🏛️" },
   { value: "Visa Refusal / Appeal", label: "Visa Refusal / Appeal", icon: "⚖️" },
   { value: "Other", label: "Other Matter", icon: "📋" },
 ];
@@ -545,18 +545,38 @@ export default function BookView() {
                 {/* ── STEP 3: FORM ────────────────────────────────────── */}
                 {step === 3 && (
                   <div>
-                    <div className="flex items-start justify-between mb-5">
+                    {/* Header with Slot Pill */}
+                    <div className="flex items-center justify-between pb-4 mb-6 border-b border-gray-100">
                       <div>
-                        <h2 className="font-serif text-xl font-bold text-gray-900 mb-1">Your Details</h2>
-                        <p className="text-gray-500 text-sm">{formatDate(selectedDate)} at {selectedSlot}</p>
+                        <h2 className="font-serif text-xl font-bold text-gray-900">Your Details</h2>
+                        <p className="text-gray-500 text-xs mt-0.5">Please provide your contact details for booking</p>
                       </div>
                       <button onClick={() => setStep(2)}
-                        className="text-sm text-[#7a2d2d] font-medium hover:underline flex items-center gap-1 mt-0.5">
-                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        className="text-xs font-semibold text-[#7a2d2d] bg-[#7a2d2d]/10 hover:bg-[#7a2d2d]/20 px-3 py-1.5 rounded-full transition-colors flex items-center gap-1">
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                         </svg>
-                        Change
+                        Change Time
                       </button>
+                    </div>
+
+                    {/* Selected Slot Banner */}
+                    <div className="mb-6 p-3.5 bg-gradient-to-r from-red-50/70 via-amber-50/40 to-gray-50 border border-[#7a2d2d]/20 rounded-xl flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 rounded-lg bg-[#7a2d2d] text-white flex items-center justify-center font-bold text-sm shadow-xs flex-shrink-0">
+                          📅
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-500 font-medium">Selected Consultation Slot</p>
+                          <p className="text-sm font-bold text-gray-900 mt-0.5">
+                            {formatDate(selectedDate)} · <span className="text-[#7a2d2d]">{selectedSlot}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div className="text-right hidden sm:block">
+                        <span className="text-xs text-gray-400 block">Fee</span>
+                        <span className="text-sm font-extrabold text-[#7a2d2d]">₹499</span>
+                      </div>
                     </div>
 
                     <form onSubmit={handleFormSubmit} className="space-y-5">
@@ -564,96 +584,121 @@ export default function BookView() {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {/* Name */}
                         <div>
-                          <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                          <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
                             Full Name <span className="text-red-500">*</span>
                           </label>
-                          <input type="text" name="name" value={formData.name} onChange={handleChange}
-                            placeholder="Enter your full name"
-                            className={`w-full px-4 py-2.5 rounded-lg border text-sm outline-none transition-colors ${
-                              errors.name
-                                ? "border-red-400 bg-red-50 focus:border-red-500"
-                                : "border-gray-300 bg-white focus:border-[#0a1628]"
-                            } text-gray-900`} />
+                          <div className="relative">
+                            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                              </svg>
+                            </span>
+                            <input type="text" name="name" value={formData.name} onChange={handleChange}
+                              placeholder="Enter your full name"
+                              className={`w-full pl-10 pr-4 py-2.5 rounded-lg border text-sm outline-none transition-colors ${
+                                errors.name
+                                  ? "border-red-400 bg-red-50 focus:border-red-500"
+                                  : "border-gray-300 bg-white focus:border-[#7a2d2d] focus:ring-1 focus:ring-[#7a2d2d]"
+                              } text-gray-900`} />
+                          </div>
                           {errors.name && <p className="text-red-500 text-xs mt-1">Please enter your full name</p>}
                         </div>
 
                         {/* Phone */}
                         <div>
-                          <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                          <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
                             Phone Number <span className="text-red-500">*</span>
                           </label>
-                          <input type="tel" name="phone" value={formData.phone} onChange={handleChange}
-                            placeholder="+91 XXXXX XXXXX"
-                            className={`w-full px-4 py-2.5 rounded-lg border text-sm outline-none transition-colors ${
-                              errors.phone
-                                ? "border-red-400 bg-red-50 focus:border-red-500"
-                                : "border-gray-300 bg-white focus:border-[#0a1628]"
-                            } text-gray-900`} />
+                          <div className="relative">
+                            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                              </svg>
+                            </span>
+                            <input type="tel" name="phone" value={formData.phone} onChange={handleChange}
+                              placeholder="+91 XXXXX XXXXX"
+                              className={`w-full pl-10 pr-4 py-2.5 rounded-lg border text-sm outline-none transition-colors ${
+                                errors.phone
+                                  ? "border-red-400 bg-red-50 focus:border-red-500"
+                                  : "border-gray-300 bg-white focus:border-[#7a2d2d] focus:ring-1 focus:ring-[#7a2d2d]"
+                              } text-gray-900`} />
+                          </div>
                           {errors.phone && <p className="text-red-500 text-xs mt-1">Enter a valid phone number</p>}
                         </div>
                       </div>
 
                       {/* Email */}
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                        <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
                           Email Address <span className="text-red-500">*</span>
                         </label>
-                        <input type="email" name="email" value={formData.email} onChange={handleChange}
-                          placeholder="you@example.com"
-                          className={`w-full px-4 py-2.5 rounded-lg border text-sm outline-none transition-colors ${
-                            errors.email
-                              ? "border-red-400 bg-red-50 focus:border-red-500"
-                              : "border-gray-300 bg-white focus:border-[#0a1628]"
-                          } text-gray-900`} />
+                        <div className="relative">
+                          <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                          </span>
+                          <input type="email" name="email" value={formData.email} onChange={handleChange}
+                            placeholder="you@example.com"
+                            className={`w-full pl-10 pr-4 py-2.5 rounded-lg border text-sm outline-none transition-colors ${
+                              errors.email
+                                ? "border-red-400 bg-red-50 focus:border-red-500"
+                                : "border-gray-300 bg-white focus:border-[#7a2d2d] focus:ring-1 focus:ring-[#7a2d2d]"
+                            } text-gray-900`} />
+                        </div>
                         {errors.email && <p className="text-red-500 text-xs mt-1">Enter a valid email address</p>}
                       </div>
 
-                      {/* Service */}
+                      {/* Service Cards */}
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
                           Type of Matter <span className="text-red-500">*</span>
                         </label>
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                           {SERVICES.map((svc) => (
                             <button key={svc.value} type="button"
                               onClick={() => { setFormData((p) => ({ ...p, service: svc.value })); setErrors((p) => ({ ...p, service: false })); }}
-                              className={`p-3 rounded-lg border text-left transition-colors ${
+                              className={`p-3 rounded-xl border text-left transition-all duration-150 relative ${
                                 formData.service === svc.value
-                                  ? "border-[#0a1628] bg-[#0a1628]/5"
-                                  : "border-gray-200 bg-white hover:border-gray-400"
-                              } ${errors.service ? "border-red-200" : ""}`}>
-                              <span className="text-lg block mb-1">{svc.icon}</span>
-                              <span className="text-xs font-medium text-gray-700 leading-tight block">{svc.label}</span>
+                                  ? "border-[#7a2d2d] bg-[#7a2d2d]/5 font-semibold text-[#7a2d2d] ring-1 ring-[#7a2d2d]"
+                                  : "border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50 text-gray-700"
+                              } ${errors.service ? "border-red-300" : ""}`}>
+                              {formData.service === svc.value && (
+                                <span className="absolute top-2 right-2 w-4 h-4 rounded-full bg-[#7a2d2d] text-white flex items-center justify-center text-[10px] font-bold">
+                                  ✓
+                                </span>
+                              )}
+                              <span className="text-xl block mb-1.5">{svc.icon}</span>
+                              <span className="text-xs leading-snug font-medium block">{svc.label}</span>
                             </button>
                           ))}
                         </div>
-                        {errors.service && <p className="text-red-500 text-xs mt-1">Please select a service type</p>}
+                        {errors.service && <p className="text-red-500 text-xs mt-1.5">Please select a service type</p>}
                       </div>
 
                       {/* Notes */}
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                          Additional Notes <span className="text-gray-400 font-normal">(Optional)</span>
+                        <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                          Additional Notes <span className="text-gray-400 font-normal uppercase-none">(Optional)</span>
                         </label>
                         <textarea name="notes" value={formData.notes} onChange={handleChange} rows={3}
                           placeholder="Briefly describe your situation or any specific questions..."
-                          className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:border-[#0a1628] outline-none transition-colors text-sm text-gray-900 resize-none" />
+                          className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:border-[#7a2d2d] focus:ring-1 focus:ring-[#7a2d2d] outline-none transition-colors text-sm text-gray-900 resize-none" />
                       </div>
 
-                      {/* Booking Summary */}
-                      <div className="rounded-lg border border-gray-200 divide-y divide-gray-100">
-                        <div className="px-4 py-3 bg-gray-50 rounded-t-lg">
-                          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Booking Summary</p>
+                      {/* Booking Summary Card */}
+                      <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 space-y-2">
+                        <div className="flex justify-between items-center text-xs text-gray-500">
+                          <span>Consultation Duration</span>
+                          <span className="font-semibold text-gray-900">30 Minutes</span>
                         </div>
-                        <div className="flex justify-between items-center px-4 py-2.5">
-                          <span className="text-sm text-gray-500">Date & Time</span>
-                          <span className="text-sm font-semibold text-gray-900">
-                            {new Date(selectedDate).toLocaleDateString("en-IN", { day: "numeric", month: "short" })} · {selectedSlot}
-                          </span>
+                        <div className="flex justify-between items-center text-xs text-gray-500">
+                          <span>Mode</span>
+                          <span className="font-semibold text-gray-900">Online / Phone Call</span>
                         </div>
-                        <div className="flex justify-between items-center px-4 py-2.5 rounded-b-lg">
-                          <span className="text-sm text-gray-500">Consultation Fee</span>
-                          <span className="text-sm font-bold text-gray-900">₹499</span>
+                        <div className="pt-2 border-t border-gray-200 flex justify-between items-center">
+                          <span className="text-sm font-semibold text-gray-700">Total Payable</span>
+                          <span className="text-base font-extrabold text-[#7a2d2d]">₹499</span>
                         </div>
                       </div>
 
@@ -667,7 +712,7 @@ export default function BookView() {
 
                       {/* CTA */}
                       <button type="submit" disabled={isProcessing}
-                        className="w-full py-3.5 rounded-lg bg-[#7a2d2d] hover:bg-[#602323] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-sm transition-colors flex items-center justify-center gap-2.5 shadow-sm">
+                        className="w-full py-3.5 rounded-xl bg-[#7a2d2d] hover:bg-[#602323] active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold text-sm transition-all flex items-center justify-center gap-2.5 shadow-md shadow-[#7a2d2d]/20">
                         {isProcessing ? (
                           <>
                             <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -678,12 +723,12 @@ export default function BookView() {
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                             </svg>
-                            Pay ₹499 &amp; Book Consultation
+                            Pay ₹499 &amp; Book Consultation →
                           </>
                         )}
                       </button>
                       <p className="text-center text-xs text-gray-400 flex items-center justify-center gap-1">
-                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-3.5 h-3.5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                         </svg>
                         Secured by Cashfree Payments · 256-bit SSL
