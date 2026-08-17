@@ -4,6 +4,8 @@ import type { NextRequest } from "next/server";
 // Allowed origins for CORS
 const ALLOWED_ORIGINS = [
   "https://advocate-richa-dhanda.vercel.app",
+  "https://advocaterichadhanda.com",
+  "https://www.advocaterichadhanda.com",
   "http://localhost:3000",
 ];
 
