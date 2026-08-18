@@ -2,14 +2,16 @@ import { NextResponse } from "next/server";
 import { cashfree } from "@/lib/cashfree";
 import { createCalendarEvent } from "@/lib/google-calendar";
 import { db } from "@/lib/firebase";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { collection, query, where, getDocs, updateDoc, doc, serverTimestamp } from "firebase/firestore";
 
 export const dynamic = "force-dynamic";
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://advocate-richa-dhanda.vercel.app";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { orderId, bookingDetails } = body;
+    const { orderId, bookingDetails: clientBookingDetails } = body;
 
     if (!orderId) {
       return NextResponse.json(
@@ -32,32 +34,76 @@ export async function POST(request: Request) {
       );
     }
 
-    // Payment verified — proceed with booking
+    // Payment verified — fetch booking details from Firestore
+    let bookingDetails = clientBookingDetails || null; // fallback from client sessionStorage
+    let bookingDocId: string | null = null;
     let bookingId = "BOOK" + Date.now();
 
-    // Save booking to Firebase
     if (db) {
       try {
-        const bookingRef = await addDoc(collection(db, "bookings"), {
-          ...bookingDetails,
-          cashfreeOrderId: orderId,
-          paymentAmount: orderData.order_amount,
-          paymentStatus: orderData.order_status,
-          cfPaymentId: orderData.cf_order_id,
-          amount: orderData.order_amount,
-          status: "confirmed",
-          paymentGateway: "cashfree",
-          createdAt: serverTimestamp(),
-        });
-        bookingId = bookingRef.id;
+        // Find the pending booking saved during create-order
+        const q = query(
+          collection(db, "bookings"),
+          where("cashfreeOrderId", "==", orderId)
+        );
+        const snapshot = await getDocs(q);
+
+        if (!snapshot.empty) {
+          const docSnap = snapshot.docs[0];
+          const dbData = docSnap.data();
+          bookingDocId = docSnap.id;
+          bookingId = docSnap.id;
+
+          // Use DB data as the source of truth (most reliable)
+          bookingDetails = {
+            name: dbData.name,
+            email: dbData.email,
+            phone: dbData.phone,
+            service: dbData.service,
+            date: dbData.date,
+            time: dbData.time,
+            notes: dbData.notes,
+          };
+
+          // Update booking status to confirmed
+          await updateDoc(doc(db, "bookings", bookingDocId), {
+            paymentAmount: orderData.order_amount,
+            paymentStatus: orderData.order_status,
+            cfPaymentId: orderData.cf_order_id,
+            status: "confirmed",
+            paymentGateway: "cashfree",
+            confirmedAt: serverTimestamp(),
+          });
+
+          console.log(`[Booking] Confirmed booking ${bookingDocId} for order ${orderId}`);
+        } else {
+          console.warn(`[Booking] No pending booking found for order ${orderId}, using client fallback.`);
+          // If no pending booking found (edge case), save a new one using client data
+          if (bookingDetails) {
+            const { addDoc: addDocFn } = await import("firebase/firestore");
+            const bookingRef = await addDocFn(collection(db, "bookings"), {
+              ...bookingDetails,
+              cashfreeOrderId: orderId,
+              paymentAmount: orderData.order_amount,
+              paymentStatus: orderData.order_status,
+              cfPaymentId: orderData.cf_order_id,
+              amount: orderData.order_amount,
+              status: "confirmed",
+              paymentGateway: "cashfree",
+              createdAt: serverTimestamp(),
+              confirmedAt: serverTimestamp(),
+            });
+            bookingId = bookingRef.id;
+          }
+        }
       } catch (dbError) {
-        console.warn("Firebase save failed:", dbError);
+        console.warn("Firebase booking lookup/update failed:", dbError);
       }
     }
 
     // Create Google Calendar event
     let calendarEventId = null;
-    if (bookingDetails) {
+    if (bookingDetails?.date && bookingDetails?.time) {
       try {
         const event = await createCalendarEvent({
           name: bookingDetails.name,
@@ -74,23 +120,20 @@ export async function POST(request: Request) {
       }
     }
 
-    // Send lead email notification
-    if (bookingDetails) {
+    // Send email notifications (advocate + customer)
+    if (bookingDetails?.name) {
       try {
-        await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL || "https://advocate-richa-dhanda.vercel.app"}/api/contact`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              ...bookingDetails,
-              consultationDate: bookingDetails.date,
-              consultationTime: bookingDetails.time,
-              bookingType: true,
-              message: `Payment of ₹${orderData.order_amount} received via Cashfree (Order: ${orderId}). ${bookingDetails.notes || ""}`,
-            }),
-          }
-        ).catch(() => {});
+        await fetch(`${BASE_URL}/api/contact`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...bookingDetails,
+            consultationDate: bookingDetails.date,
+            consultationTime: bookingDetails.time,
+            bookingType: true,
+            message: `Payment of ₹${orderData.order_amount} received via Cashfree (Order: ${orderId}). ${bookingDetails.notes || ""}`,
+          }),
+        }).catch(() => {});
       } catch {
         // Email notification is non-critical
       }
@@ -101,6 +144,7 @@ export async function POST(request: Request) {
       bookingId,
       calendarEventId,
       paymentAmount: orderData.order_amount,
+      bookingDetails, // Return full details for confirmation page
       message: "Payment verified and booking confirmed!",
     });
   } catch (error: any) {

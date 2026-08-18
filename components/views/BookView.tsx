@@ -97,15 +97,46 @@ export default function BookView() {
     const orderIdParam = urlParams.get("order_id");
     if (orderIdParam) {
       setIsProcessing(true); setStep(4);
+
+      // Restore booking details from sessionStorage (saved before Cashfree redirect)
+      let pending: Record<string, string> = {};
+      try {
+        pending = JSON.parse(sessionStorage.getItem("pendingBooking") || "{}");
+        if (pending.date) setSelectedDate(pending.date);
+        if (pending.time) setSelectedSlot(pending.time);
+        if (pending.name) setFormData({ name: pending.name, phone: pending.phone, email: pending.email, service: pending.service, notes: pending.notes || "" });
+      } catch { /* sessionStorage parse failed, proceed without */ }
+
       fetch("/api/booking/verify-payment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ orderId: orderIdParam }),
+        body: JSON.stringify({ orderId: orderIdParam, bookingDetails: Object.keys(pending).length > 0 ? pending : undefined }),
       })
         .then((r) => r.json())
         .then((data) => {
-          if (data.success) { setBookingId(data.bookingId || orderIdParam); setBookingConfirmed(true); setStep(5); }
-          else { setPaymentError(data.error || "Payment verification failed."); setStep(3); }
+          if (data.success) {
+            // Use API response details (from Firestore — most reliable source of truth)
+            const bd = data.bookingDetails;
+            if (bd) {
+              if (bd.date) setSelectedDate(bd.date);
+              if (bd.time) setSelectedSlot(bd.time);
+              setFormData((prev) => ({
+                name: bd.name || prev.name,
+                phone: bd.phone || prev.phone,
+                email: bd.email || prev.email,
+                service: bd.service || prev.service,
+                notes: bd.notes || prev.notes,
+              }));
+            }
+            // Clear sessionStorage after successful confirmation
+            try { sessionStorage.removeItem("pendingBooking"); } catch {}
+            setBookingId(data.bookingId || orderIdParam);
+            setBookingConfirmed(true);
+            setStep(5);
+          } else {
+            setPaymentError(data.error || "Payment verification failed.");
+            setStep(3);
+          }
         })
         .catch(() => { setPaymentError("Payment verification failed. Please contact us."); setStep(3); })
         .finally(() => setIsProcessing(false));
@@ -193,7 +224,16 @@ export default function BookView() {
       form.method = "POST"; form.action = "https://api.cashfree.com/pg/view/sessions/checkout";
       const input = document.createElement("input");
       input.type = "hidden"; input.name = "payment_session_id"; input.value = orderData.paymentSessionId;
-      form.appendChild(input); document.body.appendChild(form); form.submit();
+      form.appendChild(input); document.body.appendChild(form);
+      // Save booking details to sessionStorage before redirect (survives full page navigation)
+      try {
+        sessionStorage.setItem("pendingBooking", JSON.stringify({
+          date: selectedDate, time: selectedSlot,
+          name: formData.name, email: formData.email, phone: formData.phone,
+          service: formData.service, notes: formData.notes,
+        }));
+      } catch { /* sessionStorage not available, DB fallback will handle it */ }
+      form.submit();
     } catch (error) {
       setPaymentError(error instanceof Error ? error.message : "Failed to initiate payment.");
       setStep(3); setIsProcessing(false);
