@@ -82,12 +82,21 @@ export async function POST(req: Request) {
       const resend = new Resend(apiKey);
 
       // Send notification email to advocate
-      const data = await resend.emails.send({
+      const { data, error: sendError } = await resend.emails.send({
         from: "Advocate Richa Dhanda Leads <onboarding@resend.dev>",
-        to: [RECIPIENT_EMAIL],
+        to: ["advocatericha29@gmail.com"],
         subject: emailSubject,
         html: htmlContent,
       });
+
+      if (sendError) {
+        console.error("Resend advocate email failed:", sendError);
+        return NextResponse.json(
+          { error: sendError.message || "Failed to send email" },
+          { status: 500 }
+        );
+      }
+
       console.log("Resend advocate email sent successfully:", data);
 
       // Send confirmation email to customer (only for paid bookings)
