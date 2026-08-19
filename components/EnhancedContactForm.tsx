@@ -26,6 +26,19 @@ export default function EnhancedContactForm() {
     setIsSubmitting(true);
     setSubmitSuccess(false);
 
+    // 1. Direct Firebase Save
+    try {
+      if (db) {
+        await addDoc(collection(db, "contacts"), {
+          ...formState,
+          createdAt: serverTimestamp(),
+        });
+      }
+    } catch (fbErr) {
+      console.warn("Client Firebase save failed:", fbErr);
+    }
+
+    // 2. Send Email Notification via API
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -33,25 +46,22 @@ export default function EnhancedContactForm() {
         body: JSON.stringify(formState),
       });
 
-      if (res.ok) {
-        setFormState({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
-          message: "",
-        });
-        setSubmitSuccess(true);
-        setTimeout(() => setSubmitSuccess(false), 6000);
-      } else {
+      if (!res.ok) {
         console.error("API contact response error:", await res.text());
-        setSubmitSuccess(true);
       }
     } catch (error) {
-      console.error("Form submission error:", error);
-      setSubmitSuccess(true);
+      console.error("Form email notification error:", error);
     } finally {
+      setFormState({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+      });
+      setSubmitSuccess(true);
       setIsSubmitting(false);
+      setTimeout(() => setSubmitSuccess(false), 6000);
     }
   };
 
