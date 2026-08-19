@@ -55,7 +55,18 @@ export default function ContactView() {
 
     setIsSubmitting(true);
 
-    // 1. Firebase Save
+    // 1. Send via Resend Email API
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+    } catch (apiError) {
+      console.warn("Contact API email send failed:", apiError);
+    }
+
+    // 2. Firebase Save
     try {
       if (db) {
         await addDoc(collection(db, "contacts"), {
@@ -65,13 +76,6 @@ export default function ContactView() {
       }
     } catch (firebaseError) {
       console.warn("Firebase save failed:", firebaseError);
-    }
-
-    // 2. Email Sending
-    try {
-      await sendEmailNotification(formData);
-    } catch (emailError) {
-      console.warn("Email send failed:", emailError);
     }
 
     // 3. Success state

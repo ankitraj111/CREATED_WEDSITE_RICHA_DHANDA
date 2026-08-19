@@ -49,8 +49,15 @@ export default function ContactForm() {
 
     if (!isValid) return;
 
-    // TODO: Replace with actual form submission logic
-    // fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+    } catch (err) {
+      console.warn("ContactForm error:", err);
+    }
 
     setSuccess(true);
     setFormData({
