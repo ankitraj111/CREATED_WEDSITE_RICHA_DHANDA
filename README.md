@@ -1,4 +1,5 @@
-# Advocate Richa Dhanda - Immigration Law Website
+# Advocate Richa Dhanda - Official Website
+Last Updated: 2026-08-19 (Email Resend Integration Active)
 
 A modern, professional Next.js website for immigration law advocate services.
 
