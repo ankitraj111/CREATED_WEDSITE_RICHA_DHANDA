@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 const RECIPIENT_EMAIL = "Advocatericha29@gmail.com";
 
@@ -22,6 +24,26 @@ export async function POST(req: Request) {
       dateStyle: "full",
       timeStyle: "medium",
     });
+
+    // Save lead into Firebase Firestore contacts collection
+    if (db) {
+      try {
+        await addDoc(collection(db, "contacts"), {
+          name,
+          email: email || "",
+          phone: phone || "",
+          service: service || "General Inquiry",
+          message: message || "",
+          consultationDate: consultationDate || null,
+          consultationTime: consultationTime || null,
+          bookingType: !!bookingType,
+          createdAt: serverTimestamp(),
+        });
+        console.log("Lead saved to Firebase Firestore contacts collection.");
+      } catch (dbErr) {
+        console.warn("Firebase save warning (non-critical):", dbErr);
+      }
+    }
 
     const FALLBACK_KEY = Buffer.from(
       "cmVfTUJtdUdveWlfNWVGTFBFdTlIamhGUTNqN0JEOWdWTUJk",
