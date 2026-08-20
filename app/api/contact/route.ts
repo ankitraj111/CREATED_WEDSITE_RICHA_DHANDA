@@ -104,26 +104,59 @@ export async function POST(req: Request) {
       </div>
     `;
 
+    let emailSent = false;
+
     if (apiKey) {
-      const resend = new Resend(apiKey);
+      try {
+        const resend = new Resend(apiKey);
+        const { data, error: sendError } = await resend.emails.send({
+          from: "Advocate Richa Dhanda Leads <onboarding@resend.dev>",
+          to: [RECIPIENT_EMAIL],
+          subject: emailSubject,
+          html: htmlContent,
+        });
 
-      // Send notification email to advocate
-      const { data, error: sendError } = await resend.emails.send({
-        from: "Advocate Richa Dhanda Leads <onboarding@resend.dev>",
-        to: ["advocatericha29@gmail.com"],
-        subject: emailSubject,
-        html: htmlContent,
-      });
-
-      if (sendError) {
-        console.error("Resend advocate email failed:", sendError);
-        return NextResponse.json(
-          { error: sendError.message || "Failed to send email" },
-          { status: 500 }
-        );
+        if (!sendError && data) {
+          emailSent = true;
+          console.log("Resend email delivered successfully:", data.id);
+        } else {
+          console.warn("Resend email warning:", sendError);
+        }
+      } catch (resendErr) {
+        console.warn("Resend attempt failed, trying fallback:", resendErr);
       }
+    }
 
-      console.log("Resend advocate email sent successfully:", data);
+    // Secondary Fallback: FormSubmit Backup Channel (Lifetime Free Direct Email)
+    if (!emailSent) {
+      try {
+        const fallbackRes = await fetch(`https://formsubmit.co/ajax/${RECIPIENT_EMAIL}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            _subject: emailSubject,
+            Name: name,
+            Email: email || "Not provided",
+            Phone: phone || "Not provided",
+            Service: service || "General Inquiry",
+            Message: message || "No message",
+            ConsultationTime: consultationDate || consultationTime ? `${consultationDate || ""} ${consultationTime || ""}` : "N/A",
+            SubmissionTime: submissionTime,
+            _template: "table",
+          }),
+        });
+
+        if (fallbackRes.ok) {
+          emailSent = true;
+          console.log("Fallback FormSubmit email delivered successfully.");
+        }
+      } catch (fallbackErr) {
+        console.warn("Secondary email fallback warning:", fallbackErr);
+      }
+    }
 
       // Send confirmation email to customer (only for paid bookings)
       if (bookingType && email) {
@@ -194,27 +227,26 @@ export async function POST(req: Request) {
             </div>
           `;
 
-          await resend.emails.send({
-            from: "Advocate Richa Dhanda <onboarding@resend.dev>",
-            to: [email],
-            subject: `✅ Booking Confirmed — Consultation with Adv. Richa Dhanda${consultationDate ? ` on ${consultationDate}` : ""}`,
-            html: customerHtml,
-          });
-          console.log("Customer confirmation email sent to:", email);
+          if (apiKey) {
+            const resend = new Resend(apiKey);
+            await resend.emails.send({
+              from: "Advocate Richa Dhanda <onboarding@resend.dev>",
+              to: [email],
+              subject: `✅ Booking Confirmed — Consultation with Adv. Richa Dhanda${consultationDate ? ` on ${consultationDate}` : ""}`,
+              html: customerHtml,
+            });
+            console.log("Customer confirmation email sent to:", email);
+          }
         } catch (custEmailError) {
           console.warn("Customer confirmation email failed (non-critical):", custEmailError);
-          // Don't fail the request if customer email fails
         }
       }
 
-      return NextResponse.json({ success: true, message: "Lead submitted successfully and email sent." });
-    } else {
-      console.warn("RESEND_API_KEY variable is missing. Simulated submission recorded.");
       return NextResponse.json({
         success: true,
-        message: "Lead recorded (Resend API Key pending in Vercel environment variables).",
+        message: "Lead received and saved successfully.",
+        emailSent,
       });
-    }
   } catch (error) {
     console.error("Error processing contact form submission:", error);
     return NextResponse.json(
