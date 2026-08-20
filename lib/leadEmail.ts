@@ -115,6 +115,10 @@ export async function sendLeadNotification(payload: LeadEmailPayload): Promise<{
   `;
 
   let emailSent = false;
+  let errorDetail: any = null;
+  let deliveryMethod = "none";
+  let emailId = "";
+
   const envKey = (process.env.RESEND_API_KEY || "").trim();
   const apiKey = envKey.startsWith("re_") ? envKey : FALLBACK_KEY;
 
@@ -131,11 +135,15 @@ export async function sendLeadNotification(payload: LeadEmailPayload): Promise<{
 
       if (!resendError && data?.id) {
         emailSent = true;
+        deliveryMethod = "resend";
+        emailId = data.id;
         console.log("[LeadEmail] Delivered via Resend ID:", data.id);
       } else {
+        errorDetail = resendError;
         console.warn("[LeadEmail] Resend error:", resendError);
       }
-    } catch (err) {
+    } catch (err: any) {
+      errorDetail = err?.message || err;
       console.warn("[LeadEmail] Resend exception:", err);
     }
   }
@@ -165,11 +173,16 @@ export async function sendLeadNotification(payload: LeadEmailPayload): Promise<{
         }),
       });
 
+      const fsJson = await formSubmitRes.json().catch(() => ({}));
       if (formSubmitRes.ok) {
         emailSent = true;
-        console.log("[LeadEmail] Delivered via FormSubmit fallback.");
+        deliveryMethod = "formsubmit";
+        console.log("[LeadEmail] Delivered via FormSubmit fallback:", fsJson);
+      } else {
+        errorDetail = { resend: errorDetail, formsubmit: fsJson };
       }
-    } catch (fallbackErr) {
+    } catch (fallbackErr: any) {
+      errorDetail = { resend: errorDetail, formsubmitErr: fallbackErr?.message || fallbackErr };
       console.warn("[LeadEmail] FormSubmit fallback warning:", fallbackErr);
     }
   }
@@ -250,5 +263,5 @@ export async function sendLeadNotification(payload: LeadEmailPayload): Promise<{
     }
   }
 
-  return { success: emailSent };
+  return { success: emailSent, deliveryMethod, emailId, error: errorDetail };
 }
