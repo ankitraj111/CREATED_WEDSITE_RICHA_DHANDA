@@ -115,34 +115,35 @@ export async function sendLeadNotification(payload: LeadEmailPayload): Promise<{
   `;
 
   let emailSent = false;
-  const apiKey = process.env.RESEND_API_KEY || FALLBACK_KEY;
+  const envKey = (process.env.RESEND_API_KEY || "").trim();
+  const apiKey = envKey.startsWith("re_") ? envKey : FALLBACK_KEY;
 
   // 1. Primary Delivery via Resend
   if (apiKey) {
     try {
       const resend = new Resend(apiKey);
       const { data, error: resendError } = await resend.emails.send({
-        from: "Advocate Richa Dhanda Leads <onboarding@resend.dev>",
-        to: [RECIPIENT_EMAIL],
+        from: "Advocate Richa Dhanda <onboarding@resend.dev>",
+        to: ["advocatericha29@gmail.com"],
         subject: emailSubject,
         html: advocateHtml,
       });
 
-      if (!resendError && data) {
+      if (!resendError && data?.id) {
         emailSent = true;
-        console.log("[LeadEmail] Sent via Resend successfully:", data.id);
+        console.log("[LeadEmail] Delivered via Resend ID:", data.id);
       } else {
-        console.warn("[LeadEmail] Resend error (triggering fallback):", resendError);
+        console.warn("[LeadEmail] Resend error:", resendError);
       }
     } catch (err) {
       console.warn("[LeadEmail] Resend exception:", err);
     }
   }
 
-  // 2. Secondary Fallback Delivery via FormSubmit (Direct Free Channel)
+  // 2. Secondary Fallback Delivery via FormSubmit
   if (!emailSent) {
     try {
-      const formSubmitRes = await fetch(`https://formsubmit.co/ajax/${RECIPIENT_EMAIL}`, {
+      const formSubmitRes = await fetch("https://formsubmit.co/ajax/advocatericha29@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -160,12 +161,13 @@ export async function sendLeadNotification(payload: LeadEmailPayload): Promise<{
           Message: actualMessage,
           SubmissionTime: submissionTime,
           _template: "table",
+          _captcha: "false",
         }),
       });
 
       if (formSubmitRes.ok) {
         emailSent = true;
-        console.log("[LeadEmail] Sent via FormSubmit fallback successfully.");
+        console.log("[LeadEmail] Delivered via FormSubmit fallback.");
       }
     } catch (fallbackErr) {
       console.warn("[LeadEmail] FormSubmit fallback warning:", fallbackErr);

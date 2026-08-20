@@ -50,6 +50,10 @@ export async function POST(request: Request) {
     // Clean customer phone: keep only digits, take last 10
     const cleanPhone = phone.replace(/[^\d]/g, "").slice(-10);
 
+    const host = request.headers.get("host") || "advocate-richa-dhanda-ankitsah9525-5536s-projects.vercel.app";
+    const protocol = host.includes("localhost") ? "http" : "https";
+    const originUrl = request.headers.get("origin") || `${protocol}://${host}`;
+
     const orderPayload = {
       order_id:       orderId,
       order_amount:   CONSULTATION_FEE,
@@ -61,8 +65,8 @@ export async function POST(request: Request) {
         customer_phone: cleanPhone || "9999999999",
       },
       order_meta: {
-        return_url:     `${BASE_URL}/book?order_id=${orderId}`,
-        notify_url:     `${BASE_URL}/api/webhook/cashfree`,
+        return_url:     `${originUrl}/book?order_id=${orderId}`,
+        notify_url:     `${originUrl}/api/webhook/cashfree`,
       },
       order_note: `Legal Consultation - ${service || "General"} | ${date} at ${time}`,
     };
