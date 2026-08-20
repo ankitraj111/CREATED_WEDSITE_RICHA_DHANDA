@@ -186,6 +186,7 @@ export default function BookView() {
         }
         setSlots(fb); setLoadingSlots(false);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedDate]);
 
   const validateField = (id: string, value: string) => {

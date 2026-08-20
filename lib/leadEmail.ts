@@ -23,7 +23,14 @@ const FALLBACK_KEY = Buffer.from(
   "base64"
 ).toString("utf-8");
 
-export async function sendLeadNotification(payload: LeadEmailPayload): Promise<{ success: boolean; error?: string }> {
+export interface LeadEmailResult {
+  success: boolean;
+  deliveryMethod?: string;
+  emailId?: string;
+  error?: any;
+}
+
+export async function sendLeadNotification(payload: LeadEmailPayload): Promise<LeadEmailResult> {
   const {
     name,
     email = "",

@@ -58,9 +58,9 @@ export async function POST(req: Request) {
       success: true,
       message: "Lead received and processed successfully.",
       emailSent: emailResult.success,
-      deliveryMethod: (emailResult as any).deliveryMethod,
-      emailId: (emailResult as any).emailId,
-      error: (emailResult as any).error,
+      deliveryMethod: emailResult.deliveryMethod,
+      emailId: emailResult.emailId,
+      error: emailResult.error,
     });
   } catch (error) {
     console.error("[ContactAPI] Error processing contact form submission:", error);
