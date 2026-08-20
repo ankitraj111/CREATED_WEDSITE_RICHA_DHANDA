@@ -10,6 +10,16 @@ interface BrandLogoProps {
 export default function BrandLogo({ name, isDarkTheme = false }: BrandLogoProps) {
   const lower = name.toLowerCase();
 
+  // Official Outlook India Logo — Blue branded style
+  if (lower.includes("outlook india") || lower === "outlook") {
+    return (
+      <div className="inline-flex items-center gap-1.5 shrink-0 py-1">
+        <span className="font-sans font-black text-base tracking-tight text-[#1A56DB]">OUTLOOK</span>
+        <span className={isDarkTheme ? "text-white/80 text-xs font-semibold" : "text-slate-500 text-xs font-semibold"}>India</span>
+      </div>
+    );
+  }
+
   // Official Google News SVG + 4-Color Official Text
   if (lower.includes("google")) {
     return (

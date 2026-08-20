@@ -8,6 +8,7 @@ interface MediaTickerProps {
 
 export default function MediaTicker({ setActiveView }: MediaTickerProps) {
   const logos = [
+    "Outlook India",
     "Google News",
     "Yahoo! News",
     "The Tribune",
@@ -83,7 +84,7 @@ export default function MediaTicker({ setActiveView }: MediaTickerProps) {
               Breaking News
             </span>
             <p className="text-slate-800 text-xs sm:text-sm font-medium line-clamp-1">
-              <strong>The Tribune &amp; Ahmedabad Mirror:</strong> Advocates Warn Small-Town Youth Against Fake Work Permit Scams.
+              <strong>Outlook India:</strong> Advocate Richa Dhanda — The Lawyer Trying To Make India&apos;s Immigration Industry Tell The Truth.
             </p>
           </div>
           {setActiveView && (

@@ -14,6 +14,19 @@ export interface MediaItem {
 
 export const FEATURED_ARTICLES: MediaItem[] = [
   {
+    id: "outlook-india",
+    name: "Outlook India",
+    category: "National",
+    title: "Advocate Richa Dhanda: The Lawyer Trying To Make India's Immigration Industry Tell The Truth",
+    date: "2025",
+    summary: "Outlook India profiles Advocate Richa Dhanda — a fearless legal voice fighting to bring transparency and truth to India's immigration industry, protecting thousands of aspirants from fraudulent consultants.",
+    link: "https://www.outlookindia.com/hub4business/advocate-richa-dhanda-the-lawyer-trying-to-make-indias-immigration-industry-tell-the-truth",
+    featured: true,
+    logoText: "Outlook India",
+    img: "/images/richa_tribune.png",
+    accentColor: "from-blue-700 to-indigo-800",
+  },
+  {
     id: "tribune-india",
     name: "The Tribune",
     category: "National",
@@ -94,6 +107,15 @@ export const FEATURED_ARTICLES: MediaItem[] = [
 ];
 
 export const ALL_MEDIA_PUBLICATIONS: MediaItem[] = [
+  {
+    id: "pub-outlook-india",
+    name: "Outlook India",
+    category: "National" as "National" | "Regional" | "Business" | "Legal" | "Immigration",
+    title: "Advocate Richa Dhanda: The Lawyer Trying To Make India's Immigration Industry Tell The Truth",
+    date: "2025",
+    summary: "Outlook India exclusive profile — Advocate Richa Dhanda is fighting to bring transparency and accountability to India's immigration industry.",
+    link: "https://www.outlookindia.com/hub4business/advocate-richa-dhanda-the-lawyer-trying-to-make-indias-immigration-industry-tell-the-truth",
+  },
   {
     id: "pub-1",
     name: "Google News",

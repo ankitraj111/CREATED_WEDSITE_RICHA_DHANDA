@@ -104,6 +104,7 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
             Featured In Top Media:
           </span>
           <div className="flex flex-wrap gap-6 items-center overflow-x-auto py-1">
+            <BrandLogo name="Outlook India" isDarkTheme={false} />
             <BrandLogo name="Google News" isDarkTheme={false} />
             <BrandLogo name="Yahoo! News" isDarkTheme={false} />
             <BrandLogo name="The Tribune" isDarkTheme={false} />
@@ -133,7 +134,51 @@ export default function MediaView({ setActiveView }: MediaViewProps) {
             </span>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 mb-14">
+          <div className="grid lg:grid-cols-3 gap-8 mb-14">
+
+            {/* OUTLOOK INDIA SPOTLIGHT CARD */}
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between overflow-hidden">
+              <div>
+                <div className="relative h-72 w-full bg-gray-100 border-b border-gray-200">
+                  <Image
+                    src="/images/richa_tribune.png"
+                    alt="Advocate Richa Dhanda - Outlook India Feature"
+                    fill
+                    className="object-cover object-top"
+                  />
+                  <div className="absolute top-4 left-4 bg-[#1A56DB] px-3 py-1.5 rounded-lg shadow-md">
+                    <span className="font-sans font-black text-sm tracking-tight text-white">OUTLOOK <span className="font-semibold text-blue-200">India</span></span>
+                  </div>
+                  <div className="absolute bottom-4 left-4 bg-black/75 text-white px-3 py-1 rounded text-xs font-medium backdrop-blur-sm">
+                    Published: 2025
+                  </div>
+                </div>
+
+                <div className="p-7">
+                  <span className="text-xs font-bold text-[#1A56DB] uppercase tracking-wider block mb-2">
+                    Exclusive National Profile
+                  </span>
+                  <h3 className="font-serif text-xl font-bold text-[#0B1426] mb-3 leading-snug hover:text-[#1A56DB] transition">
+                    Advocate Richa Dhanda: The Lawyer Trying To Make India&apos;s Immigration Industry Tell The Truth
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-5">
+                    Outlook India profiles Advocate Richa Dhanda — a fearless legal voice fighting to bring transparency and accountability to India&apos;s immigration industry, protecting thousands of aspirants from fraudulent consultants.
+                  </p>
+                </div>
+              </div>
+
+              <div className="px-7 py-4 bg-gray-50 border-t border-gray-200 flex items-center justify-between">
+                <span className="text-xs font-medium text-gray-500">Exclusive Profile</span>
+                <a
+                  href="https://www.outlookindia.com/hub4business/advocate-richa-dhanda-the-lawyer-trying-to-make-indias-immigration-industry-tell-the-truth"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#1A56DB] hover:bg-[#1648c0] text-white font-bold px-5 py-2.5 rounded-lg text-xs transition inline-flex items-center gap-1.5"
+                >
+                  Read Outlook India Article →
+                </a>
+              </div>
+            </div>
 
             {/* THE TRIBUNE SPOTLIGHT CARD */}
             <div className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between overflow-hidden">
