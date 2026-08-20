@@ -57,7 +57,9 @@ export default function BrandLogo({ name, isDarkTheme = false }: BrandLogoProps)
   if (lower.includes("tribune")) {
     return (
       <div className="inline-flex items-center shrink-0 py-1">
-        <span className="font-serif font-black text-lg tracking-wide text-[#0F172A]">The Tribune</span>
+        <span className={`font-serif font-black text-lg tracking-wide ${isDarkTheme ? "text-white" : "text-[#0F172A]"}`}>
+          The Tribune
+        </span>
       </div>
     );
   }
@@ -94,7 +96,7 @@ export default function BrandLogo({ name, isDarkTheme = false }: BrandLogoProps)
     return (
       <div className="inline-flex items-center gap-1.5 shrink-0 py-1">
         <span className="bg-[#2563eb] text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded tracking-wider uppercase">WIRE</span>
-        <span className="font-serif font-bold text-sm text-[#0F172A]">{name}</span>
+        <span className={`font-serif font-bold text-sm ${isDarkTheme ? "text-white" : "text-[#0F172A]"}`}>{name}</span>
       </div>
     );
   }
@@ -107,7 +109,7 @@ export default function BrandLogo({ name, isDarkTheme = false }: BrandLogoProps)
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
         </span>
-        <span className="font-serif font-bold text-sm text-[#0F172A]">{name}</span>
+        <span className={`font-serif font-bold text-sm ${isDarkTheme ? "text-white" : "text-[#0F172A]"}`}>{name}</span>
       </div>
     );
   }
