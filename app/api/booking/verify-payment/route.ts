@@ -120,22 +120,25 @@ export async function POST(request: Request) {
       }
     }
 
-    // Send email notifications (advocate + customer)
+    // Send email notifications (advocate + customer) directly in-process
     if (bookingDetails?.name) {
       try {
-        await fetch(`${BASE_URL}/api/contact`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            ...bookingDetails,
-            consultationDate: bookingDetails.date,
-            consultationTime: bookingDetails.time,
-            bookingType: true,
-            message: `Payment of ₹${orderData.order_amount} received via Cashfree (Order: ${orderId}). ${bookingDetails.notes || ""}`,
-          }),
-        }).catch(() => {});
-      } catch {
-        // Email notification is non-critical
+        const { sendLeadNotification } = await import("@/lib/leadEmail");
+        await sendLeadNotification({
+          name: bookingDetails.name,
+          email: bookingDetails.email,
+          phone: bookingDetails.phone,
+          service: bookingDetails.service,
+          notes: bookingDetails.notes,
+          consultationDate: bookingDetails.date,
+          consultationTime: bookingDetails.time,
+          bookingType: true,
+          paymentAmount: orderData.order_amount,
+          orderId: orderId,
+        });
+        console.log(`[Booking] Payment lead notification sent for order ${orderId}`);
+      } catch (emailErr) {
+        console.warn("[Booking] Payment notification email error:", emailErr);
       }
     }
 

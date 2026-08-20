@@ -65,6 +65,24 @@ export async function POST(req: Request) {
       // Calendar integration is optional
     }
 
+    // Send lead email notification
+    try {
+      const { sendLeadNotification } = await import("@/lib/leadEmail");
+      await sendLeadNotification({
+        name: bookingDetails.name,
+        email: bookingDetails.email,
+        phone: bookingDetails.phone,
+        service: bookingDetails.service,
+        notes: bookingDetails.notes,
+        consultationDate: bookingDetails.date,
+        consultationTime: bookingDetails.time,
+        bookingType: true,
+        orderId: bookingId,
+      });
+    } catch (emailErr) {
+      console.warn("Confirm route email warning:", emailErr);
+    }
+
     return NextResponse.json({
       success: true,
       bookingId,

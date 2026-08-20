@@ -50,6 +50,24 @@ export async function POST(request: Request) {
 
       console.log(`Cashfree Webhook Received: Order ${orderId} PAID successfully`);
 
+      // Trigger lead email notification
+      try {
+        const { sendLeadNotification } = await import("@/lib/leadEmail");
+        await sendLeadNotification({
+          name: customerName || "Online Client",
+          email: customerEmail || "",
+          phone: customerPhone || "",
+          service: "Legal Consultation (Paid via Cashfree)",
+          paymentAmount: paymentAmount,
+          orderId: orderId,
+          bookingType: true,
+          message: `Direct Cashfree Webhook Confirmation: Payment of ₹${paymentAmount} received for Order ${orderId}`,
+        });
+        console.log(`[Webhook] Lead email notification sent for Order ${orderId}`);
+      } catch (webhookEmailErr) {
+        console.warn("[Webhook] Email notification warning:", webhookEmailErr);
+      }
+
       // Save webhook payment log to Firebase
       if (db && orderId) {
         try {
