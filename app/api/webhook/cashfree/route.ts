@@ -48,20 +48,59 @@ export async function POST(request: Request) {
       const customerName = data?.customer_details?.customer_name;
       const customerPhone = data?.customer_details?.customer_phone;
 
-      console.log(`Cashfree Webhook Received: Order ${orderId} PAID successfully`);
+      // Look up booking details from Firestore to get slot date and time
+      let bookingDate = "";
+      let bookingTime = "";
+      let bookingService = "Legal Consultation";
+      let bookingNotes = "";
+      let clientName = customerName || "Online Client";
+      let clientPhone = customerPhone || "";
+      let clientEmail = customerEmail || "";
+
+      if (db && orderId) {
+        try {
+          const { query, where, getDocs, updateDoc, doc } = await import("firebase/firestore");
+          const q = query(collection(db, "bookings"), where("cashfreeOrderId", "==", orderId));
+          const snap = await getDocs(q);
+          if (!snap.empty) {
+            const bData = snap.docs[0].data();
+            clientName = bData.name || clientName;
+            clientEmail = bData.email || clientEmail;
+            clientPhone = bData.phone || clientPhone;
+            bookingDate = bData.date || "";
+            bookingTime = bData.time || "";
+            bookingService = bData.service || bookingService;
+            bookingNotes = bData.notes || "";
+
+            // Mark confirmed in Firestore
+            await updateDoc(doc(db, "bookings", snap.docs[0].id), {
+              status: "confirmed",
+              paymentAmount: paymentAmount,
+              paymentStatus: "PAID",
+              paymentGateway: "cashfree_webhook",
+              confirmedAt: serverTimestamp(),
+            });
+          }
+        } catch (lookupErr) {
+          console.warn("[Webhook] Booking lookup warning:", lookupErr);
+        }
+      }
 
       // Trigger lead email notification
       try {
         const { sendLeadNotification } = await import("@/lib/leadEmail");
         await sendLeadNotification({
-          name: customerName || "Online Client",
-          email: customerEmail || "",
-          phone: customerPhone || "",
-          service: "Legal Consultation (Paid via Cashfree)",
+          name: clientName,
+          email: clientEmail,
+          phone: clientPhone,
+          service: bookingService,
+          consultationDate: bookingDate,
+          consultationTime: bookingTime,
+          notes: bookingNotes,
           paymentAmount: paymentAmount,
           orderId: orderId,
           bookingType: true,
-          message: `Direct Cashfree Webhook Confirmation: Payment of ₹${paymentAmount} received for Order ${orderId}`,
+          message: `Payment of ₹${paymentAmount} verified via Cashfree (Order: ${orderId}). ${bookingNotes}`,
         });
         console.log(`[Webhook] Lead email notification sent for Order ${orderId}`);
       } catch (webhookEmailErr) {
