@@ -18,6 +18,9 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.advocaterichadhanda.com"),
+  verification: {
+    google: "7GCg_qC9a41_8yBe_-48HZ-Lwz5TLJN9suN-zNHFFnc",
+  },
   title: {
     default: "Advocate Richa Dhanda — Expert Immigration Lawyer | Kurukshetra",
     template: "%s | Advocate Richa Dhanda",
