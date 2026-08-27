@@ -74,12 +74,12 @@ export default function EnhancedFAQ({ setActiveView }: EnhancedFAQProps = {}) {
             Frequently Asked Questions
           </span>
 
-          <h2 className="font-serif text-3xl lg:text-5xl font-bold text-[#0B1426] mb-4">
-            Everything You Need To Know About <span className="text-[#8B1538]">Visas &amp; Legal Consultation</span>
+          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-[#0B1426] mb-4">
+            Common Questions About <span className="text-[#8B1538]">Visas & Immigration</span>
           </h2>
 
-          <p className="text-slate-600 text-base lg:text-lg max-w-2xl mx-auto">
-            Clear, simple answers to common questions about your immigration journey and legal representation.
+          <p className="text-slate-600 text-base max-w-xl mx-auto">
+            Clear answers to help you understand your immigration journey.
           </p>
         </div>
 

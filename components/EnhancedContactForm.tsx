@@ -142,24 +142,6 @@ export default function EnhancedContactForm() {
               </div>
             </div>
 
-            {/* Consultation Info */}
-            <div className="bg-[#0a192f]/5 rounded-2xl p-8 border border-[#0a192f]/10 mt-8">
-              <h4 className="text-[#0a192f] font-serif font-bold text-xl mb-4">Consultation Details</h4>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-3 text-[#0a192f]/70">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></div>
-                  <span>Comprehensive Visa Profile Assessment</span>
-                </li>
-                <li className="flex items-center gap-3 text-[#0a192f]/70">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></div>
-                  <span>Strategy for Complex Refusals</span>
-                </li>
-                <li className="flex items-center gap-3 text-[#0a192f]/70">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></div>
-                  <span>Secure & Confidential Process</span>
-                </li>
-              </ul>
-            </div>
           </div>
 
           {/* Right Column - Form */}
