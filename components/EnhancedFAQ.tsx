@@ -22,7 +22,7 @@ export default function EnhancedFAQ({ setActiveView }: EnhancedFAQProps = {}) {
     {
       category: "consultation",
       q: "How do I book a consultation with Advocate Richa Dhanda?",
-      a: "You can easily schedule a 30-minute consultation by clicking the 'Book a Consultation' button on this website or contacting us directly on WhatsApp (+91 93067 92300). Sessions are available both online and in-person.",
+      a: "You can easily schedule a 30-minute consultation by clicking the 'Book a Consultation' button on this website. Sessions are available both online and in-person.",
     },
     {
       category: "visas",

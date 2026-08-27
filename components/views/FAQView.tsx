@@ -30,7 +30,7 @@ export default function FAQView({ setActiveView }: FAQViewProps = {}) {
     {
       cat: "Consultation & Fees",
       q: "How do I book a consultation with Advocate Richa Dhanda?",
-      a: "Booking is simple! Click 'Book a Consultation' on this website or reach out via WhatsApp at +91 93067 92300. Sessions are available both online via video call and in-person.",
+      a: "Booking is simple! Click 'Book a Consultation' on this website. Sessions are available both online via video call and in-person.",
     },
     {
       cat: "Consultation & Fees",
