@@ -160,31 +160,94 @@ export default function BookView() {
     return days;
   };
 
+  // Check if current month view is the current calendar month
+  const isCurrentMonth = () => {
+    const now = new Date();
+    return currentMonth.getFullYear() === now.getFullYear() && currentMonth.getMonth() === now.getMonth();
+  };
+
   const isDateSelectable = (date: Date) => {
-    const today = new Date(); today.setHours(0, 0, 0, 0);
-    const maxDate = new Date(today); maxDate.setDate(today.getDate() + 30);
-    return date > today && date <= maxDate && date.getDay() !== 0;
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const targetDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+
+    // Sundays are closed
+    if (targetDate.getDay() === 0) return false;
+
+    // Past dates (before today) are not selectable
+    if (targetDate.getTime() < today.getTime()) return false;
+
+    // Max 30 days in advance
+    const maxDate = new Date(today);
+    maxDate.setDate(today.getDate() + 30);
+    if (targetDate.getTime() > maxDate.getTime()) return false;
+
+    // If it's today, check if business hours are already over
+    if (targetDate.getTime() === today.getTime()) {
+      const dayOfWeek = today.getDay();
+      const closingHour = dayOfWeek === 6 ? 14 : 18; // Sat 2PM, Mon-Fri 6PM
+      const currentHour = now.getHours();
+      const currentMin = now.getMinutes();
+      // If current time is past closing hour minus 30 mins, no slots left for today
+      if (currentHour > closingHour || (currentHour === closingHour - 1 && currentMin > 30) || (currentHour === closingHour && currentMin >= 0)) {
+        return false;
+      }
+    }
+
+    return true;
   };
 
   useEffect(() => {
     if (!selectedDate) return;
     if (isSunday(selectedDate)) { setSlots([]); return; }
     setLoadingSlots(true); setSelectedSlot("");
+
+    const now = new Date();
+    const [sy, sm, sd] = selectedDate.split("-").map(Number);
+    const isToday = now.getFullYear() === sy && now.getMonth() === sm - 1 && now.getDate() === sd;
+
     fetch(`/api/booking/available-slots?date=${selectedDate}`)
       .then((r) => r.json())
-      .then((data) => { setSlots(data.slots || []); setLoadingSlots(false); })
+      .then((data) => {
+        let fetchedSlots: SlotData[] = data.slots || [];
+        // Real-time client-side safety filter for today: disable any slot that has already passed
+        if (isToday) {
+          fetchedSlots = fetchedSlots.map((s) => {
+            const timeParts = s.time.match(/(\d+):(\d+)\s*(AM|PM)/i);
+            if (!timeParts) return s;
+            let h = parseInt(timeParts[1]);
+            const m = parseInt(timeParts[2]);
+            const ampm = timeParts[3].toUpperCase();
+            if (ampm === "PM" && h !== 12) h += 12;
+            if (ampm === "AM" && h === 12) h = 0;
+            const slotDateTime = new Date(sy, sm - 1, sd, h, m, 0);
+            const isPast = slotDateTime.getTime() <= now.getTime() + 15 * 60 * 1000;
+            return {
+              ...s,
+              available: s.available && !isPast,
+            };
+          });
+        }
+        setSlots(fetchedSlots);
+        setLoadingSlots(false);
+      })
       .catch(() => {
-        const [sy, sm, sd] = selectedDate.split("-").map(Number);
         const day = new Date(sy, sm - 1, sd).getDay();
         const endHour = day === 6 ? 14 : 18;
         const fb: SlotData[] = [];
         for (let h = 10; h < endHour; h++) {
           for (let m = 0; m < 60; m += 30) {
             const dh = h > 12 ? h - 12 : h;
-            fb.push({ time: `${dh}:${m.toString().padStart(2, "0")} ${h >= 12 ? "PM" : "AM"}`, available: true });
+            const slotDateTime = new Date(sy, sm - 1, sd, h, m, 0);
+            const isPast = isToday && slotDateTime.getTime() <= now.getTime() + 15 * 60 * 1000;
+            fb.push({
+              time: `${dh}:${m.toString().padStart(2, "0")} ${h >= 12 ? "PM" : "AM"}`,
+              available: !isPast,
+            });
           }
         }
-        setSlots(fb); setLoadingSlots(false);
+        setSlots(fb);
+        setLoadingSlots(false);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedDate]);
@@ -500,8 +563,15 @@ export default function BookView() {
                     {/* Calendar */}
                     <div className="border border-gray-200 rounded-xl overflow-hidden">
                       <div className="flex items-center justify-between px-5 py-4 bg-gray-50 border-b border-gray-200">
-                        <button onClick={prevMonth}
-                          className="p-1.5 rounded-lg hover:bg-gray-200 transition-colors text-gray-600">
+                        <button
+                          onClick={prevMonth}
+                          disabled={isCurrentMonth()}
+                          className={`p-1.5 rounded-lg transition-colors ${
+                            isCurrentMonth()
+                              ? "text-gray-300 cursor-not-allowed opacity-50"
+                              : "hover:bg-gray-200 text-gray-600 cursor-pointer"
+                          }`}
+                        >
                           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                           </svg>
