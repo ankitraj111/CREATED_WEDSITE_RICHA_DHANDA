@@ -158,11 +158,24 @@ export default function RootLayout({
                     "Citizenship & OCI",
                     "Business & Investor Visas",
                   ],
+                  affiliation: [
+                    {
+                      "@type": "Organization",
+                      "name": "Madhav Immigration Pvt. Ltd.",
+                      "url": "https://www.advocaterichadhanda.com",
+                    },
+                    {
+                      "@type": "Organization",
+                      "name": "Bar Council of Punjab & Haryana",
+                    },
+                  ],
                   sameAs: [
                     "https://www.advocaterichadhanda.com",
                     "https://www.linkedin.com/in/dr-richa-dhanda-61a63994",
                     "https://www.instagram.com/txinctic",
-                    "https://www.outlookindia.com",
+                    "https://www.outlookindia.com/hub4business/advocate-richa-dhanda-the-lawyer-trying-to-make-indias-immigration-industry-tell-the-truth",
+                    "https://www.tribuneindia.com/partner-exclusives/immigration-experts-highlight-fraud-risks-linked-to-fake-work-permit-offers-in-india/",
+                    "https://www.ahmedabadmirror.com/young-indians-from-small-towns-losing-savings-to-fake-work-permit-offers-warn-immigration-experts/81918948.html",
                   ],
                 },
                 {
